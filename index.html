@@ -30,9 +30,14 @@ header{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px so
 .bar{display:flex;align-items:center;gap:8px;padding:10px 16px 6px}
 .bar h1{font-size:20px;margin:0;flex:1}
 .icon{min-width:44px;height:44px;border:1px solid var(--line);border-radius:12px;background:var(--card);font-size:20px}
-.nav{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:8px 10px 10px;max-width:640px;margin:0 auto}
+.nav{display:flex;gap:8px;padding:8px 8px 10px;max-width:640px;margin:0 auto}
+.nav .grp{display:grid;gap:5px}
+.nav .cats{grid-template-columns:repeat(3,1fr);flex:3}
+.nav .right{grid-template-columns:1fr;flex:1.1}
+.nav .sep{width:1px;background:var(--line);margin:2px 0}
+.seg{margin-bottom:6px}
 .nav button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:54px;padding:5px 0;
-  border-radius:12px;border:1px solid var(--line);background:var(--card);font-size:12px;line-height:1.1;color:var(--muted)}
+  border-radius:12px;border:1px solid var(--line);background:var(--card);font-size:11px;line-height:1.1;color:var(--muted)}
 .nav svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 .nav button[aria-current=true]{background:var(--accent);border-color:var(--accent);color:var(--accent-t);font-weight:600}
 
@@ -75,6 +80,90 @@ section{margin-top:14px}
 .leg em{margin-left:auto;font-style:normal;color:var(--muted);font-size:12px}
 .badge{display:inline-block;margin-top:10px;padding:3px 10px;border-radius:12px;font-size:13px;font-weight:600;color:#fff}
 .how{margin:14px 0 4px}.how p{margin:4px 0 0;line-height:1.5}
+.dh{margin:18px 0 8px;font-size:15px;color:var(--muted)}
+.days{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.days .chip{height:36px;padding:0 12px}
+.acts{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
+.acts .hide{margin:0}
+.how ol{padding-left:22px;margin:6px 0 0;line-height:1.5}
+.how li{margin:6px 0}
+.sech{display:block;margin:18px 0 8px}
+.how{margin:18px 0 4px}
+.ds{padding:16px 0;border-top:1px solid var(--line)}
+.det .ds:first-child{border-top:0;padding-top:4px}
+.ds h4{margin:0 0 10px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.ds.how{margin:0}
+.shead h4{margin:0}
+.sub{margin:12px 0 0;color:var(--muted);font-size:12px}
+.btns{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.btn2{display:flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 10px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--text);font:inherit;font-size:14px;text-decoration:none;white-space:nowrap}
+.btn2 svg{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.btn2.pri{border-color:var(--accent);font-weight:600}
+.btn2.on{background:var(--accent);border-color:var(--accent);color:var(--accent-t);font-weight:600}
+.btn2.full{grid-column:1/-1;color:var(--muted)}
+.card{position:relative;scroll-margin-top:140px}
+.grip{position:absolute;left:0;top:0;width:38px;height:56px;display:flex;align-items:center;justify-content:center;color:var(--muted);touch-action:none;cursor:grab;z-index:1}
+.grip svg{width:20px;height:20px;fill:currentColor}
+.card.pl .row{padding-left:38px}
+.card.pl .row{min-height:44px;padding-top:4px;padding-bottom:4px}
+.card.pl .grip{height:44px}
+.card.pl{margin-bottom:5px}
+.card.pl .t b{font-weight:500}
+.card.pl .iconb{width:36px;height:36px;border-radius:10px}
+.day .dayh{margin:10px 0 6px}
+.dropempty{padding:8px;font-size:13px}
+.daygrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:stretch}
+.daygrid .day{padding:8px;border:1px solid var(--line);border-radius:14px;min-width:0;display:flex;flex-direction:column}
+.daygrid .day .addtile{margin-top:auto}
+.daygrid .day.wide{grid-column:1/-1}
+.daygrid .dh{margin:0 0 6px;font-size:14px}
+.daygrid .card.pl .t b{font-size:14px;line-height:1.25}
+.daygrid .grip{width:28px}
+.daygrid .card.pl .row{padding-left:28px;padding-right:8px}
+.addtile{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;height:44px;border:1px dashed var(--muted);border-radius:12px;background:none;color:var(--text);font-size:14px}
+.addtile svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
+.btns3{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.btns3 .btn2{padding:0 6px;gap:6px;font-size:13px}
+.btns3 .btn2 svg{width:16px;height:16px}
+.det .ds{padding:12px 0}
+.det .ds h4{margin:0 0 8px}
+.det .li{min-height:38px;padding:3px 4px}
+.det .note{margin:4px 0 8px}
+.det .step button{width:40px;height:40px}
+.det .btn2{height:40px}
+.acts2{padding-top:10px}
+.arow{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.arow>:last-child{flex:1;min-width:0}
+.ai{flex:none;width:24px;display:flex;justify-content:center;color:var(--muted)}
+.ai svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.acts2 .btns3{margin-bottom:8px}
+.card .gs{display:none;position:absolute;top:8px;right:10px;width:auto;height:40px;margin:0;padding:0 12px;gap:6px;font-size:14px}
+.card.open .gs{display:flex}
+.card .gs svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
+.card.open>.row{padding-right:112px}
+.card.open>.row>:not(.t){display:none}
+.acts2 .days{margin:0 0 8px}
+.arow .btns3 .btn2{height:40px}
+.det .btn2.sm{height:40px}
+.daybtns{margin:8px 0 2px}
+.btn2.sm{height:40px;font-size:14px}
+.card.dragging{opacity:.35}
+.ghost{position:fixed;z-index:60;pointer-events:none;box-shadow:0 8px 24px rgba(0,0,0,.4);margin:0}
+.ghost .det{display:none}
+.day{padding:0 0 6px;border-radius:14px;border:2px solid transparent}
+.day.over,.daygrid .day.over{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,transparent)}
+.dayh{display:flex;align-items:center;justify-content:space-between;margin:14px 0 8px}
+.dayh .dh{margin:0}
+.addb{display:flex;align-items:center;gap:6px;height:36px;padding:0 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);font-size:14px}
+.addb svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
+.dropempty{padding:14px;border:1px dashed var(--line);border-radius:12px;color:var(--muted);font-size:14px;text-align:center}
+.iconb{flex:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--text);display:flex;align-items:center;justify-content:center;text-decoration:none;margin-left:4px}
+.iconb svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.res{display:block;width:100%;min-height:56px;padding:10px 12px;margin-top:8px;border-radius:12px;border:1px solid var(--line);background:var(--card);text-align:left}
+.res b{display:block;font-weight:600}
+.res span{color:var(--muted);font-size:13px}
+.res.own{border-style:dashed}
+#addIn{width:100%;height:48px;margin-top:10px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--text);padding:0 14px;font:inherit}
 .shop{margin:14px 0 4px}
 .shead{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
 .step{display:flex;align-items:center;gap:6px}
@@ -106,7 +195,10 @@ dialog::backdrop{background:rgba(0,0,0,.45)}
 input[type=range]{width:100%;height:36px;accent-color:var(--accent)}
 .ics{flex:none;display:flex;gap:6px}.ics>div{text-align:center}
 .ics .ic{width:26px;height:36px;margin:0 auto 3px}
-.ics.big{gap:22px;justify-content:center}
+.ics.big{gap:12px;justify-content:center}
+.ics.big>div{min-width:88px}
+.ics .cap{display:block;font-style:normal;font-size:12px;color:var(--muted);margin-top:2px}
+.leg .ic{width:16px;height:22px;flex:none}
 .ics.big>div{text-align:center}
 .ics.big .ic{width:56px;height:76px;margin-bottom:4px}
 .ics.big small{font-size:14px;font-weight:600}.ics small{color:var(--muted);font-size:11px;line-height:1;font-variant-numeric:tabular-nums}
@@ -130,6 +222,15 @@ input[type=range]{width:100%;height:36px;accent-color:var(--accent)}
   <nav class="nav" id="nav"></nav>
 </header>
 <main id="main"></main>
+
+<dialog id="add">
+  <div class="sheet">
+    <button class="icon x" id="addClose" aria-label="Schliessen">✕</button>
+    <h3 id="addT">Hinzufügen</h3>
+    <input id="addIn" type="search" placeholder="Suchen, selber schreiben oder Link einfügen" autocomplete="off" autocapitalize="none">
+    <div id="addRes"></div>
+  </div>
+</dialog>
 
 <dialog id="dlg">
   <div class="sheet">
@@ -184,99 +285,557 @@ input[type=range]{width:100%;height:36px;accent-color:var(--accent)}
 
 <script>
 /* ---------- REZEPTE ----------
-   Format:  Titel | Minuten | Zutat:Gruppe:Gramm, ... | Zubereitung (kurz)
+   Format:  Titel | Minuten | Zutat:Gruppe:Gramm, ... | Zubereitung (Schritte mit ~ getrennt)
    Gruppen: F = Ballaststoffe (Gemüse, Salat)   H = halb Ballaststoffe/halb Kohlenhydrate (Rüebli, Randen, Erbsen)
             E = Eiweiss (Ei, Fleisch, Käse, Tofu, Quark)   L = Hülsenfrüchte (siehe Einstellung)
             K = Kohlenhydrate (Reis, Kartoffeln, Brot, Teig, Nudeln)   N = zählt nicht (Öl, Gewürze)
    Mengen = ungefähr pro Person auf dem Teller (gegart). Zeile "## Kategorie" startet eine Kategorie. */
 const DATA = `
-## Eierspeise
-Spinat-Omelette mit Vollkornbrot|25|Spinat:F:200,Zwiebel:F:20,Ei:E:110,Vollkornbrot:K:90|Zwiebel in der Pfanne andünsten, Spinat zugeben und zusammenfallen lassen. Eier verquirlen, würzen und darübergiessen. Stocken lassen, zusammenklappen und mit dem Brot servieren.
-Rührei mit Tomaten und Zucchini|20|Ei:E:110,Tomaten:F:120,Zucchini:F:120,Vollkornbrot:K:90|Zucchini würfeln und anbraten, Tomaten kurz mitgaren. Verquirlte Eier zugeben und unter Rühren stocken lassen. Mit Brot servieren.
-Shakshuka mit Fladenbrot|30|Ei:E:110,Tomaten:F:150,Peperoni:F:60,Zwiebel:F:20,Fladenbrot:K:100|Zwiebel und Peperoni anbraten, Tomaten zugeben und 10 Min. köcheln. Mulden in die Sauce drücken, Eier hineingleiten lassen und zugedeckt 5–8 Min. stocken lassen. Mit Fladenbrot essen.
-Gemüse-Frittata mit Kartoffeln|35|Ei:E:110,Zucchini:F:100,Peperoni:F:60,Spinat:F:60,Kartoffeln:K:100|Kartoffeln vorkochen und in Scheiben schneiden. Mit Zucchini, Peperoni und Spinat anbraten, verquirlte Eier darübergiessen. Bei kleiner Hitze zugedeckt stocken lassen.
-Lauch-Rührei mit Kartoffeln|25|Ei:E:110,Lauch:F:200,Kartoffeln:K:110|Kartoffeln kochen. Lauch in Ringen weich anbraten, Eier zugeben und rühren, bis sie cremig sind. Mit den Kartoffeln servieren.
-Spiegeleier auf Rahmspinat mit Kartoffeln|25|Ei:E:110,Spinat:F:220,Kartoffeln:K:110|Kartoffeln kochen. Spinat mit etwas Rahm oder Milch dünsten und würzen. Spiegeleier braten und auf den Spinat legen.
-Omelette mit Ratatouille und Brot|30|Ei:E:110,Auberginen:F:60,Zucchini:F:60,Tomaten:F:50,Peperoni:F:30,Brot:K:90|Aubergine, Zucchini, Peperoni und Tomaten würfeln und 15 Min. schmoren. Omelette braten und mit dem Gemüse füllen. Brot dazu.
-Kartoffel-Spinat-Tortilla|35|Ei:E:110,Kartoffeln:K:110,Spinat:F:120,Zwiebel:F:30,Tomaten:F:60|Kartoffelscheiben und Zwiebel weich braten, Spinat und Tomaten zugeben. Verquirlte Eier darübergiessen, 8 Min. stocken lassen, wenden und fertig braten.
-Eier-Gemüsepfanne mit Rüebli und Zucchini|25|Ei:E:110,Rüebli:H:100,Erbsen:H:60,Zucchini:F:150,Brot:K:50|Rüebli in Scheiben 5 Min. vorgaren, mit Zucchini und Erbsen anbraten. Verquirlte Eier zugeben und stocken lassen. Brot dazu.
-Omelette-Wrap mit Salat und Feta|20|Ei:E:110,Feta:E:20,Gurke:F:100,Tomaten:F:100,Vollkornwrap:K:80|Omelette braten und auf den Wrap legen. Gurke, Tomaten und Feta darauf verteilen und einrollen.
+## Eier & Wähe
+Spinat-Omelette mit Vollkornbrot|25|Spinat:F:200,Zwiebel:F:20,Ei:E:110,Vollkornbrot:K:90|Zwiebel fein hacken und in einer beschichteten Pfanne mit etwas Öl glasig dünsten.~Spinat waschen, dazugeben und 2–3 Min. zusammenfallen lassen, mit Salz, Pfeffer und Muskat würzen. Spinat aus der Pfanne nehmen.~Eier mit einem Schuss Milch verquirlen, würzen und in die Pfanne giessen. Bei mittlerer Hitze 2–3 Min. stocken lassen.~Spinat auf eine Hälfte geben, die andere Hälfte darüberklappen und kurz fertig garen.~Mit dem Vollkornbrot servieren.
+Rührei mit Tomaten und Zucchini|20|Ei:E:110,Tomaten:F:120,Zucchini:F:120,Vollkornbrot:K:90|Zucchini in kleine Würfel schneiden und in Öl 4–5 Min. goldbraun anbraten.~Tomaten würfeln, dazugeben und 2 Min. mitgaren, würzen.~Eier mit Salz, Pfeffer und etwas Milch verquirlen, in die Pfanne giessen.~Bei kleiner Hitze unter Rühren stocken lassen, bis die Masse cremig ist. Mit Kräutern bestreuen und mit Brot servieren.
+Shakshuka mit Fladenbrot|30|Ei:E:110,Tomaten:F:150,Peperoni:F:60,Zwiebel:F:20,Fladenbrot:K:100|Zwiebel und Peperoni klein schneiden und in Olivenöl 5 Min. weich dünsten.~Tomaten (frisch gewürfelt oder aus der Dose) zugeben, mit Paprika, Kreuzkümmel, Salz und Pfeffer würzen und 10 Min. köcheln, bis die Sauce dicklich ist.~Mit einem Löffel kleine Mulden in die Sauce drücken und je ein Ei hineingleiten lassen.~Zugedeckt 5–8 Min. auf kleiner Hitze garen, bis das Eiweiss fest ist, das Eigelb aber noch weich.~Mit Petersilie bestreuen und mit Fladenbrot servieren.
+Gemüse-Frittata mit Kartoffeln|35|Ei:E:110,Zucchini:F:100,Peperoni:F:60,Spinat:F:60,Kartoffeln:K:100|Kartoffeln in der Schale 15 Min. vorkochen, abkühlen lassen, schälen und in Scheiben schneiden.~Zucchini und Peperoni würfeln. In einer ofenfesten Pfanne in Öl 5 Min. anbraten, Kartoffeln und Spinat zugeben.~Eier mit Salz, Pfeffer und etwas Milch verquirlen und über das Gemüse giessen.~Zugedeckt bei kleiner Hitze 8–10 Min. stocken lassen, bis die Oberfläche fest ist.~In Stücke schneiden und warm oder lauwarm servieren.
+Lauch-Rührei mit Kartoffeln|25|Ei:E:110,Lauch:F:200,Kartoffeln:K:110|Kartoffeln schälen, würfeln und in Salzwasser 15 Min. weich kochen.~Lauch längs halbieren, gründlich waschen und in dünne Ringe schneiden. In Öl 5 Min. weich dünsten.~Eier verquirlen, würzen, zum Lauch giessen und unter ständigem Rühren cremig stocken lassen.~Kartoffeln abgiessen und mit dem Rührei anrichten.
+Spiegeleier auf Rahmspinat mit Kartoffeln|25|Ei:E:110,Spinat:F:220,Kartoffeln:K:110|Kartoffeln schälen, würfeln und 15 Min. in Salzwasser kochen.~Spinat waschen. Zwiebel in Öl andünsten, Spinat zugeben, zusammenfallen lassen, mit einem Schuss Rahm oder Milch, Salz und Muskat würzen.~Eier in einer zweiten Pfanne als Spiegeleier braten, bis das Eiweiss fest ist.~Spinat mit den Kartoffeln auf Tellern anrichten und die Spiegeleier daraufsetzen.
+Omelette mit Ratatouille und Brot|30|Ei:E:110,Auberginen:F:60,Zucchini:F:60,Tomaten:F:50,Peperoni:F:30,Brot:K:90|Aubergine, Zucchini, Peperoni und Tomaten in kleine Würfel schneiden.~Zuerst Aubergine und Peperoni in Öl 5 Min. anbraten, dann Zucchini und Tomaten zugeben. Mit Thymian, Salz und Pfeffer würzen und zugedeckt 15 Min. schmoren.~Eier verquirlen und würzen. Pro Omelette etwas Eimasse in eine heisse Pfanne giessen und 2–3 Min. stocken lassen.~Ratatouille auf die Omelette geben, zusammenklappen und mit Brot servieren.
+Kartoffel-Spinat-Tortilla|35|Ei:E:110,Kartoffeln:K:110,Spinat:F:120,Zwiebel:F:30,Tomaten:F:60|Kartoffeln schälen und in dünne Scheiben schneiden. Zwiebel würfeln.~Kartoffeln und Zwiebel in einer Pfanne mit Öl zugedeckt 10–12 Min. weich braten, gelegentlich wenden.~Spinat und gewürfelte Tomaten zugeben, 2 Min. mitgaren.~Eier verquirlen, würzen und darübergiessen. 6–8 Min. bei kleiner Hitze stocken lassen.~Mit Hilfe eines Tellers wenden und die zweite Seite 3 Min. fertig braten.
+Eier-Gemüsepfanne mit Rüebli und Zucchini|25|Ei:E:110,Rüebli:H:100,Erbsen:H:60,Zucchini:F:150,Brot:K:50|Rüebli schälen, in dünne Scheiben schneiden und in Öl 5 Min. vorbraten.~Zucchini würfeln, mit den Erbsen zugeben und weitere 5 Min. braten, würzen.~Eier verquirlen, über das Gemüse giessen und unter Rühren stocken lassen.~Mit Brot servieren.
+Omelette-Wrap mit Salat und Feta|20|Ei:E:110,Feta:E:20,Gurke:F:100,Tomaten:F:100,Vollkornwrap:K:80|Eier mit Salz, Pfeffer und etwas Milch verquirlen. In einer Pfanne 2 dünne Omeletten backen.~Gurke und Tomaten in Scheiben bzw. Würfel schneiden, Feta zerbröseln.~Wrap kurz in der Pfanne erwärmen, Omelette daraufgeben und mit Gurke, Tomaten und Feta belegen.~Fest einrollen, halbieren und sofort essen.
+Spinatwähe|55|Teig:K:90,Spinat:F:200,Ei:E:60,Käse:E:40|Ofen auf 200 °C vorheizen. Teig in die gefettete Form legen, den Boden mehrmals mit einer Gabel einstechen.~Spinat waschen, mit Zwiebel in Öl andünsten, gut ausdrücken und auf dem Teig verteilen.~Eier mit Milch, geriebenem Käse, Salz, Pfeffer und Muskat verquirlen und darübergiessen.~30 Min. goldbraun backen, 5 Min. ruhen lassen und anschneiden.
+Lauchwähe|55|Teig:K:90,Lauch:F:200,Ei:E:50,Käse:E:50|Ofen auf 200 °C vorheizen. Teig in die gefettete Form legen und einstechen.~Lauch in Ringe schneiden und in Öl 5 Min. dünsten, auf dem Teig verteilen.~Eier mit Milch, Käse, Salz, Pfeffer und Muskat verquirlen und darübergiessen.~30–35 Min. backen, bis der Guss gestockt und goldbraun ist.
+Zucchini-Tomaten-Wähe|55|Teig:K:90,Zucchini:F:130,Tomaten:F:80,Ei:E:60,Feta:E:40|Ofen auf 200 °C vorheizen. Teig in die Form legen und einstechen.~Zucchini und Tomaten in Scheiben schneiden, dachziegelartig auf den Teig legen, Feta darüberbröseln.~Eier mit Milch, Salz, Pfeffer und Kräutern verquirlen, darübergiessen.~30–35 Min. backen.
+Broccoli-Wähe|55|Teig:K:90,Brokkoli:F:200,Ei:E:60,Käse:E:40|Ofen auf 200 °C vorheizen. Teig in die Form legen und einstechen.~Brokkoli in kleine Röschen teilen und 3 Min. in Salzwasser blanchieren, abtropfen lassen und auf dem Teig verteilen.~Eier mit Milch, geriebenem Käse, Salz und Pfeffer verquirlen und darübergiessen.~30–35 Min. backen.
+Rüebli-Lauch-Wähe|55|Teig:K:80,Rüebli:H:80,Lauch:F:130,Zucchini:F:40,Ei:E:60,Käse:E:40|Ofen auf 200 °C vorheizen. Teig in die Form legen und einstechen.~Rüebli raffeln, Lauch in Ringe und Zucchini in Würfel schneiden, alles in Öl 5 Min. dünsten und auf dem Teig verteilen.~Eier mit Milch, Käse, Salz und Pfeffer verquirlen und darübergiessen.~35 Min. goldbraun backen.
+Tomatenwähe mit Mozzarella|50|Teig:K:90,Tomaten:F:220,Mozzarella:E:70,Ei:E:30|Ofen auf 200 °C vorheizen. Teig in die Form legen und einstechen.~Tomaten in Scheiben schneiden und auf dem Teig verteilen, Mozzarella zerzupfen und darauflegen.~Eier mit etwas Milch, Salz, Pfeffer und Basilikum verquirlen, darübergiessen.~30 Min. backen.
+Peperoni-Zwiebel-Wähe|55|Teig:K:90,Peperoni:F:150,Zwiebel:F:60,Ei:E:60,Käse:E:40|Ofen auf 200 °C vorheizen. Teig in die Form legen und einstechen.~Peperoni und Zwiebeln in Streifen schneiden und in Öl 5 Min. anbraten, auf dem Teig verteilen.~Eier mit Milch, Käse, Salz und Pfeffer verquirlen, darübergiessen.~30–35 Min. backen.
+Blumenkohl-Wähe|55|Teig:K:90,Blumenkohl:F:200,Ei:E:60,Käse:E:40|Ofen auf 200 °C vorheizen. Teig in die Form legen und einstechen.~Blumenkohlröschen 5 Min. in Salzwasser vorkochen, abtropfen lassen und auf dem Teig verteilen.~Eier mit Milch, Käse, Salz, Pfeffer und Muskat verquirlen, darübergiessen.~35 Min. goldbraun backen.
+Spinat-Feta-Wähe|50|Teig:K:90,Spinat:F:200,Feta:E:50,Ei:E:50|Ofen auf 200 °C vorheizen. Teig in die Form legen und einstechen.~Spinat andünsten, gut ausdrücken und mit zerbröseltem Feta auf dem Teig verteilen.~Eier mit Milch, Salz, Pfeffer und Muskat verquirlen, darübergiessen.~30 Min. backen.
+Bohnen-Speck-Wähe|55|Teig:K:90,Grüne Bohnen:F:200,Ei:E:50,Speck:E:30,Käse:E:30|Ofen auf 200 °C vorheizen. Teig in die Form legen und einstechen.~Bohnen in Stücke schneiden, 5 Min. blanchieren, abtropfen lassen. Speckwürfel in der Pfanne kurz anbraten.~Bohnen und Speck auf dem Teig verteilen. Eier mit Milch, Käse, Salz und Pfeffer verquirlen und darübergiessen.~35 Min. backen.
+Rührei mit Brokkoli und Vollkorntoast|20|Ei:E:110,Brokkoli:F:200,Vollkorntoast:K:80|Brokkoli in Röschen teilen und 4 Min. in Salzwasser bissfest garen.~Eier mit Salz, Pfeffer und etwas Milch verquirlen und in einer Pfanne unter Rühren cremig stocken lassen.~Brokkoli untermischen und mit dem getoasteten Brot servieren.
+Zucchini-Omelette mit Frischkäse und Brot|20|Ei:E:90,Frischkäse:E:25,Zucchini:F:220,Brot:K:90|Zucchini raffeln, salzen und gut ausdrücken.~In Öl 3 Min. anbraten, verquirlte Eier darübergiessen und bei mittlerer Hitze 3 Min. stocken lassen.~Frischkäse darauf verteilen, zusammenklappen und mit Brot servieren.
+Gebackene Eier im Spinatnest mit Brot|25|Ei:E:110,Spinat:F:250,Brot:K:90|Ofen auf 200 °C vorheizen. Spinat kurz andünsten, würzen und in kleine Förmchen füllen.~In jede Mulde ein Ei schlagen und mit Salz und Pfeffer würzen.~10–12 Min. backen, bis das Eiweiss fest ist. Mit Brot servieren.
+Tomaten-Basilikum-Frittata mit Brot|25|Ei:E:110,Tomaten:F:230,Zwiebel:F:20,Brot:K:90|Zwiebel in Öl andünsten, Tomatenscheiben zugeben und 3 Min. mitbraten.~Eier mit Salz, Pfeffer und gehacktem Basilikum verquirlen, darübergiessen.~Zugedeckt bei kleiner Hitze 8 Min. stocken lassen. Mit Brot servieren.
+Peperoni-Zwiebel-Omelette mit Brot|20|Ei:E:110,Peperoni:F:150,Zwiebel:F:60,Brot:K:90|Peperoni und Zwiebel in Streifen schneiden und in Öl 6 Min. weich braten.~Eier verquirlen, würzen und darübergiessen.~Stocken lassen, einmal falten und mit Brot essen.
+Eiersalat-Sandwich mit Gurke und Tomate|20|Ei:E:110,Joghurt:E:15,Vollkornbrot:K:90,Gurke:F:100,Tomaten:F:100,Blattsalat:F:40|Eier 9 Min. hart kochen, abschrecken und schälen.~Mit Joghurt, Senf, Salz und Pfeffer zerdrücken.~Brot mit Salat, Gurken- und Tomatenscheiben und dem Eiersalat belegen.
+Türkische Eier mit Joghurt und Spinat|20|Ei:E:80,Joghurt:E:40,Spinat:F:150,Tomaten:F:80,Fladenbrot:K:90|Spinat in Öl zusammenfallen lassen, Tomaten zugeben und würzen.~Eier in leicht siedendem Wasser mit einem Schuss Essig 3 Min. pochieren.~Joghurt mit Knoblauch verrühren, Gemüse und Eier darauf anrichten, Fladenbrot dazu.
+Pochierte Eier auf Rahmlauch mit Brot|25|Ei:E:110,Lauch:F:230,Brot:K:90|Lauch in Ringen in Öl weich dünsten, mit einem Schuss Rahm, Salz und Muskat abschmecken.~Eier einzeln in siedendes Salzwasser mit etwas Essig gleiten lassen und 3 Min. pochieren.~Lauch anrichten, Eier darauflegen, Brot dazu.
+Zucchinipuffer mit Kräuterquark|30|Zucchini:F:250,Ei:E:60,Quark:E:50,Vollkornmehl:K:50,Brot:K:40|Zucchini raffeln, salzen, ausdrücken und mit Ei, Mehl und Kräutern mischen.~In Öl portionsweise je 3 Min. pro Seite goldbraun braten.~Quark mit Kräutern und Zitrone verrühren und dazu servieren.
+Herzhafte Pfannkuchen mit Spinat-Frischkäse|30|Vollkornmehl:K:60,Ei:E:60,Frischkäse:E:40,Spinat:F:220|Mehl, Ei, Milch und eine Prise Salz zu einem Teig verrühren, 10 Min. quellen lassen.~Dünne Pfannkuchen in Öl ausbacken.~Spinat andünsten, mit Frischkäse mischen, in die Pfannkuchen füllen und aufrollen.
+Gemüse-Rührei-Burrito|25|Ei:E:110,Tortilla:K:80,Peperoni:F:90,Tomaten:F:60,Blattsalat:F:60|Peperoni würfeln und in Öl 4 Min. braten, Eier zugeben und rührend stocken lassen.~Tortilla kurz erwärmen.~Rührei, Tomatenwürfel und Salat darauf verteilen, einrollen und halbieren.
+Gemüse-Eier-Muffins mit Vollkornbrot|35|Ei:E:110,Zucchini:F:100,Peperoni:F:60,Spinat:F:60,Käse:E:15,Vollkornbrot:K:90|Ofen auf 190 °C vorheizen. Gemüse klein schneiden und in Muffinförmchen verteilen.~Eier mit Käse, Salz und Pfeffer verquirlen und darübergiessen.~20 Min. backen. Mit Vollkornbrot servieren.
+Rüeblirösti mit Spiegelei und Salat|30|Rüebli:H:200,Ei:E:110,Blattsalat:F:100|Rüebli raffeln, würzen und in Öl zu flachen Fladen formen.~Pro Seite 6–7 Min. knusprig braten.~Spiegeleier braten, auf den Rösti legen und mit angemachtem Salat servieren.
+Zucchini-Frittata mit Feta|25|Ei:E:100,Feta:E:30,Zucchini:F:230,Brot:K:90|Zucchini in Scheiben in Öl 5 Min. anbraten.~Eier mit Salz, Pfeffer und Minze verquirlen, über die Zucchini giessen und Feta darüberbröseln.~Zugedeckt 8 Min. stocken lassen. Mit Brot servieren.
+Lauch-Käse-Omelette mit Brot|20|Ei:E:100,Käse:E:25,Lauch:F:220,Brot:K:90|Lauch in dünne Ringe schneiden und in Öl 6 Min. dünsten.~Eier verquirlen, über den Lauch giessen und stocken lassen.~Käse darüberstreuen, zusammenklappen und mit Brot servieren.
+Asiatisches Omelette mit Sprossen und Wrap|20|Ei:E:110,Sojasprossen:F:120,Chinakohl:F:100,Vollkornwrap:K:80|Sprossen und Chinakohl in Streifen in Öl 3 Min. im Wok anbraten, mit Sojasauce würzen.~Eier verquirlen und in einer Pfanne zu Omeletten backen.~Gemüse in die Omeletten füllen, im Wrap einrollen.
+Eggs Florentine auf Vollkorntoast|25|Ei:E:110,Spinat:F:250,Vollkorntoast:K:80,Joghurt:E:10|Spinat andünsten, würzen und auf dem Toast verteilen.~Eier in siedendem Essigwasser 3 Min. pochieren.~Eier auf den Spinat setzen, mit etwas Zitronen-Joghurt-Sauce beträufeln.
+Strammer Max vegetarisch mit Salat|15|Ei:E:100,Käse:E:20,Brot:K:90,Gurke:F:100,Tomaten:F:100|Brot toasten und mit Käse belegen.~Spiegeleier braten und darauflegen.~Gurke und Tomaten in Scheiben schneiden und dazu servieren.
+Huevos Rancheros mit schwarzen Bohnen|30|Ei:E:70,Schwarze Bohnen:L:50,Tomaten:F:150,Peperoni:F:60,Tortilla:K:80|Peperoni und Tomaten mit Kreuzkümmel 10 Min. zu einer Sauce einkochen.~Abgespülte schwarze Bohnen zugeben.~Eier in der Sauce zugedeckt 5 Min. stocken lassen, mit warmer Tortilla servieren.
+Omelette mit Ricotta und Spinat|20|Ei:E:90,Ricotta:E:30,Spinat:F:220,Brot:K:90|Spinat dünsten, ausdrücken und mit Ricotta, Salz und Muskat mischen.~Eier verquirlen und zu einer dünnen Omelette backen.~Füllung darauf verteilen, zusammenklappen und mit Brot essen.
+Brokkoli-Käse-Omelette|20|Ei:E:100,Käse:E:25,Brokkoli:F:200,Kartoffeln:K:100|Kartoffeln in Würfeln kochen. Brokkoli klein schneiden und 3 Min. garen.~Eier verquirlen, mit Brokkoli in die Pfanne geben und stocken lassen.~Käse darüberstreuen und mit den Kartoffeln servieren.
+Kohlrabi-Rührei mit Brot|20|Ei:E:110,Kohlrabi:F:220,Brot:K:90|Kohlrabi schälen, in Streifen schneiden und in Öl 6 Min. braten.~Eier verquirlen, zugeben und unter Rühren stocken lassen.~Mit Kräutern bestreuen und mit Brot servieren.
+Blumenkohl-Rührei mit Kräutern|20|Ei:E:110,Blumenkohl:F:220,Brot:K:90|Blumenkohl in kleine Röschen teilen und 5 Min. in Salzwasser garen.~Mit Öl kurz anbraten, verquirlte Eier zugeben und stocken lassen.~Mit Kräutern bestreuen und mit Brot servieren.
+Gemüsesuppe mit Eierflocken|30|Ei:E:110,Lauch:F:100,Rüebli:H:100,Sellerie:F:60,Brot:K:60,Kartoffeln:K:40|Lauch, Rüebli, Sellerie und Kartoffeln würfeln und in Bouillon 15 Min. kochen.~Eier verquirlen und unter Rühren in die siedende Suppe giessen, bis feine Flocken entstehen.~Mit Pfeffer abschmecken und mit Brot servieren.
+Spinat-Ei-Toast überbacken|20|Ei:E:100,Käse:E:25,Spinat:F:200,Vollkorntoast:K:90|Ofen auf 200 °C vorheizen. Toast auf ein Blech legen und mit Spinat belegen.~Je ein Ei darauf schlagen und Käse darüberstreuen.~10–12 Min. überbacken.
+Kürbis-Frittata mit Salat und Brot|35|Ei:E:110,Kürbis:F:180,Blattsalat:F:60,Brot:K:90|Kürbis in kleine Würfel schneiden und in Öl 10 Min. weich braten.~Eier verquirlen, würzen und darübergiessen.~Zugedeckt 8 Min. stocken lassen. Mit Salat und Brot servieren.
+Tomaten-Mozzarella-Omelette|20|Ei:E:90,Mozzarella:E:40,Tomaten:F:220,Brot:K:90|Tomaten würfeln und in Öl kurz anbraten.~Eier verquirlen, in die Pfanne giessen und stocken lassen.~Mozzarella in Scheiben darauflegen, falten und mit Brot servieren.
+Mangold-Rührei mit Brot|20|Ei:E:110,Mangold:F:230,Brot:K:90|Mangold waschen, Stiele und Blätter getrennt schneiden. Stiele 3 Min. in Öl braten, Blätter zugeben.~Eier verquirlen und unterrühren, stocken lassen.~Mit Brot servieren.
+Gemüsepfanne mit Spiegelei und Brot|25|Ei:E:110,Zucchini:F:100,Peperoni:F:80,Tomaten:F:50,Brot:K:90|Zucchini und Peperoni würfeln und in Öl 8 Min. braten, Tomaten zugeben.~Mit Paprika und Kräutern würzen.~Spiegeleier daraufsetzen und mit Brot servieren.
+Eier-Wirz-Pfanne mit Kümmel|25|Ei:E:110,Wirz:F:230,Brot:K:90|Wirz in feine Streifen schneiden und in Öl 8 Min. mit Kümmel braten.~Eier verquirlen, zugeben und stocken lassen.~Mit Salz und Pfeffer abschmecken, Brot dazu.
+Griechische Omelette mit Tomaten und Feta|20|Ei:E:100,Feta:E:30,Tomaten:F:150,Gurke:F:70,Fladenbrot:K:90|Tomaten würfeln, in Öl kurz anbraten und mit Oregano würzen.~Eier verquirlen, zugeben und stocken lassen, Feta darüberbröseln.~Mit Gurkenscheiben und Fladenbrot servieren.
+Pan con Tomate mit Rührei|15|Ei:E:110,Tomaten:F:230,Brot:K:90|Brot toasten und mit einer halbierten Knoblauchzehe einreiben.~Tomaten reiben, mit Öl und Salz würzen und auf dem Brot verteilen.~Rührei braten und darauf anrichten.
+Blech-Omelette mit Gemüse|35|Ei:E:110,Zucchini:F:100,Peperoni:F:70,Rüebli:H:40,Spinat:F:40,Brot:K:80|Ofen auf 190 °C vorheizen. Gemüse klein schneiden und auf einem Blech mit Backpapier verteilen.~Eier mit Milch, Salz und Pfeffer verquirlen und darübergiessen.~20 Min. backen und in Stücke schneiden. Brot dazu.
+Fenchel-Omelette mit Brot|25|Ei:E:110,Fenchel:F:220,Brot:K:90|Fenchel in feine Streifen schneiden und in Öl 8 Min. weich braten.~Eier verquirlen und darübergiessen.~Stocken lassen, falten und mit Brot servieren.
+Rüebli-Zucchini-Omelette|25|Ei:E:110,Rüebli:H:80,Zucchini:F:180,Brot:K:60|Rüebli und Zucchini raffeln und in Öl 5 Min. anbraten.~Eier verquirlen, würzen und darübergiessen.~Bei kleiner Hitze 6 Min. stocken lassen, mit Brot servieren.
+Chinakohl-Eierpfanne mit Sojasauce|20|Ei:E:110,Chinakohl:F:230,Vollkornwrap:K:80|Chinakohl in Streifen in Öl 6 Min. braten.~Eier verquirlen, zugeben und rührend stocken lassen.~Mit Sojasauce würzen und mit dem Wrap servieren.
+Bohnen-Rührei mit Tomaten|20|Ei:E:110,Grüne Bohnen:F:150,Tomaten:F:80,Brot:K:90|Bohnen in Stücke schneiden und 6 Min. in Salzwasser garen.~Mit Tomatenwürfeln in Öl anbraten, Eier zugeben und stocken lassen.~Mit Brot servieren.
+Zwiebelwähe mit Käse|55|Teig:K:90,Zwiebel:F:220,Ei:E:60,Käse:E:40|Ofen auf 200 °C vorheizen. Teig in die Form legen und einstechen.~Zwiebeln in Ringen in Öl 15 Min. langsam weich und goldgelb dünsten, auf dem Teig verteilen.~Eier mit Milch, Käse, Salz, Pfeffer und Muskat verquirlen, darübergiessen und 30 Min. backen.
+Fenchelwähe mit Ziegenfrischkäse|55|Teig:K:90,Fenchel:F:200,Ei:E:60,Ziegenfrischkäse:E:40|Ofen auf 200 °C vorheizen. Teig in die Form legen und einstechen.~Fenchel in Streifen in Öl 8 Min. dünsten und auf dem Teig verteilen.~Eier mit Milch und Frischkäse verquirlen, darübergiessen und 30 Min. backen.
+Kohlrabiwähe mit Kräutern|55|Teig:K:90,Kohlrabi:F:210,Ei:E:60,Käse:E:40|Ofen auf 200 °C vorheizen. Teig in die Form legen und einstechen.~Kohlrabi in dünne Scheiben schneiden, 5 Min. in Salzwasser vorkochen und auf dem Teig verteilen.~Eier mit Milch, Käse und Kräutern verquirlen, darübergiessen und 30 Min. backen.
+Wirzwähe mit Kümmel|55|Teig:K:90,Wirz:F:220,Ei:E:60,Käse:E:40|Ofen auf 200 °C vorheizen. Teig in die Form legen und einstechen.~Wirz in Streifen mit Kümmel in Öl 10 Min. dünsten und auf dem Teig verteilen.~Eier mit Milch und Käse verquirlen, darübergiessen und 30 Min. backen.
+Mangoldwähe|55|Teig:K:90,Mangold:F:230,Ei:E:60,Käse:E:40|Ofen auf 200 °C vorheizen. Teig in die Form legen und einstechen.~Mangold dünsten, gut ausdrücken und auf dem Teig verteilen.~Eier mit Milch, Käse, Salz und Muskat verquirlen, darübergiessen und 30 Min. backen.
+Kürbiswähe mit Feta|60|Teig:K:90,Kürbis:F:200,Ei:E:60,Feta:E:40|Ofen auf 200 °C vorheizen. Teig in die Form legen und einstechen.~Kürbis in kleine Würfel schneiden, in Öl 10 Min. weich braten und auf dem Teig verteilen.~Eier mit Milch und zerbröseltem Feta verquirlen, darübergiessen und 30 Min. backen.
+Randen-Ziegenkäse-Wähe|60|Teig:K:70,Randen:H:80,Zwiebel:F:140,Ei:E:60,Ziegenkäse:E:40|Ofen auf 200 °C vorheizen. Teig in die Form legen und einstechen.~Vorgekochte Randen in Scheiben und Zwiebelringe auf dem Teig verteilen.~Eier mit Milch verquirlen, darübergiessen, Ziegenkäse zerbröseln und 30 Min. backen.
+Rüebli-Zucchini-Wähe|55|Teig:K:80,Rüebli:H:80,Zucchini:F:170,Ei:E:60,Käse:E:40|Ofen auf 200 °C vorheizen. Teig in die Form legen und einstechen.~Rüebli und Zucchini raffeln, in Öl 5 Min. dünsten und auf dem Teig verteilen.~Eier mit Milch und Käse verquirlen, darübergiessen und 30 Min. backen.
+Tomaten-Zwiebel-Wähe|55|Teig:K:90,Tomaten:F:160,Zwiebel:F:70,Ei:E:60,Käse:E:40|Ofen auf 200 °C vorheizen. Teig in die Form legen und einstechen.~Zwiebelringe kurz anbraten und mit Tomatenscheiben auf dem Teig verteilen.~Eier mit Milch und Käse verquirlen, darübergiessen und 30 Min. backen.
+Spinat-Ricotta-Wähe|55|Teig:K:90,Spinat:F:220,Ricotta:E:50,Ei:E:50|Ofen auf 200 °C vorheizen. Teig in die Form legen und einstechen.~Spinat dünsten, ausdrücken und mit Ricotta mischen, auf dem Teig verteilen.~Eier mit Milch, Salz und Muskat verquirlen, darübergiessen und 30 Min. backen.
+Brokkoli-Feta-Wähe|55|Teig:K:90,Brokkoli:F:210,Feta:E:50,Ei:E:50|Ofen auf 200 °C vorheizen. Teig in die Form legen und einstechen.~Brokkoli in Röschen 3 Min. blanchieren und mit Feta auf dem Teig verteilen.~Eier mit Milch verquirlen, darübergiessen und 30 Min. backen.
+Blumenkohl-Brokkoli-Wähe|55|Teig:K:90,Blumenkohl:F:110,Brokkoli:F:110,Ei:E:60,Käse:E:40|Ofen auf 200 °C vorheizen. Teig in die Form legen und einstechen.~Beide Kohlsorten in Röschen 4 Min. vorkochen und auf dem Teig verteilen.~Eier mit Milch und Käse verquirlen, darübergiessen und 30 Min. backen.
+Lauch-Speck-Wähe|55|Teig:K:90,Lauch:F:200,Ei:E:60,Käse:E:25,Speck:E:20|Ofen auf 200 °C vorheizen. Teig in die Form legen und einstechen.~Speckwürfel anbraten, Lauchringe zugeben und 6 Min. dünsten, auf dem Teig verteilen.~Eier mit Milch und Käse verquirlen, darübergiessen und 30 Min. backen.
+Peperoni-Feta-Wähe|55|Teig:K:90,Peperoni:F:210,Feta:E:45,Ei:E:55|Ofen auf 200 °C vorheizen. Teig in die Form legen und einstechen.~Peperoni in Streifen kurz anbraten und mit Feta auf dem Teig verteilen.~Eier mit Milch und Oregano verquirlen, darübergiessen und 30 Min. backen.
+Auberginen-Tomaten-Wähe|60|Teig:K:90,Auberginen:F:120,Tomaten:F:100,Ei:E:60,Mozzarella:E:40|Ofen auf 200 °C vorheizen. Teig in die Form legen und einstechen.~Auberginenwürfel in Öl 8 Min. braten, mit Tomatenscheiben auf dem Teig verteilen.~Eier mit Milch verquirlen, darübergiessen, Mozzarella zerzupfen und 30 Min. backen.
+Zucchini-Käse-Wähe|55|Teig:K:90,Zucchini:F:220,Ei:E:60,Käse:E:40|Ofen auf 200 °C vorheizen. Teig in die Form legen und einstechen.~Zucchini in Scheiben in Öl kurz anbraten und auf dem Teig verteilen.~Eier mit Milch, Käse und Kräutern verquirlen, darübergiessen und 30 Min. backen.
+Mediterrane Gemüsewähe|60|Teig:K:90,Zucchini:F:90,Peperoni:F:70,Tomaten:F:60,Ei:E:60,Feta:E:40|Ofen auf 200 °C vorheizen. Teig in die Form legen und einstechen.~Gemüse würfeln, mit Kräutern in Öl 5 Min. anbraten und auf dem Teig verteilen.~Eier mit Milch und Feta verquirlen, darübergiessen und 30 Min. backen.
+Blumenkohl-Curry-Wähe|55|Teig:K:90,Blumenkohl:F:210,Ei:E:60,Käse:E:40|Ofen auf 200 °C vorheizen. Teig in die Form legen und einstechen.~Blumenkohlröschen in Öl mit Currypulver 5 Min. anbraten und auf dem Teig verteilen.~Eier mit Milch und Käse verquirlen, darübergiessen und 30 Min. backen.
+Spinat-Käse-Wähe mit Dinkelteig|55|Dinkelteig:K:90,Spinat:F:220,Ei:E:55,Käse:E:45|Ofen auf 200 °C vorheizen. Dinkelteig in die Form legen und einstechen.~Spinat dünsten, ausdrücken und auf dem Teig verteilen.~Eier mit Milch und Käse verquirlen, darübergiessen und 30 Min. backen.
+Tomaten-Mozzarella-Basilikum-Wähe|50|Teig:K:90,Tomaten:F:230,Mozzarella:E:60,Ei:E:40|Ofen auf 200 °C vorheizen. Teig in die Form legen und einstechen.~Tomaten in Scheiben darauflegen, Mozzarella zerzupfen und darüber verteilen.~Eier mit etwas Milch und Basilikum verquirlen, darübergiessen und 30 Min. backen.
+Lauch-Frischkäse-Wähe|55|Teig:K:90,Lauch:F:220,Frischkäse:E:50,Ei:E:50|Ofen auf 200 °C vorheizen. Teig in die Form legen und einstechen.~Lauchringe 6 Min. in Öl dünsten und auf dem Teig verteilen.~Frischkäse mit Eiern und Milch glatt rühren, darübergiessen und 30 Min. backen.
+Kürbis-Lauch-Wähe|60|Teig:K:90,Kürbis:F:110,Lauch:F:100,Ei:E:60,Käse:E:40|Ofen auf 200 °C vorheizen. Teig in die Form legen und einstechen.~Kürbiswürfel 8 Min. in Öl braten, Lauchringe zugeben und 4 Min. mitdünsten, auf dem Teig verteilen.~Eier mit Milch und Käse verquirlen, darübergiessen und 30 Min. backen.
+Weisskohlwähe mit Kümmel|55|Teig:K:90,Weisskohl:F:220,Ei:E:60,Käse:E:40|Ofen auf 200 °C vorheizen. Teig in die Form legen und einstechen.~Weisskohl in feine Streifen schneiden und mit Kümmel 12 Min. in Öl dünsten, auf dem Teig verteilen.~Eier mit Milch und Käse verquirlen, darübergiessen und 30 Min. backen.
+Rotkohlwähe mit Apfel|60|Teig:K:90,Rotkohl:F:200,Ei:E:60,Käse:E:40|Ofen auf 200 °C vorheizen. Teig in die Form legen und einstechen.~Rotkohlstreifen mit etwas Apfelstückchen in Öl 12 Min. dünsten und auf dem Teig verteilen.~Eier mit Milch und Käse verquirlen, darübergiessen und 30 Min. backen.
+Sellerie-Lauch-Wähe|55|Teig:K:90,Sellerie:F:110,Lauch:F:110,Ei:E:60,Käse:E:40|Ofen auf 200 °C vorheizen. Teig in die Form legen und einstechen.~Sellerie raffeln und mit Lauchringen in Öl 8 Min. dünsten, auf dem Teig verteilen.~Eier mit Milch und Käse verquirlen, darübergiessen und 30 Min. backen.
+Rosenkohlwähe|55|Teig:K:90,Rosenkohl:F:200,Ei:E:60,Käse:E:40|Ofen auf 200 °C vorheizen. Teig in die Form legen und einstechen.~Rosenkohl halbieren, 6 Min. in Salzwasser vorkochen und auf dem Teig verteilen.~Eier mit Milch und Käse verquirlen, darübergiessen und 30 Min. backen.
+Spinat-Zwiebel-Wähe|55|Teig:K:90,Spinat:F:150,Zwiebel:F:80,Ei:E:60,Käse:E:40|Ofen auf 200 °C vorheizen. Teig in die Form legen und einstechen.~Zwiebeln 10 Min. in Öl dünsten, Spinat zugeben und zusammenfallen lassen, auf dem Teig verteilen.~Eier mit Milch und Käse verquirlen, darübergiessen und 30 Min. backen.
+Zucchini-Tomaten-Feta-Wähe mit Thymian|55|Teig:K:90,Zucchini:F:120,Tomaten:F:100,Ei:E:50,Feta:E:50|Ofen auf 200 °C vorheizen. Teig in die Form legen und einstechen.~Zucchini- und Tomatenscheiben abwechselnd auf den Teig legen, Thymian und Feta darüber verteilen.~Eier mit Milch verquirlen, darübergiessen und 30 Min. backen.
+Bohnen-Tomaten-Wähe|55|Teig:K:90,Grüne Bohnen:F:130,Tomaten:F:90,Ei:E:60,Käse:E:40|Ofen auf 200 °C vorheizen. Teig in die Form legen und einstechen.~Bohnen 5 Min. blanchieren und mit Tomatenscheiben auf dem Teig verteilen.~Eier mit Milch und Käse verquirlen, darübergiessen und 30 Min. backen.
+Broccoli-Lauch-Wähe|55|Teig:K:90,Brokkoli:F:120,Lauch:F:100,Ei:E:60,Käse:E:40|Ofen auf 200 °C vorheizen. Teig in die Form legen und einstechen.~Brokkoliröschen blanchieren, Lauchringe dünsten, beides auf dem Teig verteilen.~Eier mit Milch und Käse verquirlen, darübergiessen und 30 Min. backen.
+Pastinaken-Lauch-Wähe|55|Teig:K:80,Pastinaken:H:80,Lauch:F:170,Ei:E:60,Käse:E:40|Ofen auf 200 °C vorheizen. Teig in die Form legen und einstechen.~Pastinaken raffeln und mit Lauchringen in Öl 8 Min. dünsten, auf dem Teig verteilen.~Eier mit Milch und Käse verquirlen, darübergiessen und 30 Min. backen.
+Frühlingswähe mit Erbsen und Lauch|55|Teig:K:80,Erbsen:H:70,Lauch:F:120,Spinat:F:70,Ei:E:60,Käse:E:40|Ofen auf 200 °C vorheizen. Teig in die Form legen und einstechen.~Lauch dünsten, Spinat und Erbsen zugeben und 2 Min. mitgaren, auf dem Teig verteilen.~Eier mit Milch und Käse verquirlen, darübergiessen und 30 Min. backen.
+Gemüsewähe mit Quark-Guss|55|Teig:K:90,Zucchini:F:100,Peperoni:F:70,Spinat:F:50,Ei:E:40,Quark:E:60|Ofen auf 200 °C vorheizen. Teig in die Form legen und einstechen.~Gemüse würfeln, kurz anbraten und auf dem Teig verteilen.~Quark mit Eiern, Salz und Kräutern glatt rühren, darübergiessen und 30 Min. backen.
 
 ## Mit Hülsenfrüchten
-Linsen-Spinat-Curry mit Reis|30|Linsen:L:110,Spinat:F:200,Zwiebel:F:20,Tomaten:F:30,Reis:K:100|Reis kochen. Zwiebel mit Currypulver anbraten, Tomaten und vorgekochte Linsen zugeben und 10 Min. köcheln. Spinat unterrühren und zusammenfallen lassen.
-Kichererbsen-Gemüse-Curry|30|Kichererbsen:L:110,Blumenkohl:F:100,Spinat:F:90,Tomaten:F:40,Reis:K:100|Reis kochen. Zwiebel und Blumenkohlröschen anbraten, Currypaste, Tomaten und Kichererbsen zugeben und 15 Min. köcheln. Zum Schluss den Spinat unterheben.
-Rote-Linsen-Suppe mit Rüebli und Vollkornbrot|30|Rote Linsen:L:100,Rüebli:H:100,Lauch:F:130,Tomaten:F:40,Vollkornbrot:K:70|Lauch und Rüebli anbraten, rote Linsen und Tomaten zugeben und mit Bouillon aufgiessen. 15–20 Min. köcheln, nach Wunsch pürieren. Brot dazu.
-Weisser Bohneneintopf mit grünen Bohnen|40|Weisse Bohnen:L:110,Grüne Bohnen:F:150,Tomaten:F:50,Lauch:F:40,Kartoffeln:K:100|Kartoffeln würfeln und mit Lauch und grünen Bohnen in Bouillon 15 Min. kochen. Tomaten und weisse Bohnen zugeben und 10 Min. ziehen lassen.
-Chili sin Carne mit Reis|40|Kidneybohnen:L:110,Peperoni:F:100,Tomaten:F:100,Zwiebel:F:30,Mais:K:30,Reis:K:90|Reis kochen. Zwiebel und Peperoni anbraten, Tomaten, Kidneybohnen und Mais zugeben und mit Paprika und Kreuzkümmel würzen. 25 Min. köcheln.
-Kichererbsensalat mit Gurke und Fladenbrot|20|Kichererbsen:L:110,Gurke:F:120,Tomaten:F:100,Peperoni:F:40,Fladenbrot:K:100|Kichererbsen abspülen, Gurke, Tomaten und Peperoni würfeln. Mit Zitronensaft, Öl und Kräutern mischen. Fladenbrot dazu.
-Linsen-Bolognese mit Vollkornspaghetti|35|Linsen:L:110,Rüebli:H:60,Sellerie:F:60,Tomaten:F:120,Zucchini:F:30,Vollkornspaghetti:K:100|Spaghetti kochen. Rüebli, Sellerie und Zucchini fein würfeln und anbraten, Tomaten und Linsen zugeben und 20 Min. köcheln. Über die Spaghetti geben.
-Hummus-Bowl mit Ofengemüse und Quinoa|35|Kichererbsen:L:110,Rüebli:H:80,Zucchini:F:100,Peperoni:F:80,Quinoa:K:90|Rüebli, Zucchini und Peperoni bei 200 °C 25 Min. rösten. Quinoa nach Packung kochen. Kichererbsen mit Zitronensaft, Öl und Sesampaste zu Hummus pürieren und alles in einer Schale anrichten.
-Dal mit Blumenkohl und Vollkornreis|35|Gelbe Linsen:L:110,Blumenkohl:F:120,Spinat:F:100,Vollkornreis:K:100|Reis kochen. Gelbe Linsen mit Blumenkohl, Kurkuma und Kreuzkümmel in Wasser 20 Min. kochen. Spinat zugeben und zusammenfallen lassen.
-Linsen-Gemüse-Eintopf mit Kartoffeln|40|Linsen:L:110,Lauch:F:100,Rüebli:H:80,Sellerie:F:50,Spinat:F:30,Kartoffeln:K:90|Lauch, Rüebli, Sellerie und Kartoffeln würfeln und anbraten. Linsen und Bouillon zugeben und 25 Min. köcheln. Spinat zum Schluss unterheben.
+Linsen-Spinat-Curry mit Reis|30|Linsen:L:110,Spinat:F:200,Zwiebel:F:20,Tomaten:F:30,Reis:K:100|Reis nach Packungsangabe in Salzwasser kochen (ca. 15 Min.).~Zwiebel hacken und in Öl glasig dünsten. Currypulver, Knoblauch und etwas Ingwer 1 Min. mitrösten.~Tomaten (gewürfelt) und vorgekochte Linsen zugeben, mit Wasser oder Bouillon aufgiessen und 10 Min. köcheln.~Spinat unterrühren und 2 Min. zusammenfallen lassen. Mit Salz, Pfeffer und Zitronensaft abschmecken.~Mit dem Reis anrichten.
+Kichererbsen-Gemüse-Curry|30|Kichererbsen:L:110,Blumenkohl:F:100,Spinat:F:90,Tomaten:F:40,Reis:K:100|Reis nach Packungsangabe kochen.~Blumenkohl in kleine Röschen teilen. Zwiebel hacken und in Öl andünsten, Blumenkohl 3 Min. mitbraten.~Currypaste, Tomaten und abgespülte Kichererbsen zugeben, mit etwas Wasser oder Kokosmilch aufgiessen.~Zugedeckt 15 Min. köcheln, bis der Blumenkohl bissfest ist. Zum Schluss Spinat unterheben.~Mit dem Reis servieren.
+Rote-Linsen-Suppe mit Rüebli und Vollkornbrot|30|Rote Linsen:L:100,Rüebli:H:100,Lauch:F:130,Tomaten:F:40,Vollkornbrot:K:70|Lauch in Ringe schneiden, Rüebli schälen und in kleine Würfel schneiden.~Lauch und Rüebli in einem Topf mit Öl 5 Min. andünsten.~Rote Linsen abspülen, mit gewürfelten Tomaten zugeben und mit 1 Liter Bouillon aufgiessen.~15–20 Min. köcheln, bis die Linsen weich sind. Nach Wunsch pürieren, mit Kreuzkümmel, Salz und Pfeffer abschmecken.~Mit dem Vollkornbrot servieren.
+Weisser Bohneneintopf mit grünen Bohnen|40|Weisse Bohnen:L:110,Grüne Bohnen:F:150,Tomaten:F:50,Lauch:F:40,Kartoffeln:K:100|Kartoffeln schälen und würfeln, Lauch in Ringe, grüne Bohnen in Stücke schneiden.~Lauch in Öl andünsten, Kartoffeln und grüne Bohnen zugeben und mit Bouillon knapp bedecken.~15 Min. köcheln, bis die Kartoffeln fast weich sind.~Tomaten und abgespülte weisse Bohnen zugeben und 10 Min. ziehen lassen. Mit Bohnenkraut, Salz und Pfeffer würzen.
+Chili sin Carne mit Reis|40|Kidneybohnen:L:110,Peperoni:F:100,Tomaten:F:100,Zwiebel:F:30,Mais:K:30,Reis:K:90|Reis nach Packungsangabe kochen.~Zwiebel und Peperoni würfeln und in Öl 5 Min. anbraten. Knoblauch zugeben.~Mit Paprika, Kreuzkümmel und etwas Chili würzen, kurz mitrösten.~Tomaten, abgespülte Kidneybohnen und Mais zugeben, 25 Min. bei kleiner Hitze köcheln, bis die Sauce sämig ist.~Mit Reis servieren.
+Kichererbsensalat mit Gurke und Fladenbrot|20|Kichererbsen:L:110,Gurke:F:120,Tomaten:F:100,Peperoni:F:40,Fladenbrot:K:100|Kichererbsen abspülen und abtropfen lassen.~Gurke, Tomaten und Peperoni in kleine Würfel schneiden.~Aus Zitronensaft, Olivenöl, Salz, Pfeffer und Kräutern ein Dressing rühren.~Alles mischen und 10 Min. ziehen lassen. Fladenbrot dazu servieren.
+Linsen-Bolognese mit Vollkornspaghetti|35|Linsen:L:110,Rüebli:H:60,Sellerie:F:60,Tomaten:F:120,Zucchini:F:30,Vollkornspaghetti:K:100|Rüebli, Sellerie und Zucchini fein würfeln. Zwiebel hacken.~Zwiebel und Gemüse in Öl 8 Min. anbraten.~Tomaten und vorgekochte Linsen zugeben, würzen (Oregano, Salz, Pfeffer) und 20 Min. köcheln.~Spaghetti in Salzwasser nach Packungsangabe bissfest kochen und abgiessen.~Sauce über die Spaghetti geben.
+Hummus-Bowl mit Ofengemüse und Quinoa|35|Kichererbsen:L:110,Rüebli:H:80,Zucchini:F:100,Peperoni:F:80,Quinoa:K:90|Ofen auf 200 °C vorheizen. Rüebli, Zucchini und Peperoni in Stücke schneiden, mit Öl, Salz und Paprika mischen und 25 Min. rösten.~Quinoa abspülen und nach Packungsangabe kochen (ca. 12 Min.).~Kichererbsen mit Zitronensaft, Olivenöl, Sesampaste und Knoblauch zu einem glatten Hummus pürieren.~Quinoa, Gemüse und Hummus in einer Schale anrichten.
+Dal mit Blumenkohl und Vollkornreis|35|Gelbe Linsen:L:110,Blumenkohl:F:120,Spinat:F:100,Vollkornreis:K:100|Reis nach Packungsangabe kochen (Vollkornreis ca. 30 Min.).~Gelbe Linsen abspülen. Mit Blumenkohlröschen, Kurkuma, Kreuzkümmel und Salz in Wasser aufsetzen.~Zugedeckt 20 Min. köcheln, bis die Linsen zerfallen und der Blumenkohl weich ist.~Spinat zugeben und zusammenfallen lassen. Mit Zitronensaft abschmecken.~Mit dem Reis servieren.
+Linsen-Gemüse-Eintopf mit Kartoffeln|40|Linsen:L:110,Lauch:F:100,Rüebli:H:80,Sellerie:F:50,Spinat:F:30,Kartoffeln:K:90|Lauch, Rüebli, Sellerie und Kartoffeln in kleine Würfel schneiden.~Gemüse in Öl 5 Min. anbraten.~Linsen und Bouillon zugeben, aufkochen und 25 Min. köcheln, bis alles weich ist.~Spinat zum Schluss unterheben und 2 Min. ziehen lassen. Mit Essig, Salz und Pfeffer abschmecken.
+Rote-Linsen-Dal mit Spinat und Fladenbrot|30|Rote Linsen:L:110,Spinat:F:200,Tomaten:F:40,Zwiebel:F:20,Fladenbrot:K:100|Zwiebel in Öl mit Kreuzkümmel und Kurkuma andünsten.~Linsen und Tomaten zugeben, mit Wasser bedecken und 15 Min. köcheln.~Spinat unterrühren und mit Zitronensaft abschmecken. Fladenbrot dazu.
+Berglinsen mit Gemüse und Kartoffelstock|40|Berglinsen:L:110,Rüebli:H:60,Lauch:F:100,Sellerie:F:50,Spinat:F:40,Kartoffeln:K:80|Linsen in Wasser 25 Min. weich kochen.~Rüebli, Lauch und Sellerie würfeln, in Öl dünsten und mit den Linsen mischen.~Kartoffeln kochen, stampfen und dazu servieren.
+Linsensuppe mit Gemüse und Vollkornbrot|40|Linsen:L:100,Rüebli:H:70,Sellerie:F:60,Lauch:F:100,Tomaten:F:50,Vollkornbrot:K:70|Gemüse würfeln und in Öl 5 Min. andünsten.~Linsen und Bouillon zugeben und 25 Min. köcheln.~Mit Essig, Salz und Pfeffer abschmecken, Brot dazu.
+Linsen-Kokos-Curry mit Blumenkohl|35|Rote Linsen:L:110,Blumenkohl:F:150,Spinat:F:60,Reis:K:90,Zwiebel:F:20|Zwiebel mit Currypaste in Öl anrösten, Blumenkohlröschen zugeben.~Linsen und etwas Kokosmilch mit Wasser zugeben und 15 Min. köcheln.~Spinat unterheben, Reis separat kochen und dazu servieren.
+Kichererbsen-Spinat-Pfanne mit Fladenbrot|25|Kichererbsen:L:110,Spinat:F:220,Tomaten:F:40,Fladenbrot:K:100|Knoblauch in Öl andünsten, Kichererbsen zugeben und 5 Min. braten.~Spinat und Tomaten zugeben und zusammenfallen lassen.~Mit Kreuzkümmel, Zitronensaft, Salz würzen und mit Fladenbrot servieren.
+Falafel mit Gemüse und Pita|40|Kichererbsen:L:110,Gurke:F:90,Tomaten:F:90,Blattsalat:F:50,Pita:K:90|Kichererbsen mit Zwiebel, Kräutern und Gewürzen grob pürieren, zu kleinen Bällchen formen.~Im Ofen bei 200 °C 20 Min. backen oder in Öl ausbacken.~Mit Gemüse in der Pita servieren.
+Kichererbsen-Tomaten-Eintopf mit Reis|35|Kichererbsen:L:110,Tomaten:F:150,Zucchini:F:100,Reis:K:90|Zwiebel in Öl andünsten, Zucchiniwürfel zugeben und 4 Min. braten.~Tomaten und Kichererbsen zugeben, würzen und 15 Min. köcheln.~Mit Reis servieren.
+Shakshuka mit Kichererbsen und Brot|30|Kichererbsen:L:90,Ei:E:20,Tomaten:F:200,Peperoni:F:70,Brot:K:90|Zwiebel und Peperoni anbraten, Tomaten zugeben und 10 Min. köcheln.~Kichererbsen untermischen, ein Ei pro Person in die Sauce schlagen und zugedeckt stocken lassen.~Mit Brot servieren.
+Kichererbsen-Curry mit Süsskartoffeln|35|Kichererbsen:L:100,Süsskartoffeln:K:90,Spinat:F:150,Tomaten:F:70|Süsskartoffeln würfeln und in Öl 5 Min. anbraten.~Currypaste, Tomaten und Kichererbsen zugeben, 15 Min. zugedeckt köcheln.~Spinat unterheben und abschmecken.
+Hummus-Teller mit Rohkost und Pita|20|Kichererbsen:L:110,Gurke:F:100,Rüebli:H:60,Peperoni:F:80,Tomaten:F:40,Pita:K:80|Kichererbsen mit Zitronensaft, Sesampaste, Knoblauch und Öl glatt pürieren.~Gemüse in Stifte schneiden.~Mit Pita auf einem Teller anrichten.
+Weisse Bohnen mit Tomaten und Spinat|25|Weisse Bohnen:L:110,Tomaten:F:150,Spinat:F:150,Brot:K:90|Knoblauch und Zwiebel in Öl andünsten, Tomaten zugeben.~Bohnen und Rosmarin zugeben, 10 Min. köcheln, Spinat unterheben.~Mit Brot servieren.
+Kidneybohnen-Gemüse-Chili mit Brot|35|Kidneybohnen:L:110,Peperoni:F:100,Tomaten:F:120,Zucchini:F:50,Brot:K:90|Zwiebel, Peperoni und Zucchini in Öl 6 Min. anbraten.~Tomaten, Bohnen, Chili und Paprika zugeben und 20 Min. köcheln.~Mit Brot servieren.
+Schwarze-Bohnen-Tacos mit Salat|25|Schwarze Bohnen:L:110,Tortilla:K:80,Tomaten:F:90,Blattsalat:F:70,Peperoni:F:40|Bohnen mit Kreuzkümmel und Knoblauch in Öl 5 Min. braten und etwas zerdrücken.~Tortillas kurz erwärmen.~Mit Bohnen, Tomatenwürfeln, Salat und Peperoni füllen.
+Bohnen-Gemüse-Suppe nach Minestrone-Art|40|Weisse Bohnen:L:100,Zucchini:F:80,Rüebli:H:50,Sellerie:F:50,Lauch:F:60,Nudeln:K:70|Gemüse würfeln und in Öl 5 Min. andünsten.~Mit Bouillon aufgiessen, Bohnen zugeben und 15 Min. köcheln.~Nudeln zugeben und 8 Min. mitkochen.
+Borlotti-Bohnen-Pfanne mit Wirz|35|Borlottibohnen:L:110,Wirz:F:230,Kartoffeln:K:100|Kartoffeln würfeln und 8 Min. vorkochen.~Wirzstreifen in Öl 8 Min. braten, Bohnen und Kartoffeln zugeben.~Mit Salbei, Salz und Pfeffer 5 Min. fertig braten.
+Baked Beans selbstgemacht mit Toast|35|Weisse Bohnen:L:120,Tomaten:F:200,Zwiebel:F:30,Vollkorntoast:K:90|Zwiebel in Öl andünsten, Tomaten, Paprika und etwas Senf zugeben.~Bohnen zugeben und 20 Min. einköcheln lassen.~Mit gerösteten Toasts servieren.
+Linsen-Zucchini-Sauce mit Dinkelnudeln|35|Linsen:L:110,Zucchini:F:150,Tomaten:F:100,Dinkelnudeln:K:100|Zucchini fein würfeln und mit Zwiebel in Öl anbraten.~Linsen und Tomaten zugeben, 15 Min. köcheln.~Nudeln kochen und mit der Sauce mischen.
+Erbsen-Linsen-Suppe mit Minze|30|Gelbe Linsen:L:100,Erbsen:H:100,Lauch:F:130,Kartoffeln:K:60,Brot:K:40|Lauch in Öl dünsten, Linsen, Kartoffelwürfel und Bouillon zugeben.~20 Min. köcheln, Erbsen für die letzten 5 Min. zugeben.~Pürieren und mit Minze und Brot servieren.
+Edamame-Gemüse-Wok mit Reis|25|Edamame:L:110,Pak Choi:F:120,Peperoni:F:60,Rüebli:H:40,Reis:K:90|Reis kochen.~Gemüse in Streifen in Öl 5 Min. im Wok braten, Edamame zugeben.~Mit Sojasauce und Ingwer würzen und mit Reis servieren.
+Kichererbsen-Frikadellen mit Joghurtsauce und Salat|35|Kichererbsen:L:110,Blattsalat:F:100,Gurke:F:100,Joghurt:E:10,Brot:K:90|Kichererbsen mit Zwiebel, Kräutern und etwas Mehl zerdrücken, flache Frikadellen formen.~In Öl 4 Min. pro Seite braten.~Mit Joghurtsauce, Salat und Brot servieren.
+Linsen-Gemüse-Bratlinge mit Quark-Dip|40|Linsen:L:100,Rüebli:H:60,Zucchini:F:100,Quark:E:10,Brot:K:80,Blattsalat:F:60|Linsen weich kochen, mit geraffeltem Gemüse, Zwiebel und etwas Paniermehl mischen.~Bratlinge formen und in Öl 4 Min. pro Seite braten.~Mit Quark-Dip, Brot und Salat servieren.
+Kidneybohnen-Mais-Pfanne mit Reis|30|Kidneybohnen:L:100,Peperoni:F:100,Tomaten:F:100,Zucchini:F:40,Mais:K:20,Reis:K:80|Reis kochen.~Gemüse in Öl 6 Min. anbraten, Bohnen, Mais und Gewürze zugeben.~5 Min. schmoren und mit Reis servieren.
+Gebackene Kichererbsen mit Ofengemüse und Couscous|40|Kichererbsen:L:110,Zucchini:F:100,Peperoni:F:90,Tomaten:F:40,Couscous:K:90|Ofen auf 220 °C vorheizen. Kichererbsen und Gemüse mit Öl und Gewürzen mischen.~25 Min. rösten.~Couscous mit heisser Bouillon quellen lassen und dazu servieren.
+Dal Tadka mit Gemüse und Reis|35|Gelbe Linsen:L:100,Tomaten:F:80,Spinat:F:100,Blumenkohl:F:40,Reis:K:90|Linsen mit Kurkuma und Wasser 20 Min. kochen.~Zwiebel mit Kreuzkümmel in Öl anrösten und mit Tomaten unter die Linsen rühren.~Spinat zugeben, Reis separat kochen.
+Gefüllte Peperoni mit Linsen und Quinoa|50|Linsen:L:100,Peperoni:F:230,Tomaten:F:20,Quinoa:K:80|Quinoa kochen und mit gekochten Linsen, Tomatenwürfeln und Gewürzen mischen.~Peperoni halbieren, entkernen und füllen.~Bei 200 °C 30 Min. backen.
+Weisse-Bohnen-Suppe mit Kohl und Brot|35|Weisse Bohnen:L:110,Wirz:F:200,Sellerie:F:40,Rüebli:H:40,Brot:K:80|Gemüse würfeln und in Öl andünsten.~Mit Bouillon und Bohnen 20 Min. köcheln.~Mit Brot servieren.
+Bohnen-Burritos mit Gemüse|30|Schwarze Bohnen:L:110,Tortilla:K:80,Peperoni:F:90,Tomaten:F:70,Blattsalat:F:60|Bohnen mit Gewürzen in Öl braten.~Peperoni in Streifen kurz anbraten.~Mit Tomaten und Salat in Tortillas einrollen.
+Linsen-Moussaka ohne Fleisch|55|Linsen:L:110,Auberginen:F:130,Tomaten:F:100,Kartoffeln:K:100|Auberginen- und Kartoffelscheiben in Öl vorbraten.~Linsen mit Tomaten und Gewürzen 10 Min. köcheln.~Lagenweise in eine Form schichten und 25 Min. bei 200 °C backen.
+Chana Masala mit Spinat und Reis|35|Kichererbsen:L:110,Tomaten:F:120,Spinat:F:100,Reis:K:90|Zwiebel mit Ingwer und Knoblauch in Öl anbraten, Garam Masala zugeben.~Tomaten und Kichererbsen zugeben und 15 Min. köcheln.~Spinat unterheben, Reis separat kochen.
+Kichererbsen-Gemüse-Tajine mit Couscous|45|Kichererbsen:L:110,Zucchini:F:100,Rüebli:H:60,Tomaten:F:90,Couscous:K:90|Zwiebel in Öl andünsten, Gemüse und Gewürze (Zimt, Kreuzkümmel) zugeben.~Tomaten und Kichererbsen zugeben, 25 Min. schmoren.~Couscous quellen lassen und dazu servieren.
+Linsen-Spinat-Lasagne|55|Linsen:L:80,Spinat:F:200,Tomaten:F:50,Käse:E:25,Lasagneblätter:K:100|Linsen mit Tomaten und Gewürzen 10 Min. köcheln, Spinat dünsten.~Lagenweise mit Lasagneblättern in eine Form schichten, Käse darüber.~35 Min. bei 190 °C backen.
+Bohnen-Quesadillas mit Tomatensalsa|25|Kidneybohnen:L:100,Käse:E:20,Tortilla:K:80,Tomaten:F:130,Peperoni:F:70|Bohnen zerdrücken und mit Käse auf einer Tortilla verteilen, zweite Tortilla darauf.~In Pfanne pro Seite 3 Min. knusprig backen.~Mit Salsa aus Tomaten und Peperoni servieren.
+Erbsen-Dal mit Joghurt|30|Gelbe Linsen:L:100,Erbsen:H:100,Spinat:F:120,Reis:K:70|Linsen mit Wasser und Kurkuma 15 Min. kochen.~Erbsen und Spinat zugeben, 5 Min. mitgaren.~Mit Reis servieren.
+Kichererbsen-Gemüsepfanne mit Rührei|25|Kichererbsen:L:80,Ei:E:30,Zucchini:F:130,Peperoni:F:90,Brot:K:90|Gemüse in Öl 8 Min. braten, Kichererbsen zugeben.~Eier verquirlen, unterrühren und stocken lassen.~Mit Brot servieren.
+Linsen-Gemüse-Pie mit Kartoffelkruste|55|Linsen:L:100,Rüebli:H:60,Lauch:F:100,Spinat:F:50,Kartoffeln:K:100|Linsen mit Gemüse in Bouillon 20 Min. köcheln, in eine Form geben.~Kartoffeln kochen, stampfen und darüber verteilen.~20 Min. bei 200 °C überbacken.
+Hummus-Wrap mit Gemüse|15|Kichererbsen:L:100,Vollkornwrap:K:80,Gurke:F:90,Tomaten:F:90,Blattsalat:F:50|Hummus aus Kichererbsen, Zitronensaft, Sesampaste und Öl pürieren.~Wrap damit bestreichen und mit Gemüse belegen.~Einrollen und halbieren.
+Pasta e Fagioli mit Gemüse|40|Weisse Bohnen:L:100,Tomaten:F:100,Sellerie:F:50,Rüebli:H:50,Zucchini:F:40,Nudeln:K:80|Gemüse würfeln und in Öl 5 Min. andünsten.~Tomaten, Bohnen und Bouillon zugeben, 15 Min. köcheln.~Kleine Nudeln zugeben und 8 Min. mitkochen.
+Ribollita mit Schwarzkohl und Brot|50|Weisse Bohnen:L:110,Wirz:F:130,Rüebli:H:50,Tomaten:F:50,Brot:K:80|Gemüse in Öl andünsten, Tomaten und Bohnen zugeben.~Mit Wasser aufgiessen und 25 Min. köcheln.~Geröstetes Brot in Schalen legen und Suppe darübergiessen.
+Mujaddara mit Linsen, Reis und Röstzwiebeln|40|Linsen:L:100,Reis:K:80,Zwiebel:F:80,Gurke:F:80,Tomaten:F:60|Linsen 10 Min. vorkochen, Reis zugeben und zusammen 15 Min. garen.~Zwiebeln in Öl langsam goldbraun rösten.~Mit Gurken-Tomaten-Salat und Röstzwiebeln servieren.
+Koshari-Pfanne mit Tomatensauce|40|Linsen:L:100,Kichererbsen:L:20,Nudeln:K:50,Reis:K:50,Tomaten:F:200,Zwiebel:F:30|Reis, Linsen und Nudeln getrennt kochen.~Tomaten mit Zwiebel, Knoblauch und Kreuzkümmel 15 Min. zu einer Sauce einkochen.~Alles schichten und mit Sauce übergiessen.
+Ful Medames mit Gemüse und Fladenbrot|30|Dicke Bohnen:L:110,Tomaten:F:100,Gurke:F:100,Fladenbrot:K:100|Bohnen mit Knoblauch und Kreuzkümmel 8 Min. erwärmen und etwas zerdrücken.~Mit Zitronensaft, Öl und Petersilie abschmecken.~Mit Tomaten, Gurken und Fladenbrot servieren.
+Bohneneintopf mit Süsskartoffeln und Spinat|40|Kidneybohnen:L:100,Süsskartoffeln:K:100,Spinat:F:150,Tomaten:F:80|Süsskartoffeln würfeln und mit Zwiebel in Öl anbraten.~Tomaten, Bohnen und Bouillon zugeben, 20 Min. köcheln.~Spinat zum Schluss unterheben.
+Gefüllte Zucchini mit Linsen und Bulgur|45|Linsen:L:100,Zucchini:F:180,Tomaten:F:30,Bulgur:K:90|Zucchini halbieren und aushöhlen. Fruchtfleisch hacken.~Bulgur und Linsen mit Fruchtfleisch, Tomaten und Gewürzen mischen und füllen.~30 Min. bei 200 °C backen.
+Socca mit Ofengemüse|35|Kichererbsenmehl:L:100,Zucchini:F:120,Peperoni:F:100,Tomaten:F:40,Brot:K:80|Kichererbsenmehl mit Wasser, Salz und Öl zu einem dünnen Teig rühren und quellen lassen.~In heisser Pfanne oder im Ofen bei 220 °C 10 Min. backen.~Mit gebratenem Gemüse und Brot servieren.
+Edamame-Pasta mit Basilikum-Tomaten|25|Edamame:L:110,Tomaten:F:150,Zucchini:F:60,Nudeln:K:100|Nudeln kochen. Zwiebel und Zucchini in Öl anbraten, Tomaten zugeben.~Edamame 3 Min. mitgaren.~Nudeln untermischen und mit Basilikum servieren.
+Linsen-Kürbis-Suppe mit Ingwer|40|Rote Linsen:L:100,Kürbis:F:200,Rüebli:H:40,Brot:K:80|Kürbis und Rüebli würfeln und in Öl mit Ingwer anbraten.~Linsen und Bouillon zugeben und 20 Min. köcheln.~Pürieren und mit Brot servieren.
+Kichererbsen-Spinat-Suppe mit Zitrone|35|Kichererbsen:L:110,Spinat:F:200,Kartoffeln:K:90,Zwiebel:F:20|Zwiebel in Öl andünsten, Kartoffelwürfel und Bouillon zugeben.~15 Min. köcheln, Kichererbsen zugeben.~Spinat unterheben und mit Zitrone abschmecken.
+Cassoulet mit weissen Bohnen und Gemüse|55|Weisse Bohnen:L:110,Rüebli:H:60,Lauch:F:80,Tomaten:F:80,Brot:K:80|Gemüse in Öl andünsten, Tomaten und Bohnen zugeben.~Mit Thymian 25 Min. im Ofen bei 180 °C schmoren.~Mit Brotbröseln bestreuen und 10 Min. überbacken.
+Burrito-Bowl mit schwarzen Bohnen|30|Schwarze Bohnen:L:110,Reis:K:90,Tomaten:F:90,Peperoni:F:70,Blattsalat:F:60|Reis kochen.~Bohnen mit Gewürzen erwärmen. Gemüse in Stücke schneiden.~Alles in einer Schale anrichten, mit Limette beträufeln.
+Linsenbällchen in Tomatensauce mit Vollkornnudeln|45|Linsen:L:110,Tomaten:F:200,Zucchini:F:40,Vollkornnudeln:K:100|Linsen kochen, mit Zwiebel, Paniermehl und Kräutern zerdrücken, Bällchen formen.~Im Ofen bei 200 °C 15 Min. backen.~In Tomatensauce erwärmen und mit Nudeln servieren.
+Kichererbsen-Paprika-Eintopf mit Kartoffeln|40|Kichererbsen:L:100,Peperoni:F:130,Tomaten:F:80,Kartoffeln:K:100|Zwiebel und Peperoni in Öl mit Paprika anbraten.~Tomaten, Kartoffelwürfel, Kichererbsen und Bouillon zugeben.~20 Min. köcheln.
+Dicke-Bohnen-Pfanne mit Kräuterquark|30|Dicke Bohnen:L:110,Zucchini:F:120,Tomaten:F:80,Quark:E:10,Brot:K:90|Bohnen und Zucchiniwürfel in Öl 8 Min. braten.~Tomaten zugeben und kurz schmoren.~Mit Kräuterquark und Brot servieren.
+Gemüse-Linsen-Curry mit Naan|35|Rote Linsen:L:100,Blumenkohl:F:80,Rüebli:H:40,Spinat:F:100,Naan:K:90|Gemüse in Öl mit Currypaste anbraten.~Linsen und Wasser zugeben, 15 Min. köcheln.~Spinat unterheben und mit Naan servieren.
+Bohnen-Kartoffel-Gratin|50|Weisse Bohnen:L:100,Kartoffeln:K:100,Tomaten:F:100,Spinat:F:100,Käse:E:10|Kartoffelscheiben 5 Min. vorkochen.~Mit Bohnen, Tomaten und Spinat in eine Form schichten, Käse darüber.~30 Min. bei 200 °C backen.
+Kichererbsen-Kürbis-Curry|40|Kichererbsen:L:110,Kürbis:F:180,Spinat:F:40,Reis:K:90|Kürbiswürfel in Öl mit Currypaste 5 Min. anbraten.~Kichererbsen und Kokosmilch mit Wasser zugeben, 15 Min. köcheln.~Spinat unterheben, Reis separat kochen.
+Linsen-Salsa-Wraps|25|Linsen:L:100,Tomaten:F:100,Peperoni:F:70,Blattsalat:F:60,Vollkornwrap:K:80|Linsen kochen und mit Kreuzkümmel würzen.~Tomaten und Peperoni würfeln, mit Limettensaft mischen.~In Wraps füllen.
+Schwarze-Bohnen-Suppe mit Mais|35|Schwarze Bohnen:L:110,Tomaten:F:100,Peperoni:F:80,Mais:K:30,Brot:K:70|Zwiebel und Peperoni in Öl anbraten, Tomaten und Bohnen zugeben.~Mit Bouillon 20 Min. köcheln, teilweise pürieren.~Mais zugeben und mit Brot servieren.
+Gebackene Bohnen mit Tomaten und Feta|40|Weisse Bohnen:L:90,Feta:E:30,Tomaten:F:180,Zucchini:F:50,Brot:K:90|Bohnen mit Tomaten, Zucchini und Kräutern in eine Form geben.~Feta darüber bröseln.~25 Min. bei 200 °C backen, mit Brot servieren.
+Linsen-Eierpfanne mit Spinat|25|Linsen:L:80,Ei:E:30,Spinat:F:200,Tomaten:F:50,Brot:K:90|Spinat und Tomaten in Öl zusammenfallen lassen, Linsen zugeben.~Eier unterrühren und stocken lassen.~Mit Brot servieren.
+Kichererbsen-Tabbouleh-Bowl|25|Kichererbsen:L:110,Bulgur:K:90,Tomaten:F:90,Gurke:F:90,Petersilie:F:30|Bulgur mit heissem Wasser quellen lassen.~Gemüse und Petersilie fein würfeln, mit Kichererbsen und Zitronensaft mischen.~Mit Bulgur anrichten.
+Linsen-Curry-Suppe mit Kokos und Spinat|30|Rote Linsen:L:100,Spinat:F:150,Tomaten:F:70,Brot:K:90|Zwiebel mit Currypaste in Öl anrösten.~Linsen, Tomaten und Wasser zugeben, 15 Min. köcheln.~Spinat unterheben, mit Brot servieren.
+Tex-Mex-Reispfanne mit Kidneybohnen|30|Kidneybohnen:L:100,Reis:K:90,Peperoni:F:100,Tomaten:F:80,Zucchini:F:40|Zwiebel und Peperoni in Öl anbraten, Reis und Gewürze zugeben.~Tomaten, Bohnen und Wasser zugeben, zugedeckt 15 Min. garen.~Abschmecken.
+Erbsen-Hummus-Toast mit Salat|15|Erbsen:H:60,Kichererbsen:L:100,Vollkornbrot:K:70,Blattsalat:F:100,Tomaten:F:60|Erbsen und Kichererbsen mit Zitrone, Öl und Minze pürieren.~Brot toasten und damit bestreichen.~Mit Tomaten und angemachtem Salat servieren.
+Gemüse-Linsen-Lasagne im Glas|50|Linsen:L:100,Zucchini:F:100,Tomaten:F:120,Lasagneblätter:K:100|Linsen mit Tomaten köcheln, Zucchini in Scheiben anbraten.~Mit Lasagneblättern in Förmchen schichten.~25 Min. bei 190 °C backen.
+Kichererbsen-Spinat-Tortilla|30|Kichererbsenmehl:L:60,Ei:E:50,Spinat:F:200,Brot:K:90|Kichererbsenmehl mit Ei und Wasser zu Teig rühren.~Spinat andünsten und unterheben.~In der Pfanne pro Seite 5 Min. braten, mit Brot servieren.
+Weisse-Bohnen-Salsa mit Ofengemüse|40|Weisse Bohnen:L:110,Zucchini:F:120,Peperoni:F:100,Tomaten:F:40,Kartoffeln:K:90|Kartoffeln, Zucchini und Peperoni bei 220 °C 25 Min. rösten.~Bohnen mit Tomaten, Öl und Kräutern mischen.~Zusammen anrichten.
+Linsen-Kokos-Suppe mit Rüebli und Reis|35|Rote Linsen:L:100,Rüebli:H:80,Spinat:F:100,Reis:K:60|Rüebli in Öl anbraten, Linsen, Kokosmilch und Wasser zugeben.~20 Min. köcheln, Spinat zugeben.~Gekochten Reis in die Suppe geben.
+Kidneybohnen-Lauch-Pfanne mit Kartoffeln|30|Kidneybohnen:L:100,Lauch:F:220,Kartoffeln:K:100|Kartoffeln würfeln und 8 Min. vorkochen.~Lauch in Ringen in Öl dünsten, Bohnen und Kartoffeln zugeben.~5 Min. braten und würzen.
+Lupinen-Gemüse-Pfanne mit Reis|25|Lupinenkerne:L:100,Zucchini:F:130,Peperoni:F:90,Reis:K:90|Reis kochen.~Gemüse in Öl braten, Lupinen zugeben und erwärmen.~Mit Kräutern abschmecken und mit Reis servieren.
+Kichererbsen-Bratlinge mit Rahmspinat|35|Kichererbsen:L:100,Spinat:F:220,Brot:K:90|Kichererbsen mit Zwiebel, Kräutern und Mehl zerdrücken, formen.~In Öl braten.~Spinat mit etwas Rahm dünsten, Brot dazu.
+Linsen-Eintopf mit Wirz und Kartoffeln|40|Linsen:L:100,Wirz:F:200,Kartoffeln:K:100|Wirz in Streifen und Kartoffeln würfeln, mit Zwiebel in Öl anbraten.~Linsen und Bouillon zugeben.~25 Min. köcheln.
+Mexikanische Bohnensuppe mit Tortilla-Chips|30|Kidneybohnen:L:100,Tomaten:F:130,Peperoni:F:90,Tortilla:K:80|Gemüse in Öl anbraten, Tomaten, Bohnen und Gewürze zugeben.~Mit Bouillon 15 Min. köcheln.~Mit Tortillastreifen (im Ofen geröstet) servieren.
+Linsen-Kartoffel-Pfanne mit Spinat|30|Linsen:L:100,Kartoffeln:K:100,Spinat:F:220|Kartoffeln würfeln und in Öl 10 Min. braten.~Linsen und Spinat zugeben.~5 Min. schmoren und würzen.
 
 ## Mit Reis
-Gemüsereis-Pfanne mit Ei|25|Reis:K:100,Ei:E:100,Brokkoli:F:120,Peperoni:F:60,Zucchini:F:40|Reis kochen. Brokkoli, Peperoni und Zucchini anbraten, Reis zugeben. Ei in die Mitte schlagen, rühren bis es gestockt ist und mit Sojasauce würzen.
-Poulet-Curry mit Brokkoli und Reis|30|Poulet:E:100,Brokkoli:F:150,Peperoni:F:60,Zwiebel:F:20,Reis:K:100|Reis kochen. Pouletstreifen anbraten, Zwiebel, Peperoni und Currypaste zugeben. Brokkoli und etwas Wasser oder Kokosmilch dazugeben und 10 Min. garen.
-Tofu-Gemüse-Wok mit Reis|25|Tofu:E:110,Pak Choi:F:100,Grüne Bohnen:F:80,Peperoni:F:60,Reis:K:100|Reis kochen. Tofu würfeln, knusprig braten und herausnehmen. Gemüse im Wok anbraten, Tofu und Sojasauce zugeben.
-Gefüllte Peperoni mit Reis und Feta|45|Peperoni:F:200,Tomaten:F:30,Feta:E:60,Kichererbsen:L:40,Reis:K:100|Reis kochen und mit Feta, Kichererbsen und Tomaten mischen. Peperoni aushöhlen, füllen und bei 200 °C 30 Min. backen.
-Spinat-Risotto mit Poulet|35|Risottoreis:K:100,Spinat:F:200,Zwiebel:F:20,Poulet:E:100|Pouletwürfel anbraten und beiseitestellen. Zwiebel und Reis andünsten, nach und nach Bouillon zugeben (ca. 18 Min.). Spinat und Poulet unterrühren.
-Edamame-Reis-Bowl mit Gurke und Rüebli|25|Edamame:L:100,Gurke:F:100,Rüebli:H:60,Spinat:F:60,Avocado:F:40,Reis:K:100|Reis kochen, Edamame 3 Min. garen. Gurke, Rüebli, Spinat und Avocado schneiden. Alles in einer Schale anrichten, mit Sojasauce und Sesam abschmecken.
-Chinakohl-Reispfanne mit Rührei|25|Chinakohl:F:200,Lauch:F:40,Ei:E:100,Reis:K:100|Reis kochen. Lauch und Chinakohl anbraten. Eier verquirlen, in die Pfanne geben und stocken lassen, dann den Reis untermischen.
-Gemüse-Biryani mit Joghurt|40|Reis:K:100,Blumenkohl:F:100,Erbsen:H:60,Grüne Bohnen:F:80,Joghurt:E:100|Zwiebel und Gewürze anbraten, Blumenkohl, Bohnen, Erbsen und Reis zugeben. Mit der doppelten Menge Wasser zugedeckt 20 Min. garen. Mit Joghurt servieren.
-Hackfleisch-Zucchini-Reispfanne|30|Rinderhack:E:100,Zucchini:F:150,Tomaten:F:50,Reis:K:100|Reis kochen. Hackfleisch anbraten, Zucchini und Tomaten zugeben und würzen. Etwa 10 Min. garen und den Reis unterheben.
-Hühnersuppe mit Lauch, Rüebli und Reis|40|Poulet:E:100,Lauch:F:120,Rüebli:H:80,Sellerie:F:50,Reis:K:80|Poulet in Bouillon 15 Min. köcheln, herausnehmen und zerzupfen. Lauch, Rüebli, Sellerie und Reis in der Brühe 15 Min. garen, Poulet zurück in die Suppe geben.
-Tomatenreis mit Mozzarella und Spinat|25|Reis:K:100,Tomaten:F:100,Spinat:F:100,Mozzarella:E:100|Reis in Tomatensauce (Zwiebel, Tomaten) garen. Spinat unterrühren, Mozzarella in Stücken darauflegen und kurz schmelzen lassen.
+Gemüsereis-Pfanne mit Ei|25|Reis:K:100,Ei:E:100,Brokkoli:F:120,Peperoni:F:60,Zucchini:F:40|Reis nach Packungsangabe kochen und abtropfen lassen (am besten vom Vortag).~Brokkoli in Röschen teilen, Peperoni und Zucchini würfeln.~Gemüse in einer grossen Pfanne oder im Wok in Öl 6–8 Min. anbraten.~Reis zugeben, 2 Min. mitbraten. Eine Lücke in der Mitte freimachen, Eier hineinschlagen und rühren, bis sie gestockt sind.~Alles mischen und mit Sojasauce würzen.
+Poulet-Curry mit Brokkoli und Reis|30|Poulet:E:100,Brokkoli:F:150,Peperoni:F:60,Zwiebel:F:20,Reis:K:100|Reis nach Packungsangabe kochen.~Poulet in Streifen schneiden, würzen und in Öl 4–5 Min. anbraten.~Zwiebel, Peperoni und Currypaste zugeben und 2 Min. mitbraten.~Mit etwas Wasser oder Kokosmilch ablöschen, Brokkoliröschen zugeben und zugedeckt 10 Min. garen.~Mit Salz abschmecken und mit dem Reis servieren.
+Tofu-Gemüse-Wok mit Reis|25|Tofu:E:110,Pak Choi:F:100,Grüne Bohnen:F:80,Peperoni:F:60,Reis:K:100|Reis nach Packungsangabe kochen.~Tofu in Würfel schneiden, trocken tupfen und in Öl rundum knusprig braten. Herausnehmen.~Pak Choi, grüne Bohnen und Peperoni in Stücke schneiden und im heissen Wok 5–6 Min. unter Rühren braten.~Tofu zurückgeben, mit Sojasauce und etwas Ingwer würzen und 1 Min. durchschwenken.~Mit dem Reis servieren.
+Gefüllte Peperoni mit Reis und Feta|45|Peperoni:F:200,Tomaten:F:30,Feta:E:60,Kichererbsen:L:40,Reis:K:100|Ofen auf 200 °C vorheizen. Reis nach Packungsangabe kochen.~Peperoni längs halbieren und entkernen.~Reis mit zerbröseltem Feta, Kichererbsen und gewürfelten Tomaten mischen, mit Kräutern, Salz und Pfeffer würzen.~Füllung in die Peperonihälften geben und in eine Form setzen.~30 Min. backen, bis die Peperoni weich sind.
+Spinat-Risotto mit Poulet|35|Risottoreis:K:100,Spinat:F:200,Zwiebel:F:20,Poulet:E:100|Poulet würfeln, würzen und in Öl anbraten. Beiseitestellen.~Zwiebel fein hacken, in Öl andünsten, Risottoreis zugeben und 1–2 Min. glasig rösten.~Nach und nach heisse Bouillon kellenweise zugeben und unter Rühren einkochen lassen (ca. 18 Min.).~Spinat und Poulet unterrühren, 2 Min. ziehen lassen und abschmecken.
+Edamame-Reis-Bowl mit Gurke und Rüebli|25|Edamame:L:100,Gurke:F:100,Rüebli:H:60,Spinat:F:60,Avocado:F:40,Reis:K:100|Reis nach Packungsangabe kochen. Edamame 3 Min. in Salzwasser garen und abgiessen.~Gurke in Scheiben, Rüebli in dünne Streifen schneiden. Spinat waschen, Avocado in Spalten schneiden.~Reis in Schalen verteilen und alles daraufsetzen.~Mit Sojasauce, etwas Sesamöl und Sesam abschmecken.
+Chinakohl-Reispfanne mit Rührei|25|Chinakohl:F:200,Lauch:F:40,Ei:E:100,Reis:K:100|Reis nach Packungsangabe kochen.~Chinakohl in Streifen, Lauch in Ringe schneiden.~Lauch in Öl 2 Min. anbraten, Chinakohl zugeben und 5 Min. mitbraten.~Eier verquirlen, in die Pfanne giessen und stocken lassen.~Reis untermischen, mit Sojasauce abschmecken.
+Gemüse-Biryani mit Joghurt|40|Reis:K:100,Blumenkohl:F:100,Erbsen:H:60,Grüne Bohnen:F:80,Joghurt:E:100|Zwiebel in Öl anbraten, mit Kreuzkümmel, Kurkuma und Garam Masala 1 Min. rösten.~Blumenkohl in Röschen, Bohnen in Stücke schneiden und mit den Erbsen zugeben, kurz mitbraten.~Reis zugeben, mit der doppelten Menge Wasser aufgiessen, salzen.~Zugedeckt bei kleiner Hitze 20 Min. garen, nicht umrühren. 5 Min. ruhen lassen.~Mit Joghurt servieren.
+Hackfleisch-Zucchini-Reispfanne|30|Rinderhack:E:100,Zucchini:F:150,Tomaten:F:50,Reis:K:100|Reis nach Packungsangabe kochen.~Hackfleisch in einer Pfanne krümelig anbraten, würzen.~Zucchini würfeln und mit den Tomaten zugeben, 10 Min. schmoren.~Reis untermischen und mit Salz, Pfeffer und Paprika abschmecken.
+Hühnersuppe mit Lauch, Rüebli und Reis|40|Poulet:E:100,Lauch:F:120,Rüebli:H:80,Sellerie:F:50,Reis:K:80|Poulet in 1 Liter Bouillon 15 Min. leicht köcheln, herausnehmen und mit zwei Gabeln zerzupfen.~Lauch in Ringe, Rüebli und Sellerie in kleine Würfel schneiden.~Gemüse und Reis in die Brühe geben und 15 Min. köcheln.~Poulet zurück in die Suppe geben, kurz erwärmen und mit Salz, Pfeffer und Petersilie abschmecken.
+Tomatenreis mit Mozzarella und Spinat|25|Reis:K:100,Tomaten:F:100,Spinat:F:100,Mozzarella:E:100|Zwiebel in Öl andünsten, Reis zugeben und kurz mitrösten.~Gewürfelte Tomaten und Wasser oder Bouillon zugeben, zugedeckt 15 Min. garen.~Spinat unterrühren und 2 Min. zusammenfallen lassen.~Mozzarella in Stücke zupfen, daraufgeben und zugedeckt kurz schmelzen lassen.
+Zucchini-Risotto mit Poulet|35|Risottoreis:K:100,Zucchini:F:220,Poulet:E:100,Zwiebel:F:20|Poulet würfeln, würzen und in Öl anbraten, beiseitestellen.~Zwiebel und Reis andünsten, heisse Bouillon nach und nach zugeben (ca. 18 Min.), nach 10 Min. Zucchiniwürfel unterrühren.~Poulet zugeben und mit Parmesan und Pfeffer abschmecken.
+Kürbis-Risotto mit Feta|40|Risottoreis:K:100,Kürbis:F:200,Feta:E:100|Zwiebel in Öl andünsten, Kürbiswürfel 5 Min. mitbraten.~Reis zugeben, mit Bouillon nach und nach aufgiessen und 18 Min. garen.~Feta zerbröseln und darüber verteilen.
+Erbsen-Spinat-Risotto mit Ei|35|Risottoreis:K:100,Erbsen:H:60,Spinat:F:180,Ei:E:100|Zwiebel und Reis andünsten, Bouillon nach und nach zugeben (ca. 18 Min.).~Erbsen und Spinat für die letzten 3 Min. unterrühren.~Mit pochiertem oder Spiegelei servieren.
+Brokkoli-Reis-Pfanne mit Tofu|30|Reis:K:100,Brokkoli:F:200,Tofu:E:110|Reis kochen.~Tofu würfeln und in Öl knusprig braten, herausnehmen.~Brokkoli in Röschen 6 Min. braten, Reis und Tofu zugeben, mit Sojasauce würzen.
+Paella mit Poulet und Gemüse|45|Reis:K:100,Poulet:E:100,Peperoni:F:90,Erbsen:H:50,Tomaten:F:60,Grüne Bohnen:F:60|Poulet in Öl anbraten, Peperoni und Bohnen zugeben.~Reis, Tomaten, Bouillon und Kurkuma zugeben, 20 Min. ohne Rühren garen.~Erbsen kurz vor Schluss unterheben.
+Jambalaya mit Poulet und Peperoni|40|Reis:K:100,Poulet:E:100,Peperoni:F:100,Tomaten:F:80,Sellerie:F:30|Poulet würfeln und anbraten, Gemüse zugeben.~Reis, Tomaten, Cajun-Gewürz und Bouillon zugeben.~Zugedeckt 20 Min. garen.
+Nasi Goreng mit Ei und Gemüse|25|Reis:K:100,Ei:E:100,Chinakohl:F:100,Rüebli:H:60,Grüne Bohnen:F:70|Reis am besten vom Vortag nehmen.~Gemüse in Öl im Wok 5 Min. braten, Reis zugeben.~Mit Sojasauce würzen, Spiegelei darauflegen.
+Reis-Gemüse-Bowl mit Tofu und Erdnusssauce|30|Reis:K:100,Tofu:E:110,Rüebli:H:50,Gurke:F:100,Spinat:F:90|Reis kochen, Tofu knusprig braten.~Erdnussbutter mit Sojasauce, Limette und Wasser zur Sauce rühren.~Alles in einer Schale anrichten.
+Gefüllte Tomaten mit Reis und Hackfleisch|45|Tomaten:F:250,Reis:K:90,Rinderhack:E:100|Tomaten oben abschneiden und aushöhlen.~Reis kochen, mit angebratenem Hack und Tomatenfruchtfleisch mischen und füllen.~25 Min. bei 200 °C backen.
+Kokosreis mit Gemüsecurry und Kichererbsen|35|Reis:K:90,Kichererbsen:L:100,Blumenkohl:F:100,Spinat:F:100|Reis in Wasser mit etwas Kokosmilch garen.~Blumenkohl mit Currypaste anbraten, Kichererbsen zugeben, 10 Min. köcheln.~Spinat unterheben.
+Reis-Gratin mit Brokkoli und Käse|45|Reis:K:100,Brokkoli:F:200,Käse:E:50,Ei:E:50|Reis und Brokkoli vorkochen.~Mit Ei, Käse und Milch mischen und in eine Form geben.~25 Min. bei 200 °C überbacken.
+Pilaw mit Kichererbsen und Gemüse|35|Reis:K:90,Kichererbsen:L:90,Rüebli:H:50,Zucchini:F:150|Zwiebel und Reis in Öl andünsten.~Gemüse, Kichererbsen und Bouillon zugeben.~Zugedeckt 15 Min. garen.
+Frühlingsrollen-Bowl mit Reis und Tofu|30|Reis:K:90,Tofu:E:100,Rüebli:H:50,Chinakohl:F:100,Gurke:F:90|Reis kochen, Tofu braten.~Gemüse in dünne Streifen schneiden.~Mit Sojasauce und Limette in einer Schale anrichten.
+Kürbis-Reis-Auflauf mit Käse|50|Reis:K:100,Kürbis:F:220,Käse:E:50,Ei:E:50|Reis kochen, Kürbis würfeln und 8 Min. dünsten.~Mit Ei und Käse mischen, in eine Form füllen.~25 Min. bei 200 °C backen.
+Linsenreis mit Röstgemüse|40|Reis:K:80,Linsen:L:100,Zucchini:F:120,Peperoni:F:100|Gemüse mit Öl bei 220 °C 20 Min. rösten.~Reis und Linsen zusammen kochen.~Mit dem Gemüse mischen und würzen.
+Curry-Reis mit Poulet und Spinat|30|Reis:K:100,Poulet:E:100,Spinat:F:200|Reis kochen. Poulet in Streifen anbraten.~Currypaste und etwas Kokosmilch zugeben, 5 Min. köcheln.~Spinat unterheben und mit Reis servieren.
+Fenchel-Reispfanne mit Mozzarella|30|Reis:K:100,Fenchel:F:200,Mozzarella:E:100|Reis kochen. Fenchel in Streifen 8 Min. in Öl braten.~Reis zugeben, Mozzarella in Stücken darauf verteilen.~Zugedeckt schmelzen lassen.
+Mangold-Reis-Pfanne mit Ei|30|Reis:K:100,Mangold:F:230,Ei:E:100|Reis kochen. Mangold in Streifen in Öl braten.~Eier verquirlen, zugeben und stocken lassen.~Reis untermischen und würzen.
+Gemüse-Reis-Suppe mit Kichererbsen|35|Reis:K:60,Kichererbsen:L:80,Rüebli:H:60,Lauch:F:100,Sellerie:F:50,Tomaten:F:40|Gemüse würfeln und in Öl andünsten.~Mit Bouillon, Kichererbsen und Reis 18 Min. köcheln.~Abschmecken.
+Gebratener Reis mit Ei und Sojasprossen|20|Reis:K:100,Ei:E:100,Sojasprossen:F:150,Lauch:F:60|Lauch in Öl kurz anbraten, Reis zugeben.~Sprossen zugeben, Eier verquirlen und unterrühren.~Mit Sojasauce würzen.
+Zitronen-Reis mit Poulet und Brokkoli|30|Reis:K:100,Poulet:E:100,Brokkoli:F:200|Reis kochen und mit Zitronenabrieb mischen.~Poulet braten, Brokkoli dämpfen.~Alles zusammen anrichten.
+Reis-Tofu-Curry mit Süsskartoffeln|35|Reis:K:70,Süsskartoffeln:K:30,Tofu:E:110,Spinat:F:100,Peperoni:F:100|Tofu braten, Süsskartoffeln würfeln und in Öl anbraten.~Currypaste, Peperoni und Wasser zugeben, 12 Min. köcheln, Spinat zugeben.~Reis separat kochen.
+Spanischer Reis mit Gemüse und Würstchen|35|Reis:K:100,Bratwurst:E:100,Peperoni:F:100,Tomaten:F:80,Erbsen:H:40|Wurst in Scheiben anbraten, Gemüse zugeben.~Reis, Tomaten und Bouillon zugeben, 15 Min. garen.~Erbsen kurz mitgaren.
+Tomatenreis-Auflauf mit Mozzarella und Zucchini|45|Reis:K:100,Tomaten:F:120,Zucchini:F:100,Mozzarella:E:100|Reis in Tomatensauce kochen.~Mit Zucchini mischen, in eine Form geben und Mozzarella darauflegen.~20 Min. bei 200 °C backen.
+Reis-Wirz-Pfanne mit Hackfleisch|35|Reis:K:100,Wirz:F:230,Rinderhack:E:100|Hack in Öl anbraten, Wirz in Streifen zugeben und 10 Min. braten.~Gekochten Reis untermischen.~Mit Kümmel und Pfeffer würzen.
+Gemüse-Biryani mit Ei|40|Reis:K:100,Ei:E:100,Blumenkohl:F:100,Erbsen:H:50,Rüebli:H:50,Spinat:F:60|Gewürze und Zwiebel in Öl anrösten, Gemüse zugeben.~Reis und Wasser zugeben, 20 Min. zugedeckt garen.~Mit hartgekochten Eiern servieren.
+Poulet-Reis-Pfanne mit Peperoni|30|Reis:K:100,Poulet:E:100,Peperoni:F:150,Zucchini:F:60|Reis kochen. Poulet in Streifen anbraten.~Gemüse zugeben und 8 Min. braten.~Mit Reis mischen.
+Reisauflauf mit Spinat und Feta|45|Reis:K:100,Spinat:F:200,Feta:E:60,Ei:E:40|Reis kochen, Spinat dünsten.~Alles mit Ei und Feta mischen und in eine Form geben.~25 Min. bei 200 °C backen.
+Asiatische Reissuppe mit Gemüse und Ei|25|Reis:K:70,Ei:E:100,Pak Choi:F:130,Rüebli:H:50,Chinakohl:F:80|Gemüse in Bouillon 8 Min. kochen, Reis zugeben.~Ei verquirlen und in die siedende Suppe giessen.~Mit Sojasauce abschmecken.
+Gefüllte Auberginen mit Reis und Hack|50|Auberginen:F:250,Reis:K:90,Rinderhack:E:100|Auberginen halbieren und aushöhlen, kurz anbraten.~Mit Reis und Hack mischen und füllen.~25 Min. bei 200 °C backen.
+Reis mit Tomaten-Linsen-Sauce|30|Reis:K:90,Linsen:L:100,Tomaten:F:150,Zucchini:F:60|Linsen und Tomaten mit Zwiebel und Gewürzen 15 Min. köcheln.~Zucchini zugeben.~Mit Reis servieren.
+Bunte Reisbowl mit Hüttenkäse|20|Reis:K:90,Hüttenkäse:E:110,Gurke:F:90,Tomaten:F:90,Peperoni:F:50|Reis kochen und abkühlen lassen.~Gemüse würfeln.~Mit Hüttenkäse und Reis anrichten.
+Teriyaki-Poulet mit Reis und Brokkoli|30|Reis:K:100,Poulet:E:100,Brokkoli:F:200|Reis kochen.~Poulet mit Sojasauce, Honig und Ingwer 6 Min. braten.~Brokkoli dämpfen, alles anrichten.
+Reis-Zucchini-Küchlein mit Joghurt|35|Reis:K:90,Zucchini:F:200,Ei:E:60,Joghurt:E:50|Reis kochen, Zucchini raffeln und ausdrücken.~Mit Ei und Kräutern mischen, zu Küchlein formen.~Braten und mit Joghurt servieren.
+Rote-Bete-Risotto mit Ziegenkäse|40|Risottoreis:K:70,Randen:H:60,Spinat:F:170,Ziegenkäse:E:100|Reis und Zwiebel andünsten, geraspelte Randen zugeben.~Mit Bouillon nach und nach aufgiessen (18 Min.).~Spinat unterrühren, Ziegenkäse darüber verteilen.
+Poulet-Reis-Pfanne mit Mais und Bohnen|35|Reis:K:90,Poulet:E:100,Grüne Bohnen:F:150,Peperoni:F:70,Mais:K:20|Poulet anbraten, Gemüse zugeben.~Reis kochen und untermischen.~Mit Paprika würzen.
+Reis-Linsen-Suppe mit Spinat|35|Reis:K:60,Linsen:L:90,Spinat:F:150,Tomaten:F:50,Rüebli:H:40|Zwiebel und Gemüse andünsten.~Linsen, Reis und Bouillon zugeben, 20 Min. köcheln.~Spinat unterheben.
+Gemüsereis mit Tofu|30|Reis:K:90,Tofu:E:100,Zucchini:F:100,Peperoni:F:90,Rüebli:H:30|Reis kochen.~Tofu braten, Gemüse im Wok 6 Min. braten.~Mit Sojasauce mischen.
+Zwiebelreis mit Spiegelei und Gurkensalat|25|Reis:K:100,Zwiebel:F:80,Ei:E:110,Gurke:F:130|Zwiebeln in Öl goldbraun braten, Reis zugeben.~Spiegeleier braten.~Mit Gurkensalat servieren.
+Rotkohl-Reispfanne mit Poulet|35|Reis:K:100,Rotkohl:F:220,Poulet:E:100|Poulet braten, Rotkohl in Streifen 10 Min. mitbraten.~Reis kochen und untermischen.~Mit Essig und Pfeffer würzen.
+Spinat-Reis-Bällchen mit Tomatensauce|40|Reis:K:90,Spinat:F:100,Ei:E:50,Käse:E:40,Tomaten:F:100|Reis kochen, mit Spinat, Ei und Käse mischen, Bällchen formen.~Im Ofen bei 200 °C 20 Min. backen.~Mit Tomatensauce servieren.
+Bibimbap-Bowl mit Ei und Gemüse|30|Reis:K:100,Ei:E:100,Spinat:F:100,Rüebli:H:50,Sojasprossen:F:100|Reis kochen.~Spinat, Rüebli und Sprossen getrennt kurz anbraten oder blanchieren und würzen.~Mit Spiegelei auf dem Reis anrichten.
+Linsen-Reis-Gemüse-Pfanne mit Joghurt|30|Reis:K:80,Linsen:L:80,Joghurt:E:30,Zucchini:F:130,Tomaten:F:60|Reis und Linsen kochen.~Zucchini und Tomaten in Öl braten.~Alles mischen, Joghurt dazu.
+Gefüllte Peperoni mit Reis, Mais und Käse|45|Peperoni:F:250,Reis:K:90,Käse:E:50,Bohnen:L:50|Reis kochen und mit Bohnen und Käse mischen.~Peperoni füllen.~25 Min. bei 200 °C backen.
+Griechischer Reis mit Spinat und Feta (Spanakorizo)|35|Reis:K:90,Spinat:F:250,Feta:E:100|Zwiebel in Öl andünsten, Reis zugeben.~Mit Wasser und Zitronensaft 12 Min. garen, Spinat unterheben.~Feta darüberbröseln.
+Tomatenreis mit Ei und Zucchini|30|Reis:K:100,Tomaten:F:120,Zucchini:F:100,Ei:E:100|Reis in Tomatenpassata garen.~Zucchini in Öl braten, untermischen.~Spiegel- oder Rührei darauf servieren.
+Schweinefleisch-Reispfanne mit Kohl|35|Reis:K:100,Schweinefleisch:E:100,Weisskohl:F:220|Fleisch in Streifen anbraten, Kohl 8 Min. mitbraten.~Reis kochen und untermischen.~Mit Sojasauce würzen.
+Reis-Quinoa-Bowl mit Edamame und Gurke|25|Reis:K:50,Quinoa:K:40,Edamame:L:100,Gurke:F:100,Rüebli:H:40,Spinat:F:90|Reis und Quinoa kochen.~Edamame 3 Min. garen.~Mit Gemüse in einer Schale anrichten.
+Chili-con-Pollo mit Reis|40|Poulet:E:70,Kidneybohnen:L:30,Reis:K:90,Peperoni:F:100,Tomaten:F:100|Poulet würfeln und anbraten, Peperoni und Zwiebel zugeben.~Tomaten, Bohnen und Gewürze zugeben, 20 Min. köcheln.~Mit Reis servieren.
+Gemüse-Risotto mit Rüebli und Lauch|40|Risottoreis:K:100,Rüebli:H:60,Lauch:F:130,Zucchini:F:80,Parmesan:E:20,Ei:E:80|Gemüse würfeln, Reis und Zwiebel andünsten.~Mit Bouillon nach und nach aufgiessen (18 Min.), Gemüse zugeben.~Mit Parmesan und weichem Ei servieren.
+Reiskuchen mit Gemüse und Kräuterquark|45|Reis:K:90,Ei:E:50,Quark:E:50,Brokkoli:F:100,Zucchini:F:100|Reis kochen, mit Ei und geraffeltem Gemüse mischen.~Fladen formen und im Ofen bei 200 °C 20 Min. backen.~Mit Quark servieren.
+Poulet-Curry mit Peperoni und Spinat auf Reis|30|Poulet:E:100,Reis:K:100,Peperoni:F:130,Zwiebel:F:20,Spinat:F:50|Reis kochen.~Poulet mit Zwiebel anbraten, Currypaste und Peperoni zugeben.~Spinat zugeben und 5 Min. köcheln.
+Mexikanischer Reis mit Poulet und Bohnen|35|Reis:K:90,Poulet:E:80,Kidneybohnen:L:30,Tomaten:F:120,Peperoni:F:70|Poulet anbraten, Reis zugeben.~Tomaten, Peperoni und Bohnen zugeben, mit Wasser 15 Min. garen.~Mit Koriander oder Petersilie bestreuen.
+Reisbällchen (Arancini light) mit Salat|45|Reis:K:90,Mozzarella:E:50,Ei:E:50,Blattsalat:F:100,Tomaten:F:100|Reis kochen, mit Ei mischen, Bällchen mit Mozzarellastückchen füllen.~Im Ofen bei 200 °C 20 Min. backen.~Mit Salat und Tomaten servieren.
+Spinatreis mit Joghurt-Gurken-Sauce und Kichererbsen|30|Reis:K:90,Spinat:F:130,Kichererbsen:L:100,Gurke:F:80,Joghurt:E:10|Reis mit Spinat zusammen kochen.~Kichererbsen in Öl rösten.~Joghurt mit Gurke und Minze mischen.
+Sellerie-Rüebli-Risotto mit Käse|40|Risottoreis:K:100,Sellerie:F:100,Rüebli:H:60,Lauch:F:90,Käse:E:100|Gemüse klein würfeln und andünsten, Reis zugeben.~Bouillon nach und nach aufgiessen, 18 Min.~Mit Käse verfeinern.
+Hirtenreis mit Peperoni und Feta|30|Reis:K:100,Peperoni:F:180,Tomaten:F:60,Feta:E:100|Reis kochen.~Peperoni und Tomaten in Öl 8 Min. braten.~Reis untermischen, Feta darüber.
+Reis-Eier-Muffins mit Gemüse|35|Reis:K:90,Ei:E:100,Zucchini:F:100,Spinat:F:80,Peperoni:F:40|Reis kochen, mit Ei, Gemüse und Kräutern mischen.~In Muffinförmchen füllen.~20 Min. bei 190 °C backen.
+Thai-Basilikum-Poulet mit Reis|25|Poulet:E:100,Reis:K:100,Peperoni:F:100,Grüne Bohnen:F:100|Reis kochen.~Poulet mit Knoblauch im Wok anbraten, Bohnen und Peperoni zugeben.~Mit Sojasauce und Basilikum abschmecken.
+Gemüse-Kokos-Reis mit Linsen|35|Reis:K:90,Linsen:L:90,Blumenkohl:F:100,Spinat:F:100|Reis in Kokosmilch und Wasser garen.~Linsen mit Currypaste und Blumenkohl 15 Min. köcheln.~Spinat zugeben, zusammen servieren.
+Reispfanne mit Rindfleisch und Brokkoli|30|Reis:K:100,Rindfleisch:E:100,Brokkoli:F:200|Rindfleisch in Streifen scharf anbraten.~Brokkoli zugeben, 6 Min. braten.~Reis kochen und untermischen, mit Sojasauce würzen.
+Peperoni-Reis-Suppe mit Ei|30|Reis:K:70,Peperoni:F:150,Tomaten:F:80,Ei:E:100|Peperoni und Tomaten in Bouillon 10 Min. kochen.~Reis zugeben, 10 Min. garen.~Verquirltes Ei einrühren.
+Türkische Gemüse-Reispfanne mit Joghurt|35|Reis:K:90,Peperoni:F:100,Tomaten:F:100,Zucchini:F:50,Joghurt:E:100|Gemüse in Öl braten, Reis und Tomaten zugeben.~Mit Wasser 15 Min. garen.~Mit Joghurt servieren.
+Reis-Spinat-Frittata|35|Reis:K:90,Spinat:F:200,Ei:E:100|Reis kochen, Spinat dünsten.~Mit Ei mischen und in der Pfanne zugedeckt 10 Min. stocken lassen.~Mit Salat servieren.
+Poulet-Brokkoli-Reis-Auflauf|45|Reis:K:90,Poulet:E:100,Brokkoli:F:200|Reis, Poulet und Brokkoli vorbereiten.~Mit Sauce aus Milch, Ei und Käse in eine Form geben.~25 Min. bei 200 °C backen.
+Indische Reispfanne mit Kichererbsen und Spinat|30|Reis:K:90,Kichererbsen:L:100,Spinat:F:150,Tomaten:F:50|Reis kochen.~Kichererbsen mit Gewürzen in Öl rösten, Tomaten und Spinat zugeben.~Mit Reis mischen.
+Reis-Wrap-Bowl mit Rührei|20|Reis:K:90,Ei:E:100,Gurke:F:100,Tomaten:F:100|Reis kochen.~Rührei braten.~Mit Gemüse anrichten.
+Zitronen-Reis mit Zucchini und Feta|30|Reis:K:100,Zucchini:F:220,Feta:E:100|Reis kochen und mit Zitrone mischen.~Zucchini in Öl braten.~Feta darüberbröseln.
+Brokkoli-Käse-Reispfanne|25|Reis:K:100,Brokkoli:F:200,Käse:E:60,Ei:E:40|Reis kochen, Brokkoli dämpfen.~In der Pfanne mit Ei zusammenrühren.~Käse darüber schmelzen lassen.
+Hackfleisch-Reis-Auflauf mit Tomaten|50|Reis:K:90,Rinderhack:E:100,Tomaten:F:130,Zucchini:F:80|Hack anbraten, mit Tomaten und Zucchini köcheln.~Mit gekochtem Reis in eine Form schichten.~20 Min. bei 200 °C backen.
+Wirsing-Reis-Rouladen|55|Wirz:F:200,Reis:K:90,Rinderhack:E:100|Wirzblätter blanchieren.~Hack mit Reis mischen, einrollen.~In Tomatensauce 30 Min. schmoren.
+Roter Reis mit Randen und Feta|35|Reis:K:90,Randen:H:100,Spinat:F:130,Feta:E:100|Reis kochen.~Randen würfeln und in Öl braten.~Mit Spinat und Feta mischen.
+Gemüsepaella mit Kichererbsen|40|Reis:K:90,Kichererbsen:L:100,Peperoni:F:100,Tomaten:F:60,Grüne Bohnen:F:50|Gemüse in Öl braten, Reis und Kurkuma zugeben.~Bouillon und Kichererbsen zugeben, 20 Min. garen.~Abschmecken.
+Chinakohl-Reis-Rolle mit Tofu|40|Chinakohl:F:200,Reis:K:90,Tofu:E:110|Kohlblätter blanchieren.~Tofu zerbröseln, mit Reis mischen und einrollen.~In Bouillon 15 Min. dämpfen.
+Reissalat-Pfanne warm mit Poulet|30|Reis:K:90,Poulet:E:100,Gurke:F:80,Tomaten:F:80,Peperoni:F:60|Reis kochen und abtropfen lassen.~Poulet braten, Gemüse würfeln.~Alles mit Zitronensaft und Öl mischen.
+Reis-Gemüse-Burger mit Salat|40|Reis:K:80,Ei:E:50,Käse:E:50,Rüebli:H:50,Blattsalat:F:140|Reis, Ei, geraffeltes Gemüse und Käse mischen, zu Burgern formen.~In Öl 4 Min. pro Seite braten.~Mit Salat servieren.
+Süsskartoffel-Reis-Pfanne mit Kichererbsen|35|Reis:K:70,Süsskartoffeln:K:30,Kichererbsen:L:100,Spinat:F:150,Peperoni:F:50|Süsskartoffeln in Öl braten, Peperoni zugeben.~Kichererbsen und Reis zugeben.~Spinat unterheben.
+Reis-Tomaten-Suppe mit Mozzarella|30|Reis:K:70,Tomaten:F:200,Zucchini:F:50,Mozzarella:E:100|Tomaten und Zucchini in Bouillon 10 Min. kochen.~Reis zugeben, 10 Min. garen.~Mozzarella in Stücken zugeben.
+Poulet-Fenchel-Reis|35|Poulet:E:100,Reis:K:100,Fenchel:F:200|Poulet anbraten, Fenchel in Streifen zugeben.~Reis kochen.~Zusammen mit Zitrone abschmecken.
+Ei-Gemüse-Reis-Wok|25|Reis:K:100,Ei:E:100,Brokkoli:F:100,Peperoni:F:100|Gemüse im Wok 6 Min. braten.~Reis und Ei zugeben, rührend stocken lassen.~Mit Sojasauce würzen.
 
 ## Mit Kartoffeln
-Ofenkartoffeln mit Quark und Gemüse|40|Kartoffeln:K:90,Quark:E:110,Gurke:F:120,Tomaten:F:80,Rüebli:H:40|Kartoffeln halbieren und bei 200 °C 30 Min. backen. Quark mit Kräutern und Salz anrühren. Gurke, Tomaten und Rüebli als Rohkost dazu.
-Kartoffel-Lauch-Gratin mit Schinken|45|Kartoffeln:K:110,Lauch:F:220,Schinken:E:70,Käse:E:30|Kartoffeln in Scheiben vorkochen und mit Lauch und Schinken in eine Form schichten. Mit Milch-Rahm-Mischung und Käse 25 Min. bei 200 °C überbacken.
-Kartoffel-Spinat-Gratin|45|Kartoffeln:K:110,Spinat:F:220,Ei:E:60,Käse:E:40|Kartoffelscheiben vorkochen und mit Spinat schichten. Ei mit Milch verquirlen, darübergiessen, mit Käse bestreuen und 25 Min. bei 200 °C backen.
-Pellkartoffeln mit Kräuterquark und Salat|30|Kartoffeln:K:120,Quark:E:110,Blattsalat:F:100,Gurke:F:60,Tomaten:F:40|Kartoffeln mit Schale 20–25 Min. kochen. Quark mit Kräutern anrühren. Blattsalat, Gurke und Tomaten anmachen.
-Rösti mit Spiegelei und Spinat|30|Kartoffeln:K:110,Ei:E:110,Spinat:F:200|Kartoffeln raffeln, würzen und in der Pfanne knusprig braten (ca. 15 Min.). Spinat dünsten, Spiegelei braten und alles anrichten.
-Kartoffel-Bohnen-Eintopf|40|Kartoffeln:K:100,Grüne Bohnen:F:150,Lauch:F:50,Kidneybohnen:L:100|Kartoffeln würfeln und mit grünen Bohnen und Lauch in Bouillon 15 Min. kochen. Kidneybohnen zugeben, 5 Min. ziehen lassen und mit Bohnenkraut abschmecken.
-Kartoffel-Brokkoli-Auflauf|45|Kartoffeln:K:110,Brokkoli:F:200,Käse:E:60,Ei:E:40|Kartoffeln vorkochen und in Scheiben schneiden, Brokkoli 3 Min. blanchieren. Mit Käse und Ei-Milch-Guss in eine Form geben und 25 Min. bei 200 °C backen.
-Ofengemüse mit Kartoffeln und Feta|40|Kartoffeln:K:110,Zucchini:F:100,Peperoni:F:80,Tomaten:F:40,Feta:E:90|Kartoffeln und Gemüse würfeln, mit Öl und Kräutern auf ein Blech geben und 30 Min. bei 220 °C rösten. Feta zerbröseln und in den letzten 5 Min. darübergeben.
-Kartoffelsuppe mit Lauch und Rüebli, dazu Quark-Dip|35|Kartoffeln:K:100,Lauch:F:150,Rüebli:H:80,Sellerie:F:30,Quark:E:100|Kartoffeln, Lauch, Rüebli und Sellerie in Bouillon 20 Min. kochen und teilweise pürieren. Quark mit Kräutern als Dip separat servieren.
-Bratkartoffeln mit Poulet und Salat|30|Kartoffeln:K:110,Poulet:E:100,Blattsalat:F:100,Gurke:F:60,Tomaten:F:50|Kartoffeln vorkochen und in Scheiben knusprig braten. Poulet in Streifen anbraten. Salat anmachen und alles zusammen servieren.
-Kartoffel-Randen-Salat mit Ei|30|Kartoffeln:K:70,Randen:H:100,Ei:E:100,Gurke:F:100,Blattsalat:F:50|Kartoffeln und Eier kochen. Vorgekochte Randen und Gurke schneiden. Mit Essig, Öl und Senf anmachen, Eier dazugeben.
+Ofenkartoffeln mit Quark und Gemüse|40|Kartoffeln:K:90,Quark:E:110,Gurke:F:120,Tomaten:F:80,Rüebli:H:40|Ofen auf 200 °C vorheizen. Kartoffeln gut waschen, halbieren, mit Öl und Salz bestreichen und 30 Min. backen.~Quark mit Kräutern, Salz, Pfeffer und etwas Zitronensaft glatt rühren.~Gurke, Tomaten und Rüebli in Stücke bzw. Stifte schneiden.~Kartoffeln mit dem Quark und der Rohkost anrichten.
+Kartoffel-Lauch-Gratin mit Schinken|45|Kartoffeln:K:110,Lauch:F:220,Schinken:E:70,Käse:E:30|Ofen auf 200 °C vorheizen. Kartoffeln schälen, in Scheiben schneiden und 5 Min. in Salzwasser vorkochen.~Lauch in Ringe schneiden und kurz andünsten.~Kartoffeln, Lauch und gewürfelten Schinken in eine gefettete Form schichten.~Milch und Rahm mit Salz, Pfeffer und Muskat verrühren, darübergiessen und mit Käse bestreuen.~25 Min. backen, bis die Oberfläche goldbraun ist.
+Kartoffel-Spinat-Gratin|45|Kartoffeln:K:110,Spinat:F:220,Ei:E:60,Käse:E:40|Ofen auf 200 °C vorheizen. Kartoffeln in Scheiben schneiden und 5 Min. vorkochen.~Spinat kurz andünsten und gut ausdrücken.~Kartoffeln und Spinat in eine gefettete Form schichten.~Eier mit Milch, Salz, Pfeffer und Muskat verquirlen, darübergiessen, mit Käse bestreuen.~25 Min. backen.
+Pellkartoffeln mit Kräuterquark und Salat|30|Kartoffeln:K:120,Quark:E:110,Blattsalat:F:100,Gurke:F:60,Tomaten:F:40|Kartoffeln waschen und mit der Schale in Salzwasser 20–25 Min. kochen, bis ein Messer leicht eindringt.~Quark mit gehackten Kräutern, Salz, Pfeffer und etwas Zitronensaft verrühren.~Blattsalat waschen, Gurke und Tomaten schneiden und mit Essig und Öl anmachen.~Kartoffeln pellen und mit Quark und Salat servieren.
+Rösti mit Spiegelei und Spinat|30|Kartoffeln:K:110,Ei:E:110,Spinat:F:200|Kartoffeln schälen und raffeln, Wasser ausdrücken, mit Salz und Pfeffer würzen.~In einer Pfanne mit Öl zu einem flachen Fladen formen und 6–7 Min. pro Seite knusprig braten.~Spinat in einer zweiten Pfanne kurz dünsten und würzen.~Spiegeleier braten und mit dem Spinat auf dem Rösti anrichten.
+Kartoffel-Bohnen-Eintopf|40|Kartoffeln:K:100,Grüne Bohnen:F:150,Lauch:F:50,Kidneybohnen:L:100|Kartoffeln schälen und würfeln, Lauch in Ringe und grüne Bohnen in Stücke schneiden.~Lauch in Öl andünsten, Kartoffeln und Bohnen zugeben und mit Bouillon bedecken.~15 Min. köcheln, bis das Gemüse weich ist.~Abgespülte Kidneybohnen zugeben, 5 Min. ziehen lassen und mit Bohnenkraut, Salz und Pfeffer abschmecken.
+Kartoffel-Brokkoli-Auflauf|45|Kartoffeln:K:110,Brokkoli:F:200,Käse:E:60,Ei:E:40|Ofen auf 200 °C vorheizen. Kartoffeln kochen, schälen und in Scheiben schneiden.~Brokkoli in Röschen teilen und 3 Min. blanchieren.~Beides in eine gefettete Form geben, mit der Hälfte des Käses bestreuen.~Ei mit Milch, Salz, Pfeffer und Muskat verquirlen, darübergiessen, restlichen Käse darüberstreuen.~25 Min. goldbraun backen.
+Ofengemüse mit Kartoffeln und Feta|40|Kartoffeln:K:110,Zucchini:F:100,Peperoni:F:80,Tomaten:F:40,Feta:E:90|Ofen auf 220 °C vorheizen. Kartoffeln, Zucchini und Peperoni in Stücke schneiden.~Mit Öl, Salz, Pfeffer und Kräutern mischen und auf einem Blech verteilen. 30 Min. rösten, einmal wenden.~Tomaten zugeben. Feta zerbröseln und die letzten 5 Min. mitbacken.~Warm servieren.
+Kartoffelsuppe mit Lauch und Rüebli, dazu Quark-Dip|35|Kartoffeln:K:100,Lauch:F:150,Rüebli:H:80,Sellerie:F:30,Quark:E:100|Kartoffeln, Rüebli und Sellerie schälen und würfeln, Lauch in Ringe schneiden.~Gemüse in Öl 5 Min. andünsten, mit Bouillon aufgiessen.~20 Min. köcheln, bis alles weich ist, und die Suppe teilweise pürieren, damit sie sämig, aber stückig bleibt.~Quark mit Kräutern, Salz und Zitronensaft zu einem Dip verrühren und dazu servieren.
+Bratkartoffeln mit Poulet und Salat|30|Kartoffeln:K:110,Poulet:E:100,Blattsalat:F:100,Gurke:F:60,Tomaten:F:50|Kartoffeln in der Schale 15 Min. vorkochen, abkühlen lassen und in Scheiben schneiden.~In einer grossen Pfanne mit Öl 12–15 Min. knusprig braten, würzen.~Poulet in Streifen schneiden, würzen und separat 5 Min. anbraten.~Blattsalat, Gurke und Tomaten mit Essig und Öl anmachen. Alles zusammen servieren.
+Kartoffel-Randen-Salat mit Ei|30|Kartoffeln:K:70,Randen:H:100,Ei:E:100,Gurke:F:100,Blattsalat:F:50|Kartoffeln in Salzwasser 15–20 Min. kochen, Eier 9 Min. hart kochen.~Kartoffeln pellen und in Scheiben schneiden, Randen (vorgekocht) und Gurke würfeln.~Aus Essig, Öl, Senf, Salz und Pfeffer ein Dressing rühren und mit Kartoffeln, Randen, Gurke und Blattsalat mischen.~Eier halbieren und darauflegen.
+Kartoffelgratin mit Brokkoli und Schinken|50|Kartoffeln:K:110,Brokkoli:F:200,Schinken:E:70,Käse:E:30|Kartoffelscheiben 5 Min. vorkochen, Brokkoli blanchieren.~Mit Schinkenwürfeln in eine Form schichten, Milch-Rahm-Guss und Käse darüber.~25 Min. bei 200 °C backen.
+Süsskartoffel-Curry mit Kichererbsen und Spinat|35|Süsskartoffeln:K:110,Kichererbsen:L:100,Spinat:F:150,Tomaten:F:60|Süsskartoffeln würfeln und mit Zwiebel in Öl anbraten.~Currypaste, Tomaten und Kichererbsen zugeben, 15 Min. köcheln.~Spinat unterheben.
+Gefüllte Ofenkartoffeln mit Quark und Brokkoli|50|Kartoffeln:K:110,Quark:E:110,Brokkoli:F:200|Kartoffeln bei 200 °C 40 Min. backen.~Brokkoli dämpfen und mit Quark und Kräutern mischen.~Kartoffeln aufschneiden und füllen.
+Kartoffel-Zucchini-Gratin mit Feta|45|Kartoffeln:K:110,Zucchini:F:200,Feta:E:100|Kartoffel- und Zucchinischeiben in eine Form schichten.~Mit Milch, Kräutern und Feta überbacken.~35 Min. bei 200 °C.
+Kartoffel-Kürbis-Eintopf mit Bohnen|40|Kartoffeln:K:100,Kürbis:F:150,Kidneybohnen:L:100,Lauch:F:60|Gemüse würfeln und in Öl andünsten.~Bohnen und Bouillon zugeben.~20 Min. köcheln.
+Kartoffelpuffer mit Quark und Salat|40|Kartoffeln:K:110,Ei:E:50,Quark:E:60,Blattsalat:F:140,Gurke:F:70|Kartoffeln raffeln, ausdrücken, mit Ei mischen.~In Öl flach ausbraten.~Mit Quark und Salat servieren.
+Gnocchi mit Tomaten-Spinat-Sauce|30|Gnocchi:K:120,Tomaten:F:150,Spinat:F:100,Mozzarella:E:100|Tomaten mit Zwiebel 10 Min. köcheln, Spinat zugeben.~Gnocchi in Salzwasser garen, bis sie oben schwimmen.~Mit der Sauce mischen, Mozzarella darauf schmelzen.
+Gnocchi-Gemüse-Pfanne mit Poulet|35|Gnocchi:K:110,Poulet:E:100,Zucchini:F:120,Peperoni:F:90|Poulet und Gemüse in Öl anbraten.~Gnocchi kochen und zugeben.~Mit Kräutern abschmecken.
+Älplermagronen light mit Brokkoli|45|Kartoffeln:K:60,Nudeln:K:40,Käse:E:50,Ei:E:40,Zwiebel:F:30,Brokkoli:F:170|Kartoffeln und Nudeln zusammen kochen.~Mit Käse, Ei und Zwiebel gemischt überbacken.~Brokkoli dazu servieren.
+Kartoffelstock mit Rahmspinat und Spiegelei|30|Kartoffeln:K:110,Spinat:F:220,Ei:E:110|Kartoffeln kochen und stampfen.~Spinat dünsten.~Spiegeleier braten und anrichten.
+Ofenkartoffeln mit Hummus und Gemüse|45|Kartoffeln:K:110,Kichererbsen:L:100,Gurke:F:100,Tomaten:F:100|Kartoffeln bei 200 °C 40 Min. backen.~Hummus mixen.~Mit Rohkost servieren.
+Kartoffel-Lauch-Suppe mit Ei|35|Kartoffeln:K:100,Lauch:F:220,Ei:E:100|Kartoffelwürfel mit Lauch in Bouillon 20 Min. kochen.~Teilweise pürieren.~Mit halbierten Eiern servieren.
+Bratkartoffeln mit Spiegelei und Gurkensalat|30|Kartoffeln:K:110,Ei:E:110,Gurke:F:150,Blattsalat:F:60|Kartoffeln vorkochen, in Scheiben braten.~Spiegeleier braten.~Gurkensalat mit Joghurtdressing dazu.
+Kartoffel-Tortilla mit Zucchini|35|Kartoffeln:K:100,Ei:E:110,Zucchini:F:150,Zwiebel:F:30|Kartoffeln und Zucchini in Scheiben in Öl braten.~Eier darübergiessen, stocken lassen.~Wenden und fertig backen.
+Rösti mit Käse und Tomatensalat|35|Kartoffeln:K:110,Käse:E:90,Tomaten:F:120,Blattsalat:F:100|Kartoffeln raffeln, zu Rösti formen und knusprig braten.~Käse auf die Rösti geben und schmelzen.~Mit Salat servieren.
+Kartoffelsalat mit Ei und Radieschen|35|Kartoffeln:K:110,Ei:E:100,Radieschen:F:80,Gurke:F:100,Blattsalat:F:30|Kartoffeln kochen, in Scheiben schneiden.~Mit Essig-Öl-Dressing mischen.~Mit Ei und Gemüse anrichten.
+Kartoffel-Linsen-Eintopf|40|Kartoffeln:K:80,Linsen:L:100,Rüebli:H:50,Sellerie:F:80,Lauch:F:120|Gemüse würfeln und andünsten.~Linsen und Bouillon zugeben.~25 Min. köcheln.
+Kartoffel-Spinat-Curry|35|Kartoffeln:K:110,Spinat:F:200,Joghurt:E:100|Kartoffeln würfeln und in Öl mit Gewürzen anbraten.~Wenig Wasser zugeben und 12 Min. garen.~Spinat zugeben und mit Joghurt servieren.
+Schweizer Käse-Kartoffelpfanne mit Gemüse|35|Kartoffeln:K:110,Käse:E:70,Zucchini:F:120,Peperoni:F:80|Kartoffeln vorkochen und würfeln.~Mit Gemüse braten.~Käse darüber schmelzen lassen.
+Ofenkartoffeln mit Kräuterquark und Rüeblisalat|45|Kartoffeln:K:100,Quark:E:110,Rüebli:H:60,Blattsalat:F:150|Kartoffeln backen.~Quark mit Kräutern mischen.~Rüebli raffeln, Salat anmachen.
+Kartoffel-Wirz-Pfanne mit Wienerli|35|Kartoffeln:K:110,Wirz:F:220,Wienerli:E:100|Kartoffeln vorkochen und würfeln.~Wirz in Streifen braten.~Wienerli in Scheiben dazu, alles mischen.
+Gefüllte Süsskartoffeln mit schwarzen Bohnen|50|Süsskartoffeln:K:110,Schwarze Bohnen:L:100,Tomaten:F:100,Peperoni:F:100|Süsskartoffeln bei 200 °C 40 Min. backen.~Bohnen mit Gemüse und Gewürzen erwärmen.~Süsskartoffeln füllen.
+Kartoffelgulasch mit Peperoni und Quark|40|Kartoffeln:K:110,Peperoni:F:150,Tomaten:F:70,Quark:E:110|Kartoffeln und Peperoni würfeln, mit Zwiebel und Paprika in Öl anbraten.~Tomaten und Wasser zugeben, 20 Min. köcheln.~Mit Quark servieren.
+Kartoffel-Fenchel-Gratin|50|Kartoffeln:K:110,Fenchel:F:200,Käse:E:60,Ei:E:40|Kartoffeln und Fenchel in Scheiben schichten.~Mit Ei-Milch-Guss und Käse übergiessen.~35 Min. bei 200 °C backen.
+Kartoffel-Rüebli-Stampf mit Spiegelei|30|Kartoffeln:K:80,Rüebli:H:80,Ei:E:110,Spinat:F:180|Kartoffeln und Rüebli kochen und stampfen.~Spinat dünsten.~Mit Spiegelei servieren.
+Pellkartoffeln mit Hüttenkäse und Gemüse|35|Kartoffeln:K:110,Hüttenkäse:E:110,Gurke:F:100,Tomaten:F:100|Kartoffeln mit Schale kochen.~Gemüse schneiden.~Mit Hüttenkäse servieren.
+Kartoffel-Blumenkohl-Curry|35|Kartoffeln:K:110,Blumenkohl:F:200,Kichererbsen:L:100|Kartoffeln und Blumenkohl in Öl mit Currypaste anbraten.~Kichererbsen und Wasser zugeben.~15 Min. köcheln.
+Röstkartoffeln mit Ofengemüse und Halloumi|45|Kartoffeln:K:110,Zucchini:F:100,Peperoni:F:100,Halloumi:E:90|Kartoffeln und Gemüse bei 220 °C 30 Min. rösten.~Halloumi in Scheiben anbraten.~Zusammen anrichten.
+Kartoffelsuppe mit Poulet und Gemüse|40|Kartoffeln:K:100,Poulet:E:100,Rüebli:H:50,Lauch:F:140|Gemüse würfeln und in Bouillon 15 Min. kochen.~Poulet zugeben, 10 Min. garen und zerzupfen.~Abschmecken.
+Kartoffelrösti mit Spinat-Ei|30|Kartoffeln:K:110,Ei:E:110,Spinat:F:200|Rösti braten.~Spinat dünsten, Ei einrühren.~Auf dem Rösti anrichten.
+Kartoffelnudeln mit Rahmgemüse|35|Kartoffelnudeln:K:110,Zucchini:F:120,Rüebli:H:40,Käse:E:60,Quark:E:40,Spinat:F:80|Nudeln in Salzwasser garen.~Gemüse in Öl dünsten, mit Quark binden.~Mit Käse servieren.
+Kartoffel-Linsen-Salat warm|35|Kartoffeln:K:100,Linsen:L:100,Gurke:F:100,Tomaten:F:100|Kartoffeln kochen und würfeln.~Linsen kochen.~Mit Gemüse und Dressing mischen.
+Ofenkartoffeln mit Kidneybohnen und Käse|50|Kartoffeln:K:110,Kidneybohnen:L:70,Käse:E:30,Tomaten:F:120,Peperoni:F:80|Kartoffeln backen.~Bohnen mit Tomaten und Peperoni köcheln.~Kartoffeln füllen, Käse darüber.
+Frühlingsgratin mit Kartoffeln, Lauch und Erbsen|50|Kartoffeln:K:110,Lauch:F:130,Erbsen:H:60,Spinat:F:60,Käse:E:50,Ei:E:50|Kartoffelscheiben vorkochen.~Mit Gemüse in eine Form schichten.~Mit Ei-Milch-Guss backen.
+Kartoffelgratin mit Weisskohl|50|Kartoffeln:K:110,Weisskohl:F:220,Käse:E:60,Ei:E:40|Kohl blanchieren.~Mit Kartoffelscheiben schichten.~Mit Guss und Käse backen.
+Bratkartoffeln mit Gemüse und Tofu|35|Kartoffeln:K:110,Tofu:E:110,Zucchini:F:120,Peperoni:F:90|Kartoffeln vorkochen und braten.~Tofu würfeln und knusprig braten.~Gemüse zugeben.
+Hasselback-Kartoffeln mit Quark-Dip und Salat|50|Kartoffeln:K:110,Quark:E:110,Blattsalat:F:120,Tomaten:F:90|Kartoffeln fächerförmig einschneiden, mit Öl bepinseln.~Bei 200 °C 40 Min. backen.~Mit Dip und Salat servieren.
+Kartoffel-Pfanne mit Hackfleisch und Zucchini|35|Kartoffeln:K:110,Rinderhack:E:100,Zucchini:F:200|Kartoffeln würfeln und vorkochen.~Hack anbraten, Zucchini zugeben.~Kartoffeln unterheben.
+Kartoffel-Auflauf mit Spinat und Ricotta|50|Kartoffeln:K:110,Spinat:F:200,Ricotta:E:100|Kartoffelscheiben vorkochen.~Mit Spinat und Ricotta schichten.~25 Min. bei 200 °C backen.
+Kartoffel-Zucchini-Puffer mit Joghurt-Dip|35|Kartoffeln:K:110,Zucchini:F:200,Ei:E:60,Joghurt:E:50|Kartoffeln und Zucchini raffeln, ausdrücken und mit Ei mischen.~In Öl 3 Min. pro Seite goldbraun braten.~Mit Joghurt-Dip servieren.
+Kartoffel-Kürbis-Gratin|50|Kartoffeln:K:100,Kürbis:F:200,Käse:E:60,Ei:E:40|Kartoffel- und Kürbisscheiben schichten.~Mit Ei-Milch-Guss und Käse übergiessen.~35 Min. bei 200 °C backen.
+Kartoffel-Erbsen-Curry mit Joghurt|35|Kartoffeln:K:100,Erbsen:H:80,Blumenkohl:F:120,Joghurt:E:100|Kartoffeln und Blumenkohl in Öl mit Currypulver anbraten.~Wenig Wasser zugeben, 15 Min. garen, Erbsen zugeben.~Mit Joghurt servieren.
+Rosenkohl-Kartoffel-Pfanne mit Spiegelei|35|Kartoffeln:K:110,Rosenkohl:F:200,Ei:E:110|Kartoffeln würfeln und vorkochen.~Rosenkohl halbieren und mit Kartoffeln in Öl braten.~Spiegeleier daraufsetzen.
+Kartoffel-Randen-Gratin|55|Kartoffeln:K:70,Randen:H:60,Lauch:F:170,Käse:E:60,Ei:E:40|Kartoffeln und vorgekochte Randen in Scheiben schichten, Lauchringe dazwischen.~Mit Ei-Milch-Guss und Käse bedecken.~35 Min. bei 200 °C backen.
+Curry-Kartoffelsuppe mit Linsen|35|Kartoffeln:K:80,Rote Linsen:L:100,Rüebli:H:50,Lauch:F:200|Gemüse würfeln, in Öl mit Curry andünsten.~Linsen und Bouillon zugeben, 20 Min. köcheln.~Pürieren.
+Sellerie-Kartoffel-Stampf mit Pouletstreifen|35|Kartoffeln:K:80,Sellerie:F:100,Poulet:E:100,Brokkoli:F:120|Kartoffeln und Sellerie kochen und stampfen.~Poulet in Streifen anbraten.~Brokkoli dämpfen, alles anrichten.
+Kartoffel-Poulet-Auflauf mit Lauch|50|Kartoffeln:K:110,Poulet:E:100,Lauch:F:200|Kartoffelscheiben vorkochen, Poulet anbraten.~Lauch dünsten.~Alles mit Rahm-Milch-Guss schichten, 25 Min. backen.
+Kartoffel-Hackfleisch-Gratin mit Spinat|55|Kartoffeln:K:110,Rinderhack:E:100,Spinat:F:200|Hack anbraten und würzen.~Kartoffelscheiben, Spinat und Hack schichten.~Mit Milch übergiessen, 35 Min. backen.
+Schupfnudeln mit Sauerkraut und Rüebli|30|Schupfnudeln:K:110,Sauerkraut:F:150,Rüebli:H:60,Räuchertofu:E:100|Tofu würfeln und anbraten.~Sauerkraut und Rüebli zugeben, 8 Min. braten.~Schupfnudeln zugeben und goldbraun braten.
+Tartiflette light mit Lauch|50|Kartoffeln:K:110,Lauch:F:200,Käse:E:80,Speck:E:20|Kartoffeln vorkochen und in Scheiben schneiden.~Lauch und Speck anbraten.~Mit Käse überbacken, 20 Min. bei 200 °C.
+Raclette-Kartoffeln mit Gemüse|35|Kartoffeln:K:110,Raclettekäse:E:70,Zucchini:F:100,Peperoni:F:100,Tomaten:F:50|Kartoffeln in Schale kochen.~Gemüse in Öl anbraten.~Mit geschmolzenem Käse servieren.
+Kartoffel-Frittata mit Spinat und Feta|35|Kartoffeln:K:100,Ei:E:90,Feta:E:20,Spinat:F:220|Kartoffeln in Scheiben braten, Spinat zugeben.~Eier mit Feta darübergiessen.~Zugedeckt stocken lassen.
+Kartoffelküchlein mit Gemüse und Kräuterquark|40|Kartoffeln:K:110,Ei:E:40,Quark:E:70,Rüebli:H:40,Zucchini:F:150|Kartoffeln mit Gemüse raffeln, mit Ei binden.~Küchlein braten.~Mit Quark servieren.
+Süsskartoffel-Pfanne mit Hackfleisch und Spinat|35|Süsskartoffeln:K:110,Rinderhack:E:100,Spinat:F:200|Süsskartoffeln würfeln und braten.~Hack zugeben, anbraten.~Spinat unterheben.
+Süsskartoffel-Linsen-Suppe|35|Süsskartoffeln:K:100,Rote Linsen:L:100,Spinat:F:100,Tomaten:F:100|Süsskartoffeln würfeln, mit Zwiebel andünsten.~Linsen und Bouillon zugeben, 20 Min. kochen.~Spinat zugeben.
+Süsskartoffel-Brokkoli-Blech mit Feta|40|Süsskartoffeln:K:110,Brokkoli:F:200,Feta:E:100|Süsskartoffelwürfel bei 220 °C 15 Min. rösten.~Brokkoli zugeben, 15 Min. weiter rösten.~Feta darüber.
+Gnocchi mit Ofengemüse und Mozzarella|40|Gnocchi:K:110,Zucchini:F:100,Peperoni:F:100,Tomaten:F:50,Mozzarella:E:100|Gemüse bei 220 °C 20 Min. rösten.~Gnocchi kochen.~Mit Mozzarella mischen.
+Gnocchi mit Spinat-Käse-Sauce|30|Gnocchi:K:120,Spinat:F:220,Käse:E:100|Gnocchi garen.~Spinat dünsten, mit Käse und etwas Milch schmelzen lassen.~Mit Gnocchi mischen.
+Kartoffelstock mit Gemüsebratlingen|40|Kartoffeln:K:100,Ei:E:50,Rüebli:H:50,Zucchini:F:130,Quark:E:50|Kartoffelstock zubereiten.~Gemüse raffeln, mit Ei und Mehl formen und braten.~Mit Quark servieren.
+Kartoffel-Gemüse-Frittata|40|Kartoffeln:K:100,Ei:E:110,Zucchini:F:100,Peperoni:F:100|Kartoffeln braten, Gemüse zugeben.~Eier darübergiessen.~Zugedeckt 8 Min. stocken lassen.
+Kartoffelgratin mit Zucchini und Hüttenkäse|50|Kartoffeln:K:100,Zucchini:F:220,Hüttenkäse:E:100|Kartoffeln und Zucchini schichten.~Hüttenkäse mit Ei und Milch verrühren und darübergiessen.~35 Min. backen.
+Ofenkartoffeln mit Tomaten-Bohnen-Füllung|50|Kartoffeln:K:100,Weisse Bohnen:L:100,Tomaten:F:150,Spinat:F:60|Kartoffeln backen.~Bohnen mit Tomaten und Spinat köcheln.~Kartoffeln füllen.
+Kartoffel-Zwiebel-Auflauf mit Ei und Spinat|45|Kartoffeln:K:100,Zwiebel:F:100,Ei:E:100,Spinat:F:100|Kartoffelscheiben und Zwiebel in eine Form geben.~Eier mit Milch und Spinat verquirlen, darübergiessen.~30 Min. backen.
+Pfannengemüse mit Kartoffeln und Halloumi|35|Kartoffeln:K:110,Halloumi:E:90,Zucchini:F:120,Peperoni:F:100|Kartoffeln vorkochen und braten.~Gemüse zugeben.~Halloumi in Scheiben braten.
+Kartoffel-Kohlrabi-Gratin|50|Kartoffeln:K:100,Kohlrabi:F:200,Käse:E:60,Ei:E:40|Beides in Scheiben schichten.~Mit Ei-Milch-Guss und Käse backen.~35 Min. bei 200 °C.
+Kartoffel-Mangold-Pfanne mit Ei|35|Kartoffeln:K:110,Mangold:F:220,Ei:E:110|Kartoffeln würfeln, braten.~Mangold zugeben und braten.~Eier einrühren.
+Kartoffelsuppe mit Brokkoli und Käse-Croûtons|35|Kartoffeln:K:90,Brokkoli:F:200,Käse:E:60,Brot:K:20,Ei:E:40|Kartoffeln und Brokkoli in Bouillon kochen, pürieren.~Brot mit Käse im Ofen überbacken.~Zur Suppe servieren.
+Kartoffelrösti mit Quark und Rüeblisalat|35|Kartoffeln:K:110,Quark:E:110,Rüebli:H:60,Blattsalat:F:150|Rösti knusprig braten.~Rüebli raffeln, Salat anmachen.~Mit Quark servieren.
+Kartoffel-Bohnen-Pfanne mit Rührei|30|Kartoffeln:K:110,Grüne Bohnen:F:200,Ei:E:110|Kartoffeln und Bohnen braten.~Eier einrühren.~Würzen.
+Gebackene Kartoffelspalten mit Linsen-Dip und Salat|45|Kartoffeln:K:110,Linsen:L:100,Blattsalat:F:100,Gurke:F:100|Kartoffelspalten bei 220 °C 30 Min. backen.~Linsen mit Zitrone und Öl pürieren.~Mit Salat servieren.
+Kartoffel-Kürbis-Suppe mit Kichererbsen|40|Kartoffeln:K:90,Kürbis:F:200,Kichererbsen:L:100|Gemüse würfeln, andünsten.~Mit Bouillon 20 Min. kochen und pürieren.~Gerösteten Kichererbsen darüber.
+Kartoffel-Peperoni-Gratin mit Mozzarella|50|Kartoffeln:K:100,Peperoni:F:200,Mozzarella:E:100|Kartoffelscheiben vorkochen.~Mit Peperonistreifen schichten, Mozzarella darauf.~25 Min. backen.
+Gnocchi-Pfanne mit Wirz und Speck|30|Gnocchi:K:110,Wirz:F:220,Speck:E:50,Käse:E:50|Speck und Wirz anbraten.~Gnocchi zugeben, goldbraun braten.~Käse darüber.
+Kartoffel-Spinat-Knödel mit Tomatensauce|50|Kartoffeln:K:100,Spinat:F:100,Ei:E:50,Käse:E:50,Tomaten:F:150|Kartoffelteig mit Spinat und Ei kneten.~Knödel formen, 15 Min. in Salzwasser garen.~Mit Tomatensauce und Käse servieren.
+Ofenkartoffeln mit Kräuterquark und Brokkoli-Salat|50|Kartoffeln:K:110,Quark:E:110,Brokkoli:F:200|Kartoffeln backen.~Brokkoli blanchieren und anmachen.~Quark mit Kräutern dazu.
+Kartoffel-Lauch-Frittata|35|Kartoffeln:K:100,Lauch:F:220,Ei:E:110|Kartoffeln vorkochen, braten.~Lauch zugeben.~Eier darübergiessen, stocken lassen.
+Kartoffel-Rüebli-Eintopf mit Wienerli|40|Kartoffeln:K:100,Rüebli:H:60,Lauch:F:140,Wienerli:E:100|Gemüse würfeln, in Bouillon 20 Min. kochen.~Wienerli in Stücken zugeben.~Abschmecken.
+Kartoffelgratin mit Spinat und Poulet|55|Kartoffeln:K:110,Spinat:F:200,Poulet:E:100|Kartoffeln vorkochen.~Mit Spinat und gebratenem Poulet schichten.~Mit Milch-Käse-Guss 30 Min. backen.
+Kartoffeln mit Bohnen-Tomaten-Ragout|40|Kartoffeln:K:110,Weisse Bohnen:L:100,Tomaten:F:150,Zucchini:F:80|Kartoffeln kochen.~Ragout aus Bohnen, Tomaten, Zucchini köcheln.~Zusammen servieren.
 
 ## Salate
-Griechischer Salat mit Kichererbsen und Brot|20|Gurke:F:100,Tomaten:F:100,Peperoni:F:40,Feta:E:50,Kichererbsen:L:50,Brot:K:90|Gurke, Tomaten und Peperoni in Stücke schneiden, Kichererbsen und Feta zugeben. Mit Olivenöl, Zitrone und Oregano anmachen. Brot dazu.
-Linsensalat mit Rüebli und Feta|25|Linsen:L:100,Gurke:F:100,Tomaten:F:80,Blattsalat:F:40,Rüebli:H:40,Feta:E:30,Brot:K:90|Linsen abspülen, Rüebli raffeln, Gurke und Tomaten würfeln. Mit Essig, Öl und Senf anmachen, Feta darüberbröseln. Brot dazu.
-Spinatsalat mit Ei und Kartoffeln|30|Spinat:F:150,Ei:E:110,Kartoffeln:K:110,Tomaten:F:70|Kartoffeln und Eier kochen. Spinat waschen, mit Tomaten und Kartoffelscheiben mischen. Eier vierteln und mit einem Dressing aus Essig und Öl anmachen.
-Caesar-Salat mit Poulet|25|Romanasalat:F:220,Poulet:E:100,Parmesan:E:10,Brot:K:90|Poulet braten und in Streifen schneiden, Brot rösten. Romanasalat mit Joghurt-Zitronen-Dressing anmachen, Poulet, Croûtons und Parmesan darauf verteilen.
-Bohnensalat mit Ei und Kartoffeln|30|Grüne Bohnen:F:150,Ei:E:100,Kartoffeln:K:100,Tomaten:F:70|Kartoffeln, Bohnen und Eier kochen. Alles mit Tomaten mischen und mit Essig, Öl, Senf und Zwiebel anmachen.
-Randen-Feta-Salat mit Quinoa|35|Randen:H:120,Rucola:F:100,Gurke:F:60,Feta:E:90,Quinoa:K:60|Quinoa kochen und auskühlen lassen. Randen würfeln, mit Rucola und Gurke zugeben, Feta darüberbröseln. Mit Balsamico und Öl anmachen.
-Rüebli-Kichererbsen-Salat mit Couscous|25|Rüebli:H:100,Kichererbsen:L:100,Gurke:F:120,Peperoni:F:60,Couscous:K:70|Couscous mit heisser Bouillon übergiessen und 5 Min. quellen lassen. Rüebli raffeln, Gurke, Peperoni und Kichererbsen zugeben und mit Zitronensaft anmachen.
-Nüsslisalat mit Ei und Brot|20|Nüsslisalat:F:150,Rüebli:H:50,Ei:E:110,Gurke:F:60,Brot:K:90|Eier 8 Min. kochen. Nüsslisalat waschen und mit Rüebli und Gurke anmachen. Eier halbieren und Brot dazu servieren.
-Taboulé mit Poulet|30|Bulgur:K:90,Tomaten:F:90,Gurke:F:90,Petersilie:F:40,Poulet:E:100|Bulgur mit heissem Wasser 10 Min. quellen lassen. Tomaten, Gurke und Petersilie fein hacken und mit Zitrone und Öl mischen. Poulet braten und in Streifen dazugeben.
-Asiatischer Tofu-Gurkensalat mit Reis|25|Tofu:E:110,Gurke:F:150,Rüebli:H:50,Chinakohl:F:60,Reis:K:100|Reis kochen, Tofu würfeln und braten. Gurke, Rüebli und Chinakohl in Streifen mit Sojasauce, Essig und Sesamöl anmachen. Tofu darauflegen, Reis dazu.
-Bunter Salat mit Hüttenkäse und Vollkornbrot|15|Hüttenkäse:E:120,Blattsalat:F:100,Gurke:F:80,Tomaten:F:80,Vollkornbrot:K:90|Blattsalat, Gurke und Tomaten schneiden und anmachen. Hüttenkäse darübergeben und Vollkornbrot dazu servieren.
+Griechischer Salat mit Kichererbsen und Brot|20|Gurke:F:100,Tomaten:F:100,Peperoni:F:40,Feta:E:50,Kichererbsen:L:50,Brot:K:90|Gurke, Tomaten und Peperoni in mundgerechte Stücke schneiden.~Kichererbsen abspülen und zugeben, Feta in Würfeln darübergeben.~Mit Olivenöl, Zitronensaft, Oregano, Salz und Pfeffer anmachen.~Brot dazu servieren.
+Linsensalat mit Rüebli und Feta|25|Linsen:L:100,Gurke:F:100,Tomaten:F:80,Blattsalat:F:40,Rüebli:H:40,Feta:E:30,Brot:K:90|Linsen abspülen und abtropfen lassen.~Rüebli raffeln, Gurke und Tomaten würfeln, Blattsalat zerzupfen.~Aus Essig, Öl, Senf, Salz und Pfeffer ein Dressing rühren und alles damit mischen.~Feta darüberbröseln und mit Brot servieren.
+Spinatsalat mit Ei und Kartoffeln|30|Spinat:F:150,Ei:E:110,Kartoffeln:K:110,Tomaten:F:70|Kartoffeln 15–20 Min. kochen, Eier 9 Min. hart kochen.~Spinat waschen und trocken schleudern, Tomaten in Schnitze schneiden.~Kartoffeln pellen und in Scheiben schneiden. Alles mit einem Dressing aus Essig, Öl, Salz und Pfeffer mischen.~Eier vierteln und darauflegen.
+Caesar-Salat mit Poulet|25|Romanasalat:F:220,Poulet:E:100,Parmesan:E:10,Brot:K:90|Poulet würzen und in Öl 5–6 Min. pro Seite braten, ruhen lassen und in Streifen schneiden.~Brot in Würfel schneiden und in einer Pfanne mit etwas Öl knusprig rösten (Croûtons).~Romanasalat zerzupfen. Joghurt mit Zitronensaft, Senf, Öl, Salz und Pfeffer zu einem Dressing verrühren.~Salat mit Dressing mischen, Poulet, Croûtons und Parmesan darüber verteilen.
+Bohnensalat mit Ei und Kartoffeln|30|Grüne Bohnen:F:150,Ei:E:100,Kartoffeln:K:100,Tomaten:F:70|Kartoffeln 15–20 Min. kochen. Bohnen in Stücke schneiden und in den letzten 8 Min. mitkochen. Eier 9 Min. hart kochen.~Alles abgiessen, Kartoffeln pellen und in Scheiben schneiden.~Mit Tomaten und fein gehackter Zwiebel mischen, mit Essig, Öl, Senf, Salz und Pfeffer anmachen.~Eier vierteln und darauflegen.
+Randen-Feta-Salat mit Quinoa|35|Randen:H:120,Rucola:F:100,Gurke:F:60,Feta:E:90,Quinoa:K:60|Quinoa abspülen, nach Packungsangabe kochen (ca. 12 Min.) und auskühlen lassen.~Randen (vorgekocht) würfeln, Gurke schneiden, Rucola waschen.~Alles mit Balsamico, Olivenöl, Salz und Pfeffer anmachen.~Feta darüberbröseln und sofort servieren.
+Rüebli-Kichererbsen-Salat mit Couscous|25|Rüebli:H:100,Kichererbsen:L:100,Gurke:F:120,Peperoni:F:60,Couscous:K:70|Couscous in eine Schüssel geben, mit heisser Bouillon knapp übergiessen und zugedeckt 5 Min. quellen lassen, dann mit der Gabel auflockern.~Rüebli raffeln, Gurke und Peperoni würfeln, Kichererbsen abspülen.~Alles mit Couscous mischen, mit Zitronensaft, Öl, Kreuzkümmel, Salz und Pfeffer anmachen.
+Nüsslisalat mit Ei und Brot|20|Nüsslisalat:F:150,Rüebli:H:50,Ei:E:110,Gurke:F:60,Brot:K:90|Eier 8 Min. kochen, abschrecken und schälen.~Nüsslisalat gründlich waschen und trocken schleudern. Rüebli raffeln, Gurke in Scheiben schneiden.~Mit Essig, Öl, Senf, Salz und Pfeffer anmachen.~Eier halbieren, auf dem Salat anrichten und Brot dazu servieren.
+Taboulé mit Poulet|30|Bulgur:K:90,Tomaten:F:90,Gurke:F:90,Petersilie:F:40,Poulet:E:100|Bulgur in eine Schüssel geben, mit der gleichen Menge heissem Wasser übergiessen und 10 Min. quellen lassen.~Tomaten und Gurke fein würfeln, Petersilie hacken.~Alles mit dem Bulgur, Zitronensaft, Olivenöl, Salz und Pfeffer mischen.~Poulet würzen, in Öl 5–6 Min. pro Seite braten, in Streifen schneiden und dazu servieren.
+Asiatischer Tofu-Gurkensalat mit Reis|25|Tofu:E:110,Gurke:F:150,Rüebli:H:50,Chinakohl:F:60,Reis:K:100|Reis nach Packungsangabe kochen.~Tofu würfeln und in Öl rundum knusprig braten.~Gurke und Rüebli in feine Streifen, Chinakohl in dünne Streifen schneiden.~Mit Sojasauce, Reisessig und etwas Sesamöl anmachen.~Tofu daraufgeben und mit dem Reis servieren.
+Bunter Salat mit Hüttenkäse und Vollkornbrot|15|Hüttenkäse:E:120,Blattsalat:F:100,Gurke:F:80,Tomaten:F:80,Vollkornbrot:K:90|Blattsalat waschen und trocken schleudern. Gurke und Tomaten schneiden.~Mit Essig, Öl, Salz und Pfeffer anmachen.~Hüttenkäse darübergeben und mit Kräutern bestreuen.~Vollkornbrot dazu servieren.
+Nudelsalat mit Gemüse und Mozzarella|25|Nudeln:K:100,Mozzarella:E:100,Tomaten:F:100,Gurke:F:100,Peperoni:F:50|Nudeln kochen und abkühlen lassen.~Gemüse würfeln, Mozzarella in Stücke schneiden.~Mit Essig, Öl und Kräutern mischen.
+Reissalat mit Poulet und Mais|30|Reis:K:90,Poulet:E:100,Gurke:F:100,Peperoni:F:90,Tomaten:F:50,Mais:K:10|Reis kochen, abkühlen lassen.~Poulet braten und in Streifen schneiden.~Mit Gemüse und Dressing mischen.
+Panzanella mit Tomaten, Mozzarella und Brot|20|Brot:K:90,Tomaten:F:200,Gurke:F:60,Mozzarella:E:100|Brot in Würfel schneiden und kurz rösten.~Tomaten, Gurke und Mozzarella würfeln.~Mit Essig, Öl, Basilikum mischen und 10 Min. ziehen lassen.
+Linsensalat mit Ziegenkäse und Rucola|25|Linsen:L:100,Rucola:F:100,Tomaten:F:80,Gurke:F:50,Ziegenkäse:E:30,Brot:K:90|Linsen kochen oder abspülen.~Gemüse und Rucola schneiden.~Mit Dressing mischen, Käse darüber, Brot dazu.
+Quinoa-Salat mit Feta und Gurke|25|Quinoa:K:90,Feta:E:100,Gurke:F:120,Tomaten:F:100|Quinoa kochen und abkühlen.~Gemüse würfeln, Feta zerbröseln.~Mit Zitrone und Öl anmachen.
+Couscous-Salat mit Kichererbsen und Minze|20|Couscous:K:80,Kichererbsen:L:100,Gurke:F:100,Tomaten:F:100,Petersilie:F:20|Couscous mit heisser Bouillon quellen lassen.~Gemüse und Kräuter hacken.~Alles mit Zitronensaft und Öl mischen.
+Kartoffelsalat mit grünen Bohnen und Ei|35|Kartoffeln:K:110,Grüne Bohnen:F:150,Ei:E:100,Tomaten:F:60|Kartoffeln und Bohnen kochen.~Eier hart kochen.~Mit Essig-Öl-Dressing mischen.
+Pouletsalat mit Rüebli, Gurke und Brot|25|Poulet:E:100,Rüebli:H:50,Gurke:F:120,Blattsalat:F:100,Brot:K:80|Poulet braten, in Streifen schneiden.~Gemüse raffeln und schneiden.~Mit Joghurtdressing anrichten, Brot dazu.
+Tofu-Rüebli-Salat mit Sesam-Dressing|25|Tofu:E:110,Rüebli:H:60,Chinakohl:F:130,Gurke:F:60,Reis:K:80|Tofu knusprig braten.~Gemüse in Streifen schneiden.~Mit Sojasauce-Sesam-Dressing und Reis servieren.
+Bohnensalat mit roten Zwiebeln und Fladenbrot|20|Kidneybohnen:L:100,Tomaten:F:100,Gurke:F:100,Zwiebel:F:20,Fladenbrot:K:90|Bohnen abspülen.~Gemüse würfeln.~Mit Essig und Öl anmachen.
+Griechischer Nudelsalat mit Feta|25|Nudeln:K:90,Feta:E:100,Tomaten:F:120,Gurke:F:100,Peperoni:F:30|Nudeln kochen und abkühlen.~Gemüse würfeln, Feta zugeben.~Mit Oregano und Öl mischen.
+Bulgur-Salat mit Halloumi|30|Bulgur:K:80,Halloumi:E:90,Tomaten:F:100,Gurke:F:100,Petersilie:F:30|Bulgur quellen lassen.~Halloumi in Scheiben braten.~Alles mit Zitrone und Öl mischen.
+Spinatsalat mit Tomaten, Ei und Brot|20|Spinat:F:150,Ei:E:100,Tomaten:F:80,Gurke:F:30,Brot:K:90|Eier hart kochen.~Spinat waschen, Gemüse schneiden.~Mit Dressing anmachen.
+Rüeblisalat mit Hüttenkäse und Vollkornbrot|15|Rüebli:H:100,Hüttenkäse:E:110,Blattsalat:F:100,Gurke:F:60,Vollkornbrot:K:80|Rüebli raffeln, mit Zitronensaft und Öl anmachen.~Blattsalat und Gurke dazu.~Hüttenkäse darübergeben.
+Randensalat mit Ei und Kartoffeln|30|Randen:H:100,Kartoffeln:K:80,Ei:E:100,Blattsalat:F:100,Gurke:F:50|Kartoffeln kochen, Eier hart kochen.~Randen würfeln.~Alles mit Dressing mischen.
+Pouletstreifen auf Blattsalat mit Quinoa|25|Poulet:E:100,Quinoa:K:80,Blattsalat:F:120,Tomaten:F:60,Gurke:F:50|Quinoa kochen, Poulet braten.~Salat anmachen.~Alles anrichten.
+Kichererbsen-Gurken-Salat mit Joghurt|15|Kichererbsen:L:110,Gurke:F:150,Tomaten:F:80,Joghurt:E:10,Fladenbrot:K:90|Kichererbsen abspülen.~Gemüse würfeln.~Mit Joghurtdressing mischen, Brot dazu.
+Caprese-Salat mit Brot und Rucola|15|Tomaten:F:200,Mozzarella:E:100,Rucola:F:50,Brot:K:90|Tomaten und Mozzarella in Scheiben schneiden.~Mit Rucola anrichten.~Mit Öl, Balsamico und Brot servieren.
+Waldorf-Salat mit Poulet und Sellerie|25|Sellerie:F:130,Poulet:E:100,Blattsalat:F:100,Brot:K:90|Sellerie raffeln.~Poulet braten, in Streifen schneiden.~Mit Joghurtdressing mischen, Brot dazu.
+Eiersalat auf Blattsalat mit Brot|20|Ei:E:110,Blattsalat:F:150,Gurke:F:100,Tomaten:F:50,Brot:K:90|Eier hart kochen und würfeln.~Mit Joghurt und Senf mischen.~Auf Salat anrichten.
+Linsen-Randen-Salat mit Feta|30|Linsen:L:80,Randen:H:80,Feta:E:30,Blattsalat:F:100,Gurke:F:70,Brot:K:60|Linsen kochen, Randen würfeln.~Mit Salat mischen.~Feta darüber, Brot dazu.
+Asiatischer Nudelsalat mit Tofu|25|Nudeln:K:90,Tofu:E:110,Chinakohl:F:100,Rüebli:H:50,Gurke:F:100|Nudeln kochen.~Tofu braten, Gemüse schneiden.~Mit Sojasauce-Limetten-Dressing mischen.
+Edamame-Reis-Salat mit Gurke|25|Reis:K:90,Edamame:L:100,Gurke:F:120,Rüebli:H:40,Spinat:F:80|Reis kochen und abkühlen.~Edamame garen.~Mit Dressing mischen.
+Tomatensalat mit Bohnen und Ei|20|Tomaten:F:200,Weisse Bohnen:L:60,Ei:E:50,Brot:K:90|Bohnen abspülen, Eier hart kochen.~Tomaten schneiden.~Alles mit Zwiebel und Dressing mischen.
+Frühlingssalat mit Erbsen, Ei und Brot|25|Erbsen:H:80,Ei:E:100,Blattsalat:F:150,Gurke:F:70,Brot:K:60|Erbsen 3 Min. blanchieren, Eier hart kochen.~Salat schneiden.~Mit Minze-Dressing mischen.
+Mediterraner Kartoffelsalat mit Feta|30|Kartoffeln:K:110,Feta:E:100,Tomaten:F:120,Gurke:F:100|Kartoffeln kochen und würfeln.~Gemüse schneiden.~Mit Feta und Dressing mischen.
+Hirtensalat mit Halloumi und Fladenbrot|20|Halloumi:E:90,Tomaten:F:120,Gurke:F:120,Peperoni:F:30,Fladenbrot:K:90|Halloumi braten.~Gemüse würfeln.~Mit Zitronendressing anrichten.
+Tabbouleh mit Kichererbsen|25|Bulgur:K:70,Kichererbsen:L:100,Tomaten:F:120,Gurke:F:80,Petersilie:F:50|Bulgur quellen lassen.~Gemüse und Petersilie fein hacken.~Mit Zitrone und Öl mischen.
+Kürbis-Linsen-Salat mit Rucola|35|Kürbis:F:150,Linsen:L:100,Rucola:F:60,Brot:K:90|Kürbis bei 200 °C 20 Min. rösten.~Linsen kochen.~Mit Rucola anmachen.
+Pouletsalat Asia mit Reis|25|Poulet:E:100,Reis:K:90,Chinakohl:F:120,Gurke:F:80|Reis kochen, Poulet braten.~Gemüse in Streifen.~Mit Sojadressing mischen.
+Tofu-Wrap mit Salat|20|Tofu:E:110,Vollkornwrap:K:80,Blattsalat:F:100,Gurke:F:80,Tomaten:F:50|Tofu braten.~Mit Salat und Gemüse im Wrap rollen.~Mit Dressing beträufeln.
+Brotsalat mit Poulet und Tomaten|25|Brot:K:80,Poulet:E:100,Tomaten:F:150,Gurke:F:80|Brot rösten.~Poulet braten.~Alles mit Dressing mischen.
+Rotkohlsalat mit Feta und Brot|20|Rotkohl:F:200,Feta:E:100,Brot:K:90|Rotkohl fein hobeln, mit Salz kneten.~Mit Essig und Öl anmachen.~Feta darüber, Brot dazu.
+Fenchelsalat mit Ei und Kartoffeln|30|Fenchel:F:200,Ei:E:100,Kartoffeln:K:100|Kartoffeln und Eier kochen.~Fenchel hobeln.~Mit Zitronendressing mischen.
+Sellerie-Rüebli-Salat mit Linsen|25|Sellerie:F:100,Rüebli:H:50,Linsen:L:100,Blattsalat:F:100,Brot:K:80|Gemüse raffeln.~Linsen kochen.~Mit Dressing mischen.
+Weisskohlsalat mit Hackfleisch-Bällchen|30|Weisskohl:F:200,Rinderhack:E:100,Brot:K:90|Kohl fein hobeln und anmachen.~Hackbällchen braten.~Mit Brot servieren.
+Brokkolisalat mit Ei und Kartoffeln|30|Brokkoli:F:200,Ei:E:100,Kartoffeln:K:100|Brokkoli, Kartoffeln und Eier kochen.~Mit Dressing mischen.~Servieren.
+Gurkensalat mit Joghurt und Pouletstreifen|20|Gurke:F:200,Joghurt:E:30,Poulet:E:70,Brot:K:90|Gurke hobeln, mit Joghurt mischen.~Poulet braten.~Mit Brot servieren.
+Linsen-Quinoa-Salat mit Gemüse|25|Linsen:L:100,Quinoa:K:90,Gurke:F:80,Tomaten:F:70,Peperoni:F:20|Beides kochen und abkühlen.~Gemüse würfeln.~Mit Dressing mischen.
+Tomaten-Brot-Salat mit Hüttenkäse|20|Tomaten:F:200,Hüttenkäse:E:110,Gurke:F:50,Brot:K:90|Gemüse würfeln.~Mit Brot und Dressing mischen.~Hüttenkäse darüber.
+Hummus-Salat-Bowl mit Pita|20|Kichererbsen:L:110,Blattsalat:F:100,Gurke:F:100,Tomaten:F:50,Pita:K:80|Hummus pürieren.~Gemüse schneiden.~Mit Pita anrichten.
+Linsen-Spinat-Salat mit Joghurtdressing|25|Linsen:L:100,Spinat:F:150,Tomaten:F:60,Joghurt:E:10,Brot:K:90|Linsen kochen.~Spinat waschen, Tomaten würfeln.~Mit Joghurtdressing mischen, Brot dazu.
+Bunter Bohnensalat mit Mais und Brot|20|Kidneybohnen:L:80,Schwarze Bohnen:L:20,Mais:K:20,Peperoni:F:90,Tomaten:F:100,Blattsalat:F:70,Brot:K:70|Bohnen abspülen.~Gemüse würfeln.~Mit Limetten-Dressing mischen.
+Pouletsalat mit Avocado und Vollkornbrot|25|Poulet:E:100,Avocado:F:50,Blattsalat:F:100,Tomaten:F:90,Vollkornbrot:K:80|Poulet braten und schneiden.~Gemüse und Avocado anrichten.~Mit Zitronendressing servieren.
+Gurken-Tomaten-Salat mit Ei und Kartoffeln|30|Gurke:F:120,Tomaten:F:120,Ei:E:100,Kartoffeln:K:100|Kartoffeln und Eier kochen.~Gemüse schneiden.~Alles mischen.
+Nüsslisalat mit Poulet und Ofenkartoffeln|35|Nüsslisalat:F:150,Poulet:E:100,Kartoffeln:K:110,Tomaten:F:60|Kartoffeln bei 200 °C backen.~Poulet braten.~Salat anrichten.
+Kichererbsen-Fladenbrot-Salat|20|Kichererbsen:L:100,Fladenbrot:K:90,Tomaten:F:100,Gurke:F:100,Petersilie:F:20|Fladenbrot rösten und würfeln.~Gemüse schneiden.~Alles mischen.
+Thai-Salat mit Tofu und Reis|25|Tofu:E:110,Reis:K:90,Gurke:F:100,Rüebli:H:40,Peperoni:F:80|Reis kochen, Tofu braten.~Gemüse in Streifen schneiden.~Mit Limetten-Soja-Dressing mischen.
+Mexikanischer Salat mit Bohnen und Mais|20|Kidneybohnen:L:100,Mais:K:30,Tortilla:K:60,Blattsalat:F:100,Tomaten:F:100,Peperoni:F:50|Bohnen abspülen.~Gemüse schneiden.~Tortilla-Streifen rösten und darübergeben.
+Rucola-Salat mit Parmesan und Pouletbrust|20|Rucola:F:120,Tomaten:F:100,Poulet:E:90,Parmesan:E:10,Brot:K:90|Poulet braten und in Streifen schneiden.~Salat mit Tomaten anrichten.~Mit Balsamico und Brot servieren.
+Reissalat mit Gemüse und Feta|25|Reis:K:90,Feta:E:100,Gurke:F:100,Tomaten:F:100,Peperoni:F:40|Reis kochen und abkühlen.~Gemüse würfeln, Feta bröseln.~Mit Dressing mischen.
+Bunter Linsensalat mit Rüebli|25|Linsen:L:100,Rüebli:H:60,Gurke:F:100,Tomaten:F:90,Brot:K:80|Linsen kochen.~Gemüse schneiden.~Mit Dressing mischen.
+Pasta-Salat mit Poulet und Brokkoli|30|Nudeln:K:90,Poulet:E:100,Brokkoli:F:150,Tomaten:F:80|Nudeln kochen, Brokkoli kurz blanchieren.~Poulet braten.~Alles mit Dressing mischen.
+Salat mit gebratenem Halloumi und Süsskartoffeln|35|Halloumi:E:90,Süsskartoffeln:K:100,Blattsalat:F:120,Tomaten:F:90|Süsskartoffeln bei 220 °C rösten.~Halloumi braten.~Auf Salat anrichten.
+Kopfsalat mit Ei, Kartoffeln und Joghurtdressing|30|Blattsalat:F:200,Ei:E:100,Kartoffeln:K:100|Kartoffeln und Eier kochen.~Salat waschen.~Mit Joghurtdressing anrichten.
+Gemüsesalat mit Kichererbsen-Bratlingen|35|Kichererbsen:L:100,Blattsalat:F:100,Gurke:F:100,Tomaten:F:50,Brot:K:80|Kichererbsenbratlinge formen und braten.~Salat anmachen.~Zusammen servieren.
+Tomaten-Gurken-Salat mit Feta und Couscous|20|Couscous:K:80,Feta:E:100,Tomaten:F:110,Gurke:F:110|Couscous quellen lassen.~Gemüse würfeln.~Mit Feta mischen.
+Spinatsalat mit Kichererbsen und Brot|20|Spinat:F:150,Kichererbsen:L:100,Tomaten:F:80,Brot:K:90|Kichererbsen rösten.~Spinat anmachen.~Brot dazu.
+Brokkoli-Quinoa-Salat mit Ei|30|Brokkoli:F:150,Quinoa:K:80,Ei:E:100,Tomaten:F:70|Quinoa kochen, Brokkoli blanchieren.~Eier kochen.~Alles mischen.
+Randen-Karotten-Salat mit Quark und Brot|20|Randen:H:100,Rüebli:H:50,Blattsalat:F:100,Quark:E:110,Brot:K:50|Gemüse raffeln.~Mit Zitronendressing anmachen.~Quark dazu.
+Gemischter Salat mit Linsen-Bällchen|35|Linsen:L:100,Blattsalat:F:120,Gurke:F:100,Tomaten:F:50,Brot:K:80|Linsenbällchen formen und backen.~Salat anmachen.~Zusammen servieren.
+Süsskartoffel-Salat mit Bohnen|35|Süsskartoffeln:K:100,Kidneybohnen:L:100,Blattsalat:F:100,Tomaten:F:100|Süsskartoffeln rösten.~Bohnen abspülen.~Alles mit Dressing mischen.
+Poulet-Nudel-Salat mit Erdnuss-Dressing|30|Nudeln:K:90,Poulet:E:100,Gurke:F:100,Rüebli:H:40,Chinakohl:F:80|Nudeln kochen, Poulet braten.~Gemüse schneiden.~Mit Erdnuss-Soja-Dressing mischen.
+Feldsalat mit Ei und Brot|20|Nüsslisalat:F:150,Ei:E:100,Gurke:F:60,Brot:K:90|Eier kochen.~Salat anmachen.~Brot dazu.
+Mozzarella-Tomaten-Bulgur-Salat|25|Bulgur:K:80,Mozzarella:E:100,Tomaten:F:150,Gurke:F:70|Bulgur quellen lassen.~Gemüse würfeln.~Alles mit Basilikum mischen.
+Kohlrabisalat mit Hüttenkäse und Brot|20|Kohlrabi:F:200,Hüttenkäse:E:110,Brot:K:90|Kohlrabi raffeln.~Mit Joghurt-Kräuterdressing anmachen.~Hüttenkäse dazu.
+Salat mit Rinderstreifen und Gurke|25|Rindfleisch:E:90,Blattsalat:F:120,Gurke:F:100,Reis:K:90|Rindfleisch scharf anbraten.~Salat anmachen.~Mit Reis servieren.
+Zucchini-Salat mit Feta und Linsen|25|Zucchini:F:200,Feta:E:50,Linsen:L:50,Brot:K:90|Zucchini hobeln.~Linsen kochen.~Alles mit Zitrone anmachen.
+Bowl-Salat mit Kichererbsen und Reis|25|Kichererbsen:L:100,Reis:K:90,Blattsalat:F:100,Gurke:F:100,Rüebli:H:20|Reis kochen.~Gemüse schneiden.~Mit Kichererbsen anrichten.
+Spinat-Pasta-Salat mit Feta|25|Nudeln:K:90,Spinat:F:150,Feta:E:100,Tomaten:F:100|Nudeln kochen.~Spinat unterheben.~Mit Feta und Tomaten mischen.
+Erbsen-Pasta-Salat mit Ei|25|Nudeln:K:90,Erbsen:H:60,Ei:E:100,Gurke:F:100,Tomaten:F:80|Nudeln und Erbsen kochen, Eier hart kochen.~Gemüse schneiden.~Alles mischen.
+Chinakohl-Salat mit Poulet und Reis|25|Chinakohl:F:200,Poulet:E:100,Reis:K:90|Poulet braten, Reis kochen.~Chinakohl fein schneiden.~Mit Sojadressing mischen.
+Pouletsalat mit Mais und Kidneybohnen|25|Poulet:E:80,Kidneybohnen:L:30,Mais:K:30,Blattsalat:F:100,Gurke:F:100,Brot:K:60|Poulet braten.~Alles zusammen anrichten.~Mit Dressing mischen.
+Gemüse-Frischkäse-Wrap mit Rucola|15|Frischkäse:E:60,Hüttenkäse:E:40,Vollkornwrap:K:80,Gurke:F:100,Rucola:F:60,Tomaten:F:60|Wrap mit Frischkäse bestreichen.~Gemüse belegen.~Einrollen.
+Warmer Kartoffel-Linsen-Salat mit Rucola|30|Kartoffeln:K:100,Linsen:L:100,Rucola:F:100,Tomaten:F:100|Kartoffeln kochen.~Linsen kochen.~Mit Rucola anmachen.
+Tofu-Caesar-Salat mit Croûtons|25|Tofu:E:110,Romanasalat:F:220,Brot:K:80|Tofu braten.~Brot rösten.~Mit Joghurt-Zitronen-Dressing anmachen.
+Lauchsalat mit Ei und Kartoffeln|30|Lauch:F:200,Ei:E:100,Kartoffeln:K:100|Lauch blanchieren, Kartoffeln und Eier kochen.~Mit Senf-Vinaigrette mischen.~Servieren.
+Sprossen-Salat mit Tofu und Reis|20|Sojasprossen:F:150,Tofu:E:110,Reis:K:90,Gurke:F:70|Reis kochen, Tofu braten.~Gemüse anmachen.~Zusammen servieren.
+Gemischter Sommersalat mit Ei und Brot|20|Blattsalat:F:110,Tomaten:F:70,Gurke:F:40,Ei:E:100,Brot:K:100|Eier kochen.~Salat anmachen.~Brot dazu.
 
 ## Mit Fleisch
-Pouletgeschnetzeltes mit Reis und Brokkoli|30|Poulet:E:100,Brokkoli:F:200,Reis:K:100|Reis kochen. Poulet in Streifen scharf anbraten und herausnehmen. Sauce aus Bouillon und etwas Rahm kochen, Poulet zurückgeben. Brokkoli 5 Min. dämpfen.
-Hackfleisch-Gemüse-Sauce mit Vollkornnudeln|30|Rinderhack:E:100,Tomaten:F:90,Zucchini:F:80,Rüebli:H:50,Sellerie:F:30,Vollkornnudeln:K:100|Nudeln kochen. Hackfleisch anbraten, Zucchini, Rüebli und Sellerie zugeben. Tomaten dazu und 15–20 Min. köcheln.
-Pouletspiesse mit Ofengemüse und Kartoffeln|40|Poulet:E:100,Zucchini:F:100,Peperoni:F:80,Tomaten:F:40,Kartoffeln:K:100|Kartoffeln und Gemüse bei 220 °C 30 Min. im Ofen rösten. Poulet würfeln, würzen, auf Spiesse stecken und 10 Min. braten.
-Rindsgeschnetzeltes mit Spinat und Kartoffelstock|35|Rindfleisch:E:100,Spinat:F:200,Kartoffeln:K:110|Kartoffeln kochen und stampfen. Rindfleisch scharf anbraten und eine Sauce dazu kochen. Spinat dünsten und alles zusammen servieren.
-Schweinsplätzli mit Lauch-Rüebli-Gemüse und Polenta|35|Schweinefleisch:E:100,Lauch:F:150,Rüebli:H:80,Zucchini:F:30,Polenta:K:80|Polenta nach Packung kochen. Lauch, Rüebli und Zucchini dünsten. Plätzli würzen und pro Seite etwa 3 Min. braten.
-Hackfleisch-Gemüse-Pfanne mit Kartoffeln|30|Rinderhack:E:100,Kohlrabi:F:100,Grüne Bohnen:F:100,Kartoffeln:K:110|Kartoffeln würfeln und vorkochen. Hackfleisch anbraten, Kohlrabi und Bohnen zugeben und 10 Min. garen. Kartoffeln unterheben.
-Poulet-Wok mit Gemüse und Nudeln|25|Poulet:E:100,Pak Choi:F:100,Peperoni:F:60,Rüebli:H:60,Grüne Bohnen:F:40,Nudeln:K:90|Nudeln kochen. Poulet in Streifen anbraten, Gemüse zugeben und 5 Min. mitbraten. Nudeln und Sojasauce untermischen.
-Pouletschnitzel mit Salat und Kartoffeln|30|Poulet:E:100,Blattsalat:F:120,Tomaten:F:80,Gurke:F:40,Kartoffeln:K:110|Kartoffeln kochen. Schnitzel würzen und pro Seite 4 Min. braten. Salat mit Tomaten und Gurke anmachen.
-Rindsgulasch mit Peperoni und Polenta|60|Rindfleisch:E:100,Peperoni:F:100,Zwiebel:F:40,Rüebli:H:50,Tomaten:F:60,Polenta:K:90|Fleisch anbraten, Zwiebel, Peperoni, Rüebli und Paprika zugeben. Mit Tomaten und Bouillon 45 Min. schmoren. Polenta dazu servieren.
-Asiatische Pouletsuppe mit Gemüse und Nudeln|30|Poulet:E:100,Spinat:F:120,Rüebli:H:60,Lauch:F:60,Nudeln:K:90|Poulet in Bouillon mit Ingwer 10 Min. kochen. Rüebli, Lauch und Nudeln zugeben und 5 Min. garen. Zum Schluss den Spinat unterheben.
-Schinken-Lauch-Pfanne mit Kartoffeln|30|Schinken:E:100,Lauch:F:220,Kartoffeln:K:110|Kartoffeln kochen. Lauch anbraten, Schinkenwürfel und etwas Rahm zugeben und 5 Min. köcheln. Mit den Kartoffeln servieren.
-
-## Wähe
-Spinatwähe|55|Teig:K:90,Spinat:F:200,Ei:E:60,Käse:E:40|Teig in die Form legen und mehrmals einstechen. Spinat andünsten und auf dem Teig verteilen. Eier mit Milch und Käse verquirlen, darübergiessen und 30 Min. bei 200 °C backen.
-Lauchwähe|55|Teig:K:90,Lauch:F:200,Ei:E:50,Käse:E:50|Lauch in Ringen dünsten und auf den Teig geben. Guss aus Ei, Milch und Käse darübergiessen und 30–35 Min. bei 200 °C backen.
-Zucchini-Tomaten-Wähe|55|Teig:K:90,Zucchini:F:130,Tomaten:F:80,Ei:E:60,Feta:E:40|Zucchini und Tomaten in Scheiben auf den Teig legen, Feta darübergeben. Ei-Milch-Guss darübergiessen und 30–35 Min. bei 200 °C backen.
-Broccoli-Wähe|55|Teig:K:90,Brokkoli:F:200,Ei:E:60,Käse:E:40|Brokkoliröschen 3 Min. blanchieren und auf den Teig geben. Guss aus Ei, Milch und Käse darübergiessen und 30–35 Min. bei 200 °C backen.
-Rüebli-Lauch-Wähe|55|Teig:K:80,Rüebli:H:80,Lauch:F:130,Zucchini:F:40,Ei:E:60,Käse:E:40|Rüebli, Lauch und Zucchini andünsten und auf den Teig geben. Ei-Milch-Käse-Guss darübergiessen und 35 Min. bei 200 °C backen.
-Tomatenwähe mit Mozzarella|50|Teig:K:90,Tomaten:F:220,Mozzarella:E:70,Ei:E:30|Tomaten in Scheiben auf den Teig legen, Mozzarella zerzupfen und darauf verteilen. Eier mit etwas Milch verquirlen, darübergiessen und 30 Min. bei 200 °C backen.
-Peperoni-Zwiebel-Wähe|55|Teig:K:90,Peperoni:F:150,Zwiebel:F:60,Ei:E:60,Käse:E:40|Peperoni und Zwiebeln in Streifen kurz anbraten und auf den Teig geben. Ei-Milch-Käse-Guss darübergiessen und 30–35 Min. bei 200 °C backen.
-Blumenkohl-Wähe|55|Teig:K:90,Blumenkohl:F:200,Ei:E:60,Käse:E:40|Blumenkohlröschen 5 Min. vorkochen und auf den Teig geben. Guss aus Ei, Milch und Käse darübergiessen und 35 Min. bei 200 °C backen.
-Spinat-Feta-Wähe|50|Teig:K:90,Spinat:F:200,Feta:E:50,Ei:E:50|Spinat andünsten und mit Feta auf den Teig geben. Eier mit Milch verquirlen, darübergiessen und 30 Min. bei 200 °C backen.
-Bohnen-Speck-Wähe|55|Teig:K:90,Grüne Bohnen:F:200,Ei:E:50,Speck:E:30,Käse:E:30|Bohnen 5 Min. blanchieren und mit Speckwürfeln auf den Teig geben. Ei-Milch-Käse-Guss darübergiessen und 35 Min. bei 200 °C backen.
+Pouletgeschnetzeltes mit Reis und Brokkoli|30|Poulet:E:100,Brokkoli:F:200,Reis:K:100|Reis nach Packungsangabe kochen.~Poulet in Streifen schneiden, würzen und in heissem Öl portionsweise scharf anbraten, herausnehmen.~Zwiebel in der Pfanne andünsten, mit Bouillon und einem Schuss Rahm ablöschen und kurz einkochen.~Poulet zurückgeben und 2 Min. ziehen lassen.~Brokkoli in Röschen teilen und 5 Min. dämpfen. Alles zusammen anrichten.
+Hackfleisch-Gemüse-Sauce mit Vollkornnudeln|30|Rinderhack:E:100,Tomaten:F:90,Zucchini:F:80,Rüebli:H:50,Sellerie:F:30,Vollkornnudeln:K:100|Zucchini, Rüebli und Sellerie fein würfeln.~Hackfleisch in einer Pfanne krümelig anbraten, würzen.~Gemüse zugeben und 5 Min. mitbraten, Tomaten zugeben.~15–20 Min. köcheln, mit Oregano, Salz und Pfeffer abschmecken.~Nudeln nach Packungsangabe kochen, abgiessen und mit der Sauce servieren.
+Pouletspiesse mit Ofengemüse und Kartoffeln|40|Poulet:E:100,Zucchini:F:100,Peperoni:F:80,Tomaten:F:40,Kartoffeln:K:100|Ofen auf 220 °C vorheizen. Kartoffeln in Spalten, Zucchini und Peperoni in Stücke schneiden. Mit Öl, Salz und Kräutern mischen und 30 Min. rösten.~Poulet in Würfel schneiden, mit Paprika, Salz und Pfeffer würzen und auf Spiesse stecken.~Spiesse in Öl 10 Min. rundum braten.~Tomaten in den letzten 5 Min. zum Ofengemüse geben. Alles zusammen servieren.
+Rindsgeschnetzeltes mit Spinat und Kartoffelstock|35|Rindfleisch:E:100,Spinat:F:200,Kartoffeln:K:110|Kartoffeln schälen, würfeln und in Salzwasser 15–20 Min. kochen. Abgiessen, mit etwas Milch und Butter stampfen, würzen.~Rindfleisch in dünne Streifen schneiden, würzen und in heissem Öl scharf anbraten.~Mit Bouillon ablöschen und kurz zu einer Sauce einkochen.~Spinat mit Knoblauch in Öl dünsten und würzen.~Alles zusammen anrichten.
+Schweinsplätzli mit Lauch-Rüebli-Gemüse und Polenta|35|Schweinefleisch:E:100,Lauch:F:150,Rüebli:H:80,Zucchini:F:30,Polenta:K:80|Polenta nach Packungsangabe in Salzwasser unter Rühren kochen und quellen lassen.~Lauch in Ringe, Rüebli und Zucchini in Scheiben schneiden und in Öl mit etwas Wasser zugedeckt 10 Min. dünsten.~Plätzli würzen und in heissem Öl pro Seite 2–3 Min. braten.~Zusammen anrichten.
+Hackfleisch-Gemüse-Pfanne mit Kartoffeln|30|Rinderhack:E:100,Kohlrabi:F:100,Grüne Bohnen:F:100,Kartoffeln:K:110|Kartoffeln würfeln und 8 Min. vorkochen.~Hackfleisch in einer grossen Pfanne anbraten, würzen.~Kohlrabi würfeln, Bohnen in Stücke schneiden, zugeben und 10 Min. garen.~Kartoffeln unterheben und 5 Min. mitbraten. Mit Salz, Pfeffer und Paprika abschmecken.
+Poulet-Wok mit Gemüse und Nudeln|25|Poulet:E:100,Pak Choi:F:100,Peperoni:F:60,Rüebli:H:60,Grüne Bohnen:F:40,Nudeln:K:90|Nudeln nach Packungsangabe kochen, abgiessen.~Poulet in Streifen schneiden und im heissen Wok in Öl 4 Min. anbraten.~Pak Choi, Peperoni, Rüebli (in Streifen) und Bohnen zugeben und 5 Min. unter Rühren braten.~Nudeln und Sojasauce untermischen, kurz durchschwenken.
+Pouletschnitzel mit Salat und Kartoffeln|30|Poulet:E:100,Blattsalat:F:120,Tomaten:F:80,Gurke:F:40,Kartoffeln:K:110|Kartoffeln schälen und in Salzwasser 20 Min. kochen.~Schnitzel mit Salz, Pfeffer und Paprika würzen und in Öl pro Seite 4 Min. goldbraun braten.~Blattsalat, Tomaten und Gurke mit Essig und Öl anmachen.~Alles zusammen anrichten.
+Rindsgulasch mit Peperoni und Polenta|60|Rindfleisch:E:100,Peperoni:F:100,Zwiebel:F:40,Rüebli:H:50,Tomaten:F:60,Polenta:K:90|Fleisch würfeln, würzen und in Öl portionsweise scharf anbraten. Herausnehmen.~Zwiebel, Peperoni und Rüebli in der gleichen Pfanne anbraten, mit Paprika würzen.~Fleisch zurückgeben, Tomaten und Bouillon zugeben und zugedeckt 45 Min. schmoren.~Polenta nach Packungsangabe kochen und zum Gulasch servieren.
+Asiatische Pouletsuppe mit Gemüse und Nudeln|30|Poulet:E:100,Spinat:F:120,Rüebli:H:60,Lauch:F:60,Nudeln:K:90|1 Liter Bouillon mit Ingwerscheiben aufkochen, Poulet zugeben und 10 Min. gar ziehen lassen. Herausnehmen und in Streifen schneiden.~Rüebli in Streifen und Lauch in Ringe schneiden, mit den Nudeln in die Brühe geben, 5 Min. kochen.~Spinat und Poulet zugeben und mit Sojasauce und Limettensaft abschmecken.
+Schinken-Lauch-Pfanne mit Kartoffeln|30|Schinken:E:100,Lauch:F:220,Kartoffeln:K:110|Kartoffeln schälen, würfeln und in Salzwasser 15 Min. kochen.~Lauch in Ringe schneiden und in Öl 5 Min. dünsten.~Schinkenwürfel zugeben und kurz mitbraten, mit einem Schuss Rahm 5 Min. köcheln, würzen.~Mit den Kartoffeln servieren.
+Pouletbrust mit Rahmspinat und Reis|30|Poulet:E:100,Spinat:F:220,Reis:K:100|Reis kochen. Poulet würzen und pro Seite 5 Min. braten.~Spinat mit Zwiebel dünsten und mit Rahm abschmecken.~Zusammen servieren.
+Poulet-Zucchini-Pfanne mit Kartoffeln|35|Poulet:E:100,Zucchini:F:220,Kartoffeln:K:110|Kartoffeln vorkochen und braten.~Poulet in Streifen anbraten, Zucchini zugeben.~Alles mischen und würzen.
+Hackbraten mit Gemüse und Kartoffelstock|55|Rinderhack:E:100,Rüebli:H:60,Brokkoli:F:150,Kartoffeln:K:90|Hack mit Zwiebel, Ei und Paniermehl mischen und formen.~Bei 190 °C 35 Min. backen.~Gemüse dämpfen, Kartoffeln stampfen.
+Schweinsfilet mit Peperonigemüse und Polenta|40|Schweinefleisch:E:100,Peperoni:F:200,Polenta:K:90|Polenta kochen. Peperoni in Streifen dünsten.~Schweinsfilet in Medaillons pro Seite 3 Min. braten.~Anrichten.
+Pouletgeschnetzeltes mit Gemüse und Nudeln|30|Poulet:E:100,Peperoni:F:100,Zucchini:F:100,Nudeln:K:100|Nudeln kochen. Poulet anbraten.~Gemüse zugeben, mit Bouillon und Rahm ablöschen.~Mit Nudeln mischen.
+Rindsragout mit Rüebli und Kartoffeln|60|Rindfleisch:E:100,Rüebli:H:60,Sellerie:F:150,Zwiebel:F:50,Kartoffeln:K:70|Fleisch anbraten, Gemüse zugeben.~Mit Bouillon 40 Min. schmoren.~Kartoffeln für die letzten 20 Min. zugeben.
+Truthahn-Geschnetzeltes mit Brokkoli und Reis|30|Truthahn:E:100,Brokkoli:F:200,Reis:K:100|Reis kochen.~Truthahn anbraten.~Brokkoli dämpfen, alles mischen.
+Hackfleisch-Zucchini-Auflauf mit Kartoffeln|50|Rinderhack:E:100,Zucchini:F:220,Kartoffeln:K:100|Kartoffeln vorkochen, Hack anbraten.~Mit Zucchini schichten.~Mit Käse und Milch 25 Min. backen.
+Pouletspiesse mit Gemüse und Couscous|35|Poulet:E:100,Peperoni:F:100,Zucchini:F:100,Couscous:K:90|Poulet mit Gemüse aufspiessen.~Im Ofen oder Pfanne 15 Min. braten.~Couscous quellen lassen.
+Schweinsgeschnetzeltes mit Lauch und Reis|30|Schweinefleisch:E:100,Lauch:F:220,Reis:K:100|Reis kochen.~Schweinefleisch anbraten, Lauch zugeben.~Mit Bouillon 8 Min. köcheln.
+Pouletschenkel aus dem Ofen mit Gemüse und Kartoffeln|60|Poulet:E:100,Zucchini:F:100,Peperoni:F:100,Kartoffeln:K:110|Alles mit Öl und Kräutern auf ein Blech geben.~Bei 200 °C 45 Min. rösten.~Servieren.
+Rindsstreifen mit Peperoni und Nudeln|30|Rindfleisch:E:100,Peperoni:F:200,Nudeln:K:100|Nudeln kochen.~Rindfleisch scharf anbraten, Peperoni zugeben.~Mit Sojasauce würzen.
+Hackfleisch-Gemüse-Pfanne mit Reis|30|Rinderhack:E:100,Peperoni:F:100,Zucchini:F:100,Reis:K:100|Reis kochen.~Hack anbraten, Gemüse zugeben.~Mit Reis servieren.
+Poulet-Curry mit Blumenkohl und Reis|35|Poulet:E:100,Blumenkohl:F:200,Reis:K:100|Reis kochen.~Poulet mit Currypaste anbraten, Blumenkohl zugeben.~Mit Kokosmilch 12 Min. garen.
+Gulasch mit Gemüse und Kartoffeln|60|Rindfleisch:E:100,Peperoni:F:130,Zwiebel:F:70,Kartoffeln:K:100|Fleisch anbraten, Gemüse zugeben.~Mit Paprika und Bouillon 40 Min. schmoren.~Kartoffeln zugeben.
+Schweinsplätzli mit Rahmlauch und Kartoffeln|35|Schweinefleisch:E:100,Lauch:F:220,Kartoffeln:K:110|Kartoffeln kochen.~Plätzli braten.~Lauch mit Rahm dünsten.
+Pouletwraps mit Salat und Gemüse|25|Poulet:E:100,Vollkornwrap:K:80,Blattsalat:F:100,Tomaten:F:60,Gurke:F:60|Poulet braten und schneiden.~Wraps füllen.~Einrollen.
+Hackfleisch-Wirz-Eintopf mit Kartoffeln|45|Rinderhack:E:100,Wirz:F:200,Kartoffeln:K:110|Hack anbraten, Wirz zugeben.~Kartoffeln und Bouillon zugeben.~25 Min. köcheln.
+Kalbsgeschnetzeltes mit Erbsen und Rösti|40|Kalbfleisch:E:100,Erbsen:H:60,Spinat:F:150,Kartoffeln:K:80|Rösti braten.~Kalbfleisch anbraten, Sauce kochen.~Mit Erbsen und Spinat anrichten.
+Poulet-Pfanne mit Tomaten und Spaghetti|30|Poulet:E:100,Tomaten:F:200,Zucchini:F:50,Vollkornspaghetti:K:100|Spaghetti kochen.~Poulet braten, Tomaten und Zucchini zugeben.~Mit Spaghetti mischen.
+Rindsfilet-Streifen mit Brokkoli und Reis|30|Rindfleisch:E:100,Brokkoli:F:200,Reis:K:100|Reis kochen.~Rindfleisch kurz scharf anbraten.~Brokkoli zugeben, alles mischen.
+Pouletbrust gefüllt mit Spinat und Feta mit Kartoffeln|50|Poulet:E:100,Spinat:F:200,Feta:E:20,Kartoffeln:K:110|Poulet aufschneiden, mit Spinat und Feta füllen.~Bei 200 °C 25 Min. backen.~Kartoffeln kochen.
+Lamm-Gemüse-Eintopf mit Kartoffeln|60|Lammfleisch:E:100,Bohnen:F:120,Tomaten:F:100,Kartoffeln:K:100|Lamm anbraten, Gemüse zugeben.~Mit Bouillon 40 Min. schmoren.~Kartoffeln mitgaren.
+Bratwurst mit Zwiebelgemüse und Kartoffelstock|40|Bratwurst:E:100,Zwiebel:F:100,Kohlrabi:F:100,Kartoffeln:K:110|Wurst braten.~Zwiebel und Kohlrabi dünsten.~Kartoffelstock dazu.
+Pouletbrust mit Ofentomaten und Couscous|35|Poulet:E:100,Tomaten:F:200,Zucchini:F:50,Couscous:K:90|Tomaten und Zucchini im Ofen rösten.~Poulet braten.~Couscous quellen lassen.
+Hackfleischbällchen in Tomatensauce mit Nudeln|40|Rinderhack:E:100,Tomaten:F:200,Zucchini:F:50,Nudeln:K:100|Bällchen formen und braten.~Tomatensauce köcheln.~Mit Nudeln servieren.
+Poulet-Gemüse-Spiesse mit Reis|35|Poulet:E:100,Peperoni:F:100,Zucchini:F:100,Reis:K:100|Alles aufspiessen und braten.~Reis kochen.~Mit Sauce servieren.
+Schweinsbraten-Scheiben mit Rotkohl und Kartoffeln|45|Schweinefleisch:E:100,Rotkohl:F:220,Kartoffeln:K:110|Rotkohl mit Zwiebel 25 Min. schmoren.~Fleisch braten.~Kartoffeln kochen.
+Rindsgeschnetzeltes mit Peperoni und Spätzli|35|Rindfleisch:E:100,Peperoni:F:200,Spätzli:K:100|Spätzli kochen.~Rindfleisch anbraten, Peperoni zugeben.~Mit Sauce servieren.
+Poulet-Wirz-Pfanne mit Reis|35|Poulet:E:100,Wirz:F:220,Reis:K:100|Reis kochen.~Poulet und Wirz zusammen braten.~Würzen.
+Pouletbrust mit Mangold und Polenta|35|Poulet:E:100,Mangold:F:230,Polenta:K:90|Polenta kochen.~Poulet braten.~Mangold dünsten.
+Truthahn-Frikadellen mit Gemüse und Kartoffeln|40|Truthahn:E:100,Zucchini:F:120,Rüebli:H:40,Kartoffeln:K:100,Brokkoli:F:60|Frikadellen formen und braten.~Kartoffeln kochen.~Gemüse dämpfen.
+Rinder-Chili mit Reis|45|Rinderhack:E:80,Kidneybohnen:L:20,Peperoni:F:100,Tomaten:F:120,Reis:K:100|Hack anbraten, Gemüse zugeben.~Tomaten und Bohnen zugeben, 25 Min. köcheln.~Mit Reis servieren.
+Poulet-Pasta mit Zucchini|30|Poulet:E:100,Zucchini:F:220,Vollkornnudeln:K:100|Nudeln kochen.~Poulet und Zucchini anbraten.~Alles mischen.
+Schweinswürfel-Pfanne mit Bohnen und Kartoffeln|35|Schweinefleisch:E:100,Grüne Bohnen:F:200,Kartoffeln:K:110|Kartoffeln vorkochen.~Fleisch anbraten, Bohnen zugeben.~Kartoffeln zugeben.
+Poulet-Satay-Spiesse mit Gurkensalat und Reis|35|Poulet:E:100,Gurke:F:200,Reis:K:100|Poulet marinieren und braten.~Reis kochen.~Gurkensalat anmachen.
+Kalbs-Plätzli mit Gemüsegratin|45|Kalbfleisch:E:100,Zucchini:F:120,Tomaten:F:80,Kartoffeln:K:100|Gemüse mit Kartoffeln überbacken.~Plätzli braten.~Servieren.
+Rindsrouladen mit Gemüse und Kartoffeln|70|Rindfleisch:E:100,Rüebli:H:60,Lauch:F:140,Kartoffeln:K:100|Rouladen füllen und anbraten.~Mit Bouillon 50 Min. schmoren.~Kartoffeln dazu.
+Poulet-Fajitas mit Peperoni|30|Poulet:E:100,Peperoni:F:200,Tortilla:K:80|Poulet und Peperoni braten.~Tortillas erwärmen.~Füllen.
+Hackfleisch-Lasagne mit Spinat|60|Rinderhack:E:100,Spinat:F:200,Tomaten:F:50,Lasagneblätter:K:100|Hack mit Tomaten köcheln.~Mit Spinat und Blättern schichten.~35 Min. backen.
+Poulet-Brokkoli-Gratin mit Kartoffeln|50|Poulet:E:100,Brokkoli:F:200,Kartoffeln:K:110|Kartoffeln vorkochen, Poulet anbraten.~Mit Brokkoli und Käse-Milch-Guss in eine Form.~25 Min. backen.
+Schweinefleisch-Gemüse-Wok mit Reis|25|Schweinefleisch:E:100,Pak Choi:F:120,Peperoni:F:80,Reis:K:100|Reis kochen.~Fleisch im Wok anbraten, Gemüse zugeben.~Mit Sojasauce würzen.
+Rindsburger-Teller mit Salat und Ofenkartoffeln|45|Rinderhack:E:100,Blattsalat:F:100,Tomaten:F:100,Kartoffeln:K:110|Hackpatties formen und braten.~Kartoffelspalten backen.~Mit Salat anrichten.
+Poulet-Kürbis-Pfanne mit Reis|35|Poulet:E:100,Kürbis:F:200,Reis:K:100|Reis kochen.~Poulet und Kürbis braten.~Mit Salbei würzen.
+Hackfleisch-Gemüse-Tacos|30|Rinderhack:E:100,Tortilla:K:80,Tomaten:F:90,Blattsalat:F:80,Peperoni:F:40|Hack mit Gewürzen anbraten.~Gemüse schneiden.~Tortillas füllen.
+Pouletgeschnetzeltes mit Rahmspinat und Rösti|40|Poulet:E:100,Spinat:F:200,Kartoffeln:K:100|Rösti braten.~Poulet in Rahmsauce garen.~Spinat dazu servieren.
+Rindfleisch-Brokkoli-Pfanne mit Nudeln|30|Rindfleisch:E:100,Brokkoli:F:200,Nudeln:K:100|Nudeln kochen.~Rindfleisch und Brokkoli braten.~Mischen.
+Poulet-Peperoni-Pfanne mit Kartoffeln|35|Poulet:E:100,Peperoni:F:200,Kartoffeln:K:110|Kartoffeln vorkochen und braten.~Poulet und Peperoni braten.~Zusammen servieren.
+Schweinsplätzli mit Spinat-Kartoffelgratin|50|Schweinefleisch:E:100,Spinat:F:200,Kartoffeln:K:110|Gratin zubereiten.~Plätzli braten.~Servieren.
+Putenbrust mit Ofengemüse und Reis|40|Truthahn:E:100,Zucchini:F:100,Peperoni:F:100,Reis:K:100|Gemüse im Ofen rösten.~Pute braten.~Reis kochen.
+Poulet-Zucchini-Nudeln mit Tomaten|30|Poulet:E:100,Zucchini:F:120,Tomaten:F:100,Nudeln:K:100|Nudeln kochen.~Poulet und Gemüse braten.~Mischen.
+Rindsgeschnetzeltes mit Kohlrabi und Kartoffeln|35|Rindfleisch:E:100,Kohlrabi:F:220,Kartoffeln:K:110|Kartoffeln kochen.~Fleisch anbraten.~Kohlrabi dünsten.
+Hackfleisch-Kürbis-Pfanne mit Reis|35|Rinderhack:E:100,Kürbis:F:200,Reis:K:100|Reis kochen.~Hack und Kürbis braten.~Würzen.
+Poulet-Spinat-Wrap|25|Poulet:E:100,Vollkornwrap:K:80,Spinat:F:100,Tomaten:F:100|Poulet braten.~Wraps füllen.~Rollen.
+Schweinefilet mit Kohlrabi-Gemüse und Kartoffeln|40|Schweinefleisch:E:100,Kohlrabi:F:220,Kartoffeln:K:110|Kartoffeln kochen.~Filet braten.~Kohlrabi dünsten.
+Pouletschnitzel mit Rüeblisalat und Brot|30|Poulet:E:100,Rüebli:H:60,Blattsalat:F:150,Brot:K:80|Schnitzel braten.~Salat anmachen.~Brot dazu.
+Rind-Gemüse-Eintopf mit Bohnen und Kartoffeln|60|Rindfleisch:E:100,Grüne Bohnen:F:150,Tomaten:F:80,Kartoffeln:K:100|Fleisch anbraten, Gemüse zugeben.~40 Min. schmoren.~Kartoffeln mitgaren.
+Poulet-Paprika-Gulasch mit Reis|40|Poulet:E:100,Peperoni:F:200,Reis:K:100|Reis kochen.~Poulet mit Peperoni schmoren.~Paprika würzen.
+Hackfleisch-Zucchini-Gratin mit Reis|45|Rinderhack:E:100,Zucchini:F:220,Reis:K:90|Hack anbraten, Zucchini zugeben.~Mit Reis in eine Form geben.~Überbacken.
+Pouletbrust mit Tomaten-Mozzarella-Kruste und Spaghetti|40|Poulet:E:80,Mozzarella:E:20,Tomaten:F:200,Vollkornspaghetti:K:100|Poulet mit Tomaten und Mozzarella belegen und backen.~Spaghetti kochen.~Zusammen servieren.
+Schweinsragout mit Karotten und Polenta|55|Schweinefleisch:E:100,Rüebli:H:100,Lauch:F:150,Polenta:K:90|Fleisch anbraten.~Gemüse zugeben und schmoren.~Polenta kochen.
+Pouletspiesse mit Gurkensalat und Fladenbrot|35|Poulet:E:100,Gurke:F:200,Fladenbrot:K:90|Spiesse braten.~Gurkensalat anmachen.~Brot dazu.
+Rindfleisch-Peperoni-Wok mit Reis|25|Rindfleisch:E:100,Peperoni:F:150,Pak Choi:F:60,Reis:K:100|Reis kochen.~Alles im Wok braten.~Mit Sojasauce würzen.
+Poulet-Burrito-Bowl mit Reis|30|Poulet:E:100,Reis:K:90,Tomaten:F:100,Peperoni:F:70,Blattsalat:F:40|Poulet braten.~Reis kochen.~Alles anrichten.
+Hackfleisch-Rüebli-Eintopf mit Kartoffeln|45|Rinderhack:E:100,Rüebli:H:80,Kohlrabi:F:130,Kartoffeln:K:100|Hack anbraten, Gemüse zugeben.~Mit Bouillon 25 Min. köcheln.~Würzen.
+Poulet-Lauch-Pfanne mit Nudeln|30|Poulet:E:100,Lauch:F:220,Nudeln:K:100|Nudeln kochen.~Poulet und Lauch braten.~Mischen.
+Schweinsbratwurst mit Kohl und Kartoffeln|40|Bratwurst:E:100,Weisskohl:F:220,Kartoffeln:K:110|Kartoffeln kochen.~Wurst braten.~Kohl dünsten.
+Truthahn-Curry mit Spinat und Reis|30|Truthahn:E:100,Spinat:F:200,Reis:K:100|Reis kochen.~Truthahn mit Curry braten.~Spinat unterheben.
+Rindsfilet-Salat-Teller mit Kartoffeln|35|Rindfleisch:E:100,Blattsalat:F:150,Tomaten:F:80,Kartoffeln:K:110|Kartoffeln kochen.~Rindfleisch braten.~Salat anmachen.
+Poulet-Fenchel-Pfanne mit Kartoffeln|35|Poulet:E:100,Fenchel:F:200,Kartoffeln:K:110|Kartoffeln vorkochen.~Poulet und Fenchel braten.~Zusammen servieren.
+Hackfleisch-Wirz-Wickel mit Tomatensauce und Kartoffeln|60|Rinderhack:E:100,Wirz:F:150,Tomaten:F:70,Kartoffeln:K:100|Wirzblätter blanchieren.~Hack füllen, einrollen.~In Tomatensauce 30 Min. schmoren.
+Schweinefleisch-Gemüse-Spiesse mit Quinoa|35|Schweinefleisch:E:100,Zucchini:F:100,Peperoni:F:100,Quinoa:K:90|Spiesse braten.~Quinoa kochen.~Servieren.
+Poulet-Brokkoli-Reis-Pfanne|30|Poulet:E:100,Brokkoli:F:200,Reis:K:100|Alles braten.~Reis untermischen.~Würzen.
+Rindfleisch-Linsen-Eintopf|55|Rindfleisch:E:70,Linsen:L:30,Rüebli:H:60,Lauch:F:140,Kartoffeln:K:100|Fleisch anbraten.~Gemüse und Linsen zugeben.~40 Min. köcheln.
+Pouletbrust mit Gemüse-Kartoffel-Püree|35|Poulet:E:100,Rüebli:H:60,Brokkoli:F:150,Kartoffeln:K:90|Poulet braten.~Gemüse und Kartoffeln kochen.~Stampfen.
+Gebackene Pouletstreifen mit Salat und Reis|35|Poulet:E:100,Blattsalat:F:100,Gurke:F:100,Reis:K:100|Streifen panieren, backen.~Reis kochen.~Salat anmachen.
+Schweinsfilet mit Lauch-Rahm und Kartoffelstock|40|Schweinefleisch:E:100,Lauch:F:220,Kartoffeln:K:110|Filet braten.~Lauch mit Rahm dünsten.~Kartoffeln stampfen.
+Poulet-Peperoni-Auflauf mit Nudeln|45|Poulet:E:100,Peperoni:F:200,Nudeln:K:100|Nudeln kochen.~Alles mit Sauce mischen.~25 Min. backen.
+Rinderhackbraten-Röllchen mit Spinat und Kartoffeln|55|Rinderhack:E:100,Spinat:F:200,Kartoffeln:K:100|Hack flach drücken, mit Spinat füllen und einrollen.~35 Min. backen.~Kartoffeln kochen.
 `;
 
 /* ---------- Parser ---------- */
@@ -295,7 +854,7 @@ const CATS = [], RECIPES = [];
 })();
 
 /* ---------- Einstellungen ---------- */
-const DEF = { pers: 3, viz: "icons", tol: 12, unb: false, maxT: 60, speed: 50, leg: 100,
+const DEF = { fav: [], plan: [], pers: 3, viz: "icons", tol: 12, unb: false, maxT: 60, speed: 50, leg: 100,
   off: { Safran:1, Pilz:1, Meeresfrüchte:1, Fisch:1 }, custom: [], hidden: [] };
 // Welche Wörter hinter einem Schalter stecken (alles kleingeschrieben, Teilwort-Suche)
 const ALIASES = {
@@ -356,26 +915,34 @@ function ok(r){
   return S.unb || level(dev(shares(r))) !== "bad";
 }
 
+const PAGES = [...CATS, "Listen"], LIST = CATS.length;
+const DAYS = ["Mo","Di","Mi","Do","Fr","Sa","So","Vorschläge"];
+const DAYN = { Mo:"Montag", Di:"Dienstag", Mi:"Mittwoch", Do:"Donnerstag", Fr:"Freitag", Sa:"Samstag", So:"Sonntag", "Vorschläge":"Vorschläge" };
+const planOf = id => S.plan.find(p => p.id === id);
+function addPlan(id){ if (!planOf(id)) { S.plan.push({ id, day:"Vorschläge" }); save(); } }
 const PER = 7;
 /* Adresse der veröffentlichten Seite (GitHub Pages). Bring! liest die Zutaten von den Rezeptseiten unter <BASE>r/<name>.html (erzeugt mit build.ps1). */
 const BASE = "https://magitnu.github.io/rezepte/";
 const slug = t => t.toLowerCase().replace(/ä/g,"ae").replace(/ö/g,"oe").replace(/ü/g,"ue").replace(/ß/g,"ss").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 const bringUrl = r => "https://api.getbring.com/rest/bringrecipes/deeplink?url=" + encodeURIComponent(BASE + "r/" + slug(r.title) + ".html") + "&source=web&baseQuantity=1&requestedQuantity=" + S.pers;
 const SVG = {
-  "Eierspeise":'<path d="M12 3c3.4 0 6.2 5.2 6.2 9.6a6.2 6.2 0 0 1-12.4 0C5.8 8.2 8.600 3 12 3z"/>',
+  "Eier & Wähe":'<path d="M12 3c3.4 0 6.2 5.2 6.2 9.6a6.2 6.2 0 0 1-12.4 0C5.8 8.2 8.600 3 12 3z"/>',
   "Mit Hülsenfrüchten":'<path d="M8 4.500c5-2.500 11 1.500 10 7.500s-6 9-10 7-4-10 0-14.500z"/><path d="M9 9c2 1 3 3 3 5"/>',
   "Mit Reis":'<path d="M3 11h18c0 5-4 9-9 9s-9-4-9-9z"/><path d="M7 8c.5-1.500 2-1.500 2.500 0M11 7c.5-1.500 2-1.500 2.500 0M15 8c.5-1.500 2-1.500 2.500 0"/>',
   "Mit Kartoffeln":'<path d="M5 9c2-4 9-5 13-2 3 3 2 9-2 11-4 2-10 1-12-3-1-2-1-4 1-6z"/><circle cx="10" cy="10" r=".6"/><circle cx="14.500" cy="13" r=".6"/><circle cx="9" cy="15" r=".6"/>',
   "Salate":'<path d="M5 19C3 11 9 4 20 4c0 11-7 17-15 15z"/><path d="M5 19L14 10"/>',
-  "Mit Fleisch":'<path d="M5 8c2-4 9-5 13-2s3 9-1 12-9 2-12-1S3 11 5 8z"/><circle cx="14" cy="10.500" r="2.200"/><path d="M6.500 12.500c1 1 2 1.500 3.500 1.500"/>',
-  "Wähe":'<path d="M3 15h18l-2 4H5z"/><path d="M4 15c0-4 3-7 8-7s8 3 8 7"/>'
+  "Mit Fleisch":'<path d="M5 8c2-4 9-5 13-2s3 9-1 12-9 2-12-1S3 11 5 8z"/><circle cx="14" cy="10.500" r="2.200"/><path d="M6.500 12.500c1 1 2 1.500 3.500 1.500"/>'
 };
-const SHORT = { "Eierspeise":"Ei", "Mit Hülsenfrüchten":"Hülsen\u00ADfrüchte", "Mit Reis":"Reis", "Mit Kartoffeln":"Kartoffel", "Salate":"Salat", "Mit Fleisch":"Fleisch", "Wähe":"Wähe" };
+const SHORT = { "Eier & Wähe":"Ei & Wähe", "Mit Hülsenfrüchten":"Hülsen\u00ADfrüchte", "Mit Reis":"Reis", "Mit Kartoffeln":"Kartoffel", "Salate":"Salat", "Mit Fleisch":"Fleisch" };
 let cur = 0;
-try { cur = Math.min(CATS.length-1, +localStorage.getItem("rezepte-cat") || 0); } catch(e){}
+let listTab = "plan";
+try { listTab = localStorage.getItem("rezepte-tab") === "fav" ? "fav" : "plan"; } catch(e){}
+SVG["Listen"] = '<rect x="5" y="4.500" width="14" height="17" rx="2"/><path d="M9 4.500V3h6v1.500M9 10h6M9 14h6M9 18h3.500"/>';
+SHORT["Listen"] = "Listen";
+try { cur = Math.min(PAGES.length-1, +localStorage.getItem("rezepte-cat") || 0); } catch(e){}
 
 /* Vier Darstellungen der Balance: pie (Kreis), cols (Säulen), nums (Zahlen), bar (Balken) */
-const VIZ = { icons:"Lauch · Ei · Kartoffel", plate:"Teller", pie:"Kreis", cols:"Säulen", nums:"Zahlen", bar:"Balken" };
+const VIZ = { icons:"Blatt · Ei · Weizen", plate:"Teller", pie:"Kreis", cols:"Säulen", nums:"Zahlen", bar:"Balken" };
 /* Silhouetten für die Icon-Anzeige: werden als Maske benutzt, darunter liegt ein Farbverlauf = Erfüllungsgrad */
 const SIL = {
   f:'<path fill-rule="evenodd" d="M4.500 19.500C3 10 9 3 21 3c0 12-6 17.500-16.500 16.500zM7 17.500Q9.500 10.500 17 6.500Q13 12.500 7 17.500z"/><path d="M4.500 19.500L2.500 22" stroke="#000" stroke-width="1.500" stroke-linecap="round"/>',
@@ -387,11 +954,12 @@ const SIL = {
   for (const k in SIL) css += `.ic.${k}{--m:url("data:image/svg+xml,${encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000">' + SIL[k] + '</svg>')}")}`;
   document.head.appendChild(Object.assign(document.createElement("style"), { textContent: css }));
 })();
+const NAMES = ["Ballaststoffe", "Eiweiss", "Kohlenhydrate"];
 function viz(s, big){
   const b = big ? " big" : "", V = [[s.f,"--f",50],[s.e,"--e",25],[s.k,"--k",25]];
   const P = V.map(([v,c,t]) => Math.max(0, 1 - Math.abs(v-t) / (2*S.tol)));  // Erfüllungsgrad: 1 = genau Ziel, 0 = doppelte Toleranz daneben
   if (S.viz === "icons") return `<div class="ics${b}">` + ["f","e","k"].map((k,i) => { const pc = Math.round(P[i]*100), col = pc >= 60 ? "--ok" : pc >= 30 ? "--mid" : "--bad";
-    return `<div><span class="ic ${k}" style="--p:${pc}%;--c:var(${col})"></span><small>${pc}%</small></div>`; }).join("") + `</div>`;
+    return `<div><span class="ic ${k}" style="--p:${pc}%;--c:var(${col})"></span><small>${pc}%</small>${big ? `<em class="cap">${NAMES[i]}</em>` : ""}</div>`; }).join("") + `</div>`;
   if (S.viz === "plate") { const o = p => (.18 + .82*p).toFixed(2);
     return `<svg class="plate${b}" viewBox="0 0 24 24" aria-hidden="true"><g stroke="var(--card)" stroke-width="1.2">
       <path d="M12 1A11 11 0 0 0 12 23Z" fill="var(--f)" fill-opacity="${o(P[0])}"/>
@@ -416,40 +984,111 @@ function amount(i){
 const got = new Set();
 function shopText(r){ return "Einkaufsliste " + r.title + " (" + S.pers + " Pers.)\n" + r.ing.filter(i=>i.g!=="N").map(i => "- " + i.n + ": " + amount(i)).join("\n"); }
 
-function card(r){  const s = shares(r), lv = level(dev(s));
-  const row = (c, n, v, z) => `<div><i style="background:var(${c})"></i>${n} <b>${Math.round(v)} %</b><em>Ziel ${z} %</em></div>`;
-  return `<div class="card ${open.has(r.id)?"open":""}" data-id="${esc(r.id)}">
+const IC = {
+  cart:'<circle cx="9" cy="20" r="1.300"/><circle cx="18" cy="20" r="1.300"/><path d="M2.500 3.500h3l2.200 11h10.600l2-8H6.200"/>',
+  share:'<path d="M12 15V3.500M7.500 8L12 3.500 16.500 8M5 12v7.500h14V12"/>',
+  plan:'<rect x="5" y="4.500" width="14" height="17" rx="2"/><path d="M9 4.500V3h6v1.500M12 10v7M8.500 13.500h7"/>',
+  planOn:'<rect x="5" y="4.500" width="14" height="17" rx="2"/><path d="M9 4.500V3h6v1.500M9 14l2.200 2.200L15.500 12"/>',
+  heart:'<path d="M12 20s-7.500-4.600-7.500-10.200A4.200 4.200 0 0 1 12 7.500a4.200 4.200 0 0 1 7.500 2.300C19.500 15.400 12 20 12 20z"/>',
+  chefhat:'<path d="M7 14V19h10v-5"/><path d="M7 14a3.500 3.500 0 0 1-.5-6.900A4.500 4.500 0 0 1 12 4a4.500 4.500 0 0 1 5.500 3.100A3.500 3.500 0 0 1 17 14"/>',
+  pot:'<path d="M4 10h16v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M2 10h2M20 10h2M9 6c0-1 1-1 1-2M14 6c0-1 1-1 1-2"/>',
+  globe:'<circle cx="12" cy="12" r="8.500"/><path d="M3.500 12h17M12 3.500c2.500 2.500 2.500 14.500 0 17M12 3.500c-2.500 2.500-2.500 14.500 0 17"/>',
+  cal:'<rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4"/>',
+  search:'<circle cx="11" cy="11" r="6.500"/><path d="M16 16l4.500 4.500"/>',
+  hide:'<path d="M3 3l18 18M10.600 6.200A9 9 0 0 1 12 6c5 0 8.500 4 9.500 6a14 14 0 0 1-2.600 3.400M6.500 7.600A14 14 0 0 0 2.500 12c1 2 4.500 6 9.500 6a9 9 0 0 0 3.300-.6"/>'
+};
+const ico = (k, fill) => `<svg viewBox="0 0 24 24" aria-hidden="true"${fill?' style="fill:currentColor"':""}>${IC[k]}</svg>`;
+
+let ctxPlan = false;
+const GRIP = `<span class="grip" data-drag aria-label="Zum Verschieben ziehen"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="6" r="1.500"/><circle cx="15" cy="6" r="1.500"/><circle cx="9" cy="12" r="1.500"/><circle cx="15" cy="12" r="1.500"/><circle cx="9" cy="18" r="1.500"/><circle cx="15" cy="18" r="1.500"/></svg></span>`;
+IC.add = '<path d="M12 5v14M5 12h14"/>';
+IC.dice = '<rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="9" cy="9" r="1"/><circle cx="15" cy="15" r="1"/><circle cx="12" cy="12" r="1"/>';
+IC.link = '<path d="M10 14a4 4 0 0 0 5.600 0l3-3a4 4 0 0 0-5.600-5.600l-1 1M14 10a4 4 0 0 0-5.600 0l-3 3a4 4 0 0 0 5.600 5.600l1-1"/>';
+IC.x = '<path d="M6 6l12 12M18 6L6 18"/>';
+function custCard(p){
+  return `<div class="card pl cust" data-id="${esc(p.id)}">${GRIP}
+    <div class="row"><span class="t"><b>${esc(p.title)}</b></span>
+      ${p.url ? `<a class="iconb" href="${esc(p.url)}" target="_blank" rel="noopener" aria-label="Link öffnen">${ico("link")}</a>` : ""}
+      <button class="iconb" data-act="del" aria-label="Entfernen">${ico("x")}</button></div>
+  </div>`;
+}
+
+const googleUrl = r => "https://www.google.com/search?q=" + encodeURIComponent(r.title + " Rezept");
+function card(r){
+  const s = shares(r), lv = level(dev(s)), pl = planOf(r.id), fav = S.fav.includes(r.id);
+  const row = (c, n, v, z) => `<div><span class="ic ${c.slice(2)}" style="--p:100%;--c:var(${c})"></span>${n} <b>${Math.round(v)} %</b><em>Ziel ${z} %</em></div>`;
+  const items = r.ing.filter(i=>i.g!=="N").map(i => `<button class="li${got.has(r.id+"|"+i.n)?" got":""}" data-act="got" data-k="${esc(r.id+"|"+i.n)}"><i style="background:${GC[i.g]}"></i><span>${esc(i.n)}</span><em>${amount(i)}</em></button>`).join("");
+  const how = r.how ? `<ol>${r.how.split("~").map(x => `<li>${esc(x)}</li>`).join("")}</ol>` : `<p class="note">Keine Beschreibung vorhanden.</p>`;
+  const days = pl ? `<p class="sub">Wochentag</p><div class="days">${DAYS.map(d => `<button class="chip" data-act="day" data-d="${d}" aria-pressed="${pl.day===d}">${d}</button>`).join("")}</div>` : "";
+  return `<div class="card${ctxPlan?" pl":""} ${open.has(r.id)?"open":""}" data-id="${esc(r.id)}">${ctxPlan?GRIP:""}
     <button class="row" data-act="toggle" aria-expanded="${open.has(r.id)}">
-      <span class="t"><b>${esc(r.title)}</b><span>${r.min} Min.</span></span>
-      ${viz(s)}
+      ${ctxPlan ? `<span class="t"><b>${esc(r.title)}</b></span>` : `<span class="t"><b>${esc(r.title)}</b><span>${r.min} Min.${fav?" · ♥":""}${pl?" · "+pl.day:""}</span></span>${viz(s)}`}
     </button>
-    <div class="det"><div class="vizbig">${viz(s, true)}</div>
-      <div class="leg">${row("--f","Ballaststoffe",s.f,50)}${row("--e","Eiweiss",s.e,25)}${row("--k","Kohlenhydrate",s.k,25)}</div>
-      <span class="badge" style="background:${COL[lv]}">${lv==="ok"?"ausgewogen":lv==="mid"?"fast ausgewogen":"unausgewogen"}</span>
-      ${r.how?`<div class="how"><b>So geht's</b><p>${esc(r.how)}</p></div>`:""}
-      <div class="shop"><div class="shead"><b>Einkaufsliste</b><span class="step"><button data-act="pm" data-d="-1" aria-label="Eine Person weniger">−</button><span>${S.pers} Pers.</span><button data-act="pm" data-d="1" aria-label="Eine Person mehr">+</button></span></div>${r.ing.filter(i=>i.g!=="N").map(i => `<button class="li${got.has(r.id+"|"+i.n)?" got":""}" data-act="got" data-k="${esc(r.id+"|"+i.n)}"><i style="background:${GC[i.g]}"></i><span>${esc(i.n)}</span><em>${amount(i)}</em></button>`).join("")}<p class="note">Reis, Nudeln &amp; Co. als Rohgewicht. Hülsenfrüchte gekocht oder aus der Dose.</p><a class="hide go" href="${bringUrl(r)}" target="_blank" rel="noopener">Zu Bring! hinzufügen</a> <button class="hide" data-act="copy">Teilen / kopieren</button></div>
-      <button class="hide" data-act="hide">Nicht mehr zeigen</button></div>
+    <a class="gs iconb" href="${googleUrl(r)}" target="_blank" rel="noopener" aria-label="Auf Google suchen">${ico("search")}Google</a>
+    <div class="det">
+      <section class="ds">
+        <div class="shead"><h4>Zutaten</h4><span class="step"><button data-act="pm" data-d="-1" aria-label="Eine Person weniger">−</button><span>${S.pers} Pers.</span><button data-act="pm" data-d="1" aria-label="Eine Person mehr">+</button></span></div>
+        ${items}
+        <p class="note">Reis, Nudeln &amp; Co. als Rohgewicht. Hülsenfrüchte gekocht oder aus der Dose.</p>
+      </section>
+      <section class="ds acts2">
+        <div class="btns3">
+          <a class="btn2 sm pri go" href="${bringUrl(r)}" target="_blank" rel="noopener">${ico("cart")}Bring!</a>
+          <button class="btn2 sm${pl?" on":""}" data-act="plan">${ico(pl?"planOn":"plan")}Kochliste</button>
+          <button class="btn2 sm${fav?" on":""}" data-act="fav">${ico("heart", fav)}Favorit</button>
+        </div>
+        ${pl ? `<div class="days">${DAYS.map(d => `<button class="chip" data-act="day" data-d="${d}" aria-pressed="${pl.day===d}">${d}</button>`).join("")}</div>` : ""}
+      </section>
+      <section class="ds how"><h4>Zubereitung</h4>${how}</section>
+      <section class="ds">
+        <h4>Gesundheit</h4>
+        <div class="vizbig">${viz(s, true)}</div>
+        <div class="leg">${row("--f","Ballaststoffe",s.f,50)}${row("--e","Eiweiss",s.e,25)}${row("--k","Kohlenhydrate",s.k,25)}</div>
+        <span class="badge" style="background:${COL[lv]}">${lv==="ok"?"ausgewogen":lv==="mid"?"fast ausgewogen":"unausgewogen"}</span>
+      </section>
+      <section class="ds"><div class="btns"><button class="btn2 full" data-act="hide">${ico("hide")}Nicht mehr zeigen</button></div></section>
+    </div>
   </div>`;
 }
 
 function render(anim){
-  const cat = CATS[cur];
-  if (!order[cat]) shuffleCat(cat);
-  const all = order[cat].map(id => byId[id]).filter(ok);
-  const pages = Math.max(1, Math.ceil(all.length / PER)), p = (page[cat] || 0) % pages;
-  const part = all.slice(p * PER, p * PER + PER);
-  $("nav").innerHTML = CATS.map((c,i) => `<button data-go="${i}" aria-current="${i===cur}" aria-label="${esc(c)}"><svg viewBox="0 0 24 24" aria-hidden="true">${SVG[c]||""}</svg>${SHORT[c]||esc(c)}</button>`).join("") + `<button data-gear="1" aria-label="Einstellungen"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M9.7 4.5L10.2 1.7L13.8 1.7L14.3 4.5L15.6 5.1L18.1 3.4L20.6 5.9L18.9 8.4L19.5 9.7L22.3 10.2L22.3 13.8L19.5 14.3L18.9 15.6L20.6 18.1L18.1 20.6L15.6 18.9L14.3 19.5L13.8 22.3L10.2 22.3L9.7 19.5L8.4 18.9L5.9 20.6L3.4 18.1L5.1 15.6L4.5 14.3L1.7 13.8L1.7 10.2L4.5 9.7L5.1 8.4L3.4 5.9L5.9 3.4L8.4 5.1Z"/></svg>Optionen</button>`;
-  let html = part.length ? part.map(card).join("") : `<div class="empty">Keine passenden Rezepte. Lockere die Einstellungen.</div>`;
-  if (pages > 1) html += `<button class="more" id="more">Neue Rezepte laden (${p+1}/${pages})</button><p class="hint">Oder am Ende nach oben wischen</p>`;
+  const GEAR = `<button data-gear="1" aria-label="Einstellungen"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M9.7 4.5L10.2 1.7L13.8 1.7L14.3 4.5L15.6 5.1L18.1 3.4L20.6 5.9L18.9 8.4L19.5 9.7L22.3 10.2L22.3 13.8L19.5 14.3L18.9 15.6L20.6 18.1L18.1 20.6L15.6 18.9L14.3 19.5L13.8 22.3L10.2 22.3L9.7 19.5L8.4 18.9L5.9 20.6L3.4 18.1L5.1 15.6L4.5 14.3L1.7 13.8L1.7 10.2L4.5 9.7L5.1 8.4L3.4 5.9L5.9 3.4L8.4 5.1Z"/></svg>Optionen</button>`;
+  const tile = (c,i) => `<button data-go="${i}" aria-current="${i===cur}" aria-label="${esc(c)}"><svg viewBox="0 0 24 24" aria-hidden="true">${SVG[c]||""}</svg>${SHORT[c]||esc(c)}</button>`;
+  $("nav").innerHTML = `<div class="grp cats">${CATS.map((c,i) => tile(c,i)).join("")}</div><i class="sep"></i><div class="grp right">${tile("Listen", LIST)}${GEAR}</div>`;
+  let html = "";
+  if (cur === LIST) {
+    const plan = S.plan.filter(p => p.custom || byId[p.id]);
+    html = `<div class="seg"><button data-tab="plan" aria-pressed="${listTab==="plan"}">Kochliste (${plan.length})</button><button data-tab="fav" aria-pressed="${listTab==="fav"}">Favoriten (${S.fav.length})</button></div>`;
+    if (listTab === "fav") {
+      const list = S.fav.map(id => byId[id]).filter(Boolean);
+      html += list.length ? list.map(card).join("") : `<div class="empty">Noch keine Favoriten. Tippe in einem Rezept auf «Zu Favoriten hinzufügen».</div>`;
+    } else {
+      ctxPlan = true;
+      html += `<div class="daygrid">` + DAYS.map(d => { const list = plan.filter(p => p.day === d), wide = list.some(p => open.has(p.id));
+        return `<section class="day${wide ? " wide" : ""}" data-day="${d}"><h3 class="dh">${DAYN[d]}</h3>`
+          + list.map(p => p.custom ? custCard(p) : card(byId[p.id])).join("")
+          + `<button class="addtile" data-add="${d}" aria-label="Zu ${DAYN[d]} hinzufügen">${ico("add")}Hinzufügen</button></section>`; }).join("") + `</div>`;
+      ctxPlan = false;
+    }
+  } else {
+    const cat = CATS[cur];
+    if (!order[cat]) shuffleCat(cat);
+    const all = order[cat].map(id => byId[id]).filter(ok);
+    const pages = Math.max(1, Math.ceil(all.length / PER)), p = (page[cat] || 0) % pages;
+    const part = all.slice(p * PER, p * PER + PER);
+    html = part.length ? part.map(card).join("") : `<div class="empty">Keine passenden Rezepte. Lockere die Einstellungen.</div>`;
+    if (pages > 1) html += `<button class="more" id="more">Neue Rezepte laden (${p+1}/${pages})</button><p class="hint">Oder am Ende nach oben wischen</p>`;
+  }
   const m = $("main"); m.innerHTML = html; m.classList.remove("l","r");
   if (anim) { m.style.setProperty("--dx", anim==="r" ? "-30px" : "30px"); void m.offsetWidth; m.classList.add("r"); window.scrollTo(0, 0); }
 }
 function go(i, anim){
-  cur = (i + CATS.length) % CATS.length;
+  cur = (i + PAGES.length) % PAGES.length;
+  if (cur === LIST) open.clear();
   try { localStorage.setItem("rezepte-cat", cur); } catch(e){}
   render(anim || "r");
 }
-function nextBatch(){ const c = CATS[cur]; page[c] = (page[c] || 0) + 1; render("r"); }
+function nextBatch(){ if (cur >= CATS.length) return; const c = CATS[cur]; page[c] = (page[c] || 0) + 1; render("r"); }
 
 /* Nach rechts wischen = nächste Kategorie, nach links = vorherige; am Seitenende nach oben wischen = neue Rezepte */
 let t0 = null;
@@ -463,12 +1102,26 @@ document.addEventListener("touchend", e => {
 }, { passive:true });
 /* ---------- Ereignisse ---------- */
 $("main").addEventListener("click", e => {
+  const a = e.target.closest("a.go");
+  if (a) { addPlan(a.closest(".card").dataset.id); setTimeout(render, 600); return; }   // Bring! = automatisch auch in die Kochliste
   const b = e.target.closest("button"); if (!b) return;
   const card = b.closest(".card"), id = card && card.dataset.id;
-  if (b.dataset.act==="toggle") { open.has(id) ? open.delete(id) : open.add(id); card.classList.toggle("open"); b.setAttribute("aria-expanded", open.has(id)); }
+  if (b.dataset.add) { openAdd(b.dataset.add); return; }
+  if (b.dataset.act==="del") { S.plan = S.plan.filter(p => p.id !== id); save(); render(); return; }
+  if (b.dataset.tab) { listTab = b.dataset.tab; open.clear(); try { localStorage.setItem("rezepte-tab", listTab); } catch(e){} render(); return; }
+  if (b.dataset.act==="toggle") {
+    const was = open.has(id);
+    if (!was) { open.clear(); document.querySelectorAll(".card.open").forEach(c => { c.classList.remove("open"); const r = c.querySelector(".row"); if (r) r.setAttribute("aria-expanded", "false"); }); open.add(id); } else open.delete(id);
+    card.classList.toggle("open"); b.setAttribute("aria-expanded", open.has(id));
+    if (cur === LIST) render();
+    else if (!was) card.scrollIntoView({ block:"start", behavior:"smooth" });
+  }
   else if (b.dataset.act==="pm") { S.pers = Math.min(12, Math.max(1, S.pers + +b.dataset.d)); save(); render(); }
   else if (b.dataset.act==="got") { const k = b.dataset.k; got.has(k) ? got.delete(k) : got.add(k); b.classList.toggle("got"); }
   else if (b.dataset.act==="copy") { const txt = shopText(byId[id]); const ok = () => { b.textContent = "Kopiert ✓"; }; if (navigator.share) navigator.share({ text: txt }).catch(()=>{}); else try { navigator.clipboard.writeText(txt).then(ok, ok); } catch(e) { ok(); } }
+  else if (b.dataset.act==="plan") { const k = S.plan.findIndex(p => p.id === id); if (k >= 0) S.plan.splice(k, 1); else addPlan(id); save(); render(); }
+  else if (b.dataset.act==="fav") { const k = S.fav.indexOf(id); if (k >= 0) S.fav.splice(k, 1); else S.fav.push(id); save(); render(); }
+  else if (b.dataset.act==="day") { const p = planOf(id); if (p) { p.day = b.dataset.d; save(); render(); } }
   else if (b.dataset.act==="hide") { S.hidden.push(id); save(); render(); }
   else if (b.id === "more") nextBatch();
 });
@@ -477,6 +1130,72 @@ $("nav").addEventListener("click", e => {
   if (b.dataset.gear) { sync(); dlg.showModal(); return; }
   const i = +b.dataset.go; go(i, i > cur ? "r" : "l");
 });
+
+/* ---------- Kochliste: Hinzufügen (Suchen / selber schreiben / Link) und Verschieben per Ziehen ---------- */
+let addDay = "Vorschläge";
+const isUrl = s => /^(https?:\/\/|www\.)\S+$/i.test(s);
+function urlInfo(u){
+  try {
+    const x = new URL(/^https?:/i.test(u) ? u : "https://" + u), host = x.hostname.replace(/^www\./, "");
+    const seg = decodeURIComponent(x.pathname.split("/").filter(Boolean).pop() || "").replace(/\.[a-z0-9]{2,5}$/i, "").replace(/[-_+]+/g, " ").trim();
+    return { title: seg && !/^\d+$/.test(seg) ? seg : host, url: x.href, host };
+  } catch(e) { return null; }
+}
+function openAdd(d){
+  addDay = d; $("addT").textContent = "Zu " + DAYN[d] + " hinzufügen"; $("addIn").value = ""; addResults(); $("add").showModal();
+}
+function addResults(){
+  const q = $("addIn").value.trim(), ql = q.toLowerCase();
+  if (!q) { $("addRes").innerHTML = `<p class="note">Tippe einen Namen oder eine Zutat (z. B. «Linsen»), schreibe ein eigenes Gericht oder füge einen Link ein.</p>`; return; }
+  let h = "";
+  if (!isUrl(q)) {
+    const hits = RECIPES.filter(r => r.title.toLowerCase().includes(ql) || r.ing.some(i => i.n.toLowerCase().includes(ql))).slice(0, 8);
+    h += hits.map(r => `<button class="res" data-rid="${esc(r.id)}"><b>${esc(r.title)}</b><span>${esc(r.cat)} · ${r.min} Min.${planOf(r.id) ? " · schon in " + esc(planOf(r.id).day) : ""}</span></button>`).join("");
+    h += `<button class="res own" data-new="own"><b>«${esc(q)}» selber hinzufügen</b><span>Eigenes Gericht</span></button>`;
+  } else {
+    const t = urlInfo(q);
+    h += t ? `<button class="res own" data-new="link"><b>Link hinzufügen</b><span>${esc(t.title)} · ${esc(t.host)}</span></button>` : `<p class="note">Der Link wird nicht erkannt.</p>`;
+  }
+  $("addRes").innerHTML = h;
+}
+$("addIn").addEventListener("input", addResults);
+$("addClose").onclick = () => $("add").close();
+$("add").addEventListener("click", e => { if (e.target === $("add")) $("add").close(); });
+$("addRes").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  const q = $("addIn").value.trim();
+  if (b.dataset.rid) { const p = planOf(b.dataset.rid); if (p) p.day = addDay; else S.plan.push({ id: b.dataset.rid, day: addDay }); }
+  else if (b.dataset.new === "own") S.plan.push({ id: "c" + Date.now(), custom: 1, title: q, day: addDay });
+  else if (b.dataset.new === "link") { const t = urlInfo(q); if (t) S.plan.push({ id: "c" + Date.now(), custom: 1, title: t.title, url: t.url, host: t.host, day: addDay }); }
+  save(); $("add").close(); render();
+});
+
+/* Ziehen am Griff links: Karte auf einen anderen Tag fallen lassen (Maus und Touch) */
+let drag = null;
+document.addEventListener("pointerdown", e => {
+  const g = e.target.closest("[data-drag]"); if (!g) return;
+  const c = g.closest(".card"), r = c.getBoundingClientRect(); e.preventDefault();
+  const gh = c.cloneNode(true); gh.classList.add("ghost"); gh.style.cssText = `width:${r.width}px;left:${r.left}px;top:${r.top}px`;
+  document.body.appendChild(gh); c.classList.add("dragging"); try { g.setPointerCapture(e.pointerId); } catch(_) {}
+  drag = { id: c.dataset.id, card: c, ghost: gh, dx: e.clientX - r.left, dy: e.clientY - r.top, y: e.clientY, day: null,
+    timer: setInterval(() => { if (drag.y < 150) window.scrollBy(0, -14); else if (drag.y > window.innerHeight - 70) window.scrollBy(0, 14); }, 16) };
+});
+document.addEventListener("pointermove", e => {
+  if (!drag) return;
+  drag.y = e.clientY; drag.ghost.style.left = (e.clientX - drag.dx) + "px"; drag.ghost.style.top = (e.clientY - drag.dy) + "px";
+  const s = document.elementFromPoint(e.clientX, e.clientY), sec = s && s.closest("[data-day]");
+  document.querySelectorAll(".day.over").forEach(x => x.classList.remove("over"));
+  drag.day = sec ? sec.dataset.day : null; if (sec) sec.classList.add("over");
+});
+function endDrag(){
+  if (!drag) return;
+  clearInterval(drag.timer); drag.ghost.remove(); drag.card.classList.remove("dragging");
+  document.querySelectorAll(".day.over").forEach(x => x.classList.remove("over"));
+  const p = planOf(drag.id); if (p && drag.day && drag.day !== p.day) { p.day = drag.day; save(); }
+  drag = null; render();
+}
+document.addEventListener("pointerup", endDrag);
+document.addEventListener("pointercancel", endDrag);
 
 const dlg = $("dlg");
 $("close").onclick = () => dlg.close();

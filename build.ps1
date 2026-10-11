@@ -45,7 +45,8 @@ foreach ($line in ($m.Groups[1].Value -split "`n")) {
   $ld = '{"@context":"https://schema.org","@type":"Recipe","name":"' + (Esc-Json $titel) + '","author":{"@type":"Person","name":"Rezeptideen"},' +
         '"recipeYield":"1 Portion","totalTime":"PT' + $min + 'M","recipeCategory":"Hauptgericht",' +
         '"recipeIngredient":[' + (($zutaten | % { '"' + (Esc-Json $_) + '"' }) -join ',') + '],' +
-        '"recipeInstructions":"' + (Esc-Json $how) + '"}'
+        '"recipeInstructions":"' + (Esc-Json ($how.Replace('~',' '))) + '"}'
+  $stepsHtml = (($how -split '~') | % { "<li>" + (Esc-Html $_) + "</li>" }) -join "`n"
   $li = ($zutaten | % { "<li>" + (Esc-Html $_) + "</li>" }) -join "`n"
   $seite = @"
 <!doctype html>
@@ -60,7 +61,7 @@ foreach ($line in ($m.Groups[1].Value -split "`n")) {
 <h2>Zutaten</h2><ul>
 $li
 </ul>
-<h2>So geht's</h2><p>$(Esc-Html $how)</p>
+<h2>So geht's</h2><ol>$stepsHtml</ol>
 <p><a href="../">Zur Rezeptsammlung</a></p>
 </body></html>
 "@
