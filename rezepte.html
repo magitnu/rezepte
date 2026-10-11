@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#2f7d4f">
+<title>Was kochen wir?</title>
+<style>
+:root{
+  --bg:#f6f5f1; --card:#fff; --text:#1d2420; --muted:#66706a; --line:#e3e1d9;
+  --accent:#2f7d4f; --accent-t:#fff;
+  --f:#4c9f5f; --e:#d9694f; --k:#e0a53a;
+  --icbg:#dcdad2; --ok:#2f9d57; --mid:#e3a21a; --bad:#cf4a3c;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#141815; --card:#1e2420; --text:#eceee9; --muted:#9aa49d; --line:#303832;
+    --accent:#58b377; --accent-t:#0c1a11;
+    --icbg:#fff; --f:#5fb372; --e:#e07d65; --k:#e8b650;
+  }
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  padding-bottom:env(safe-area-inset-bottom)}
+button{font:inherit;color:inherit;cursor:pointer}
+
+header{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);
+  padding-top:env(safe-area-inset-top)}
+.bar{display:flex;align-items:center;gap:8px;padding:10px 16px 6px}
+.bar h1{font-size:20px;margin:0;flex:1}
+.icon{min-width:44px;height:44px;border:1px solid var(--line);border-radius:12px;background:var(--card);font-size:20px}
+.nav{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:8px 10px 10px;max-width:640px;margin:0 auto}
+.nav button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:54px;padding:5px 0;
+  border-radius:12px;border:1px solid var(--line);background:var(--card);font-size:12px;line-height:1.1;color:var(--muted)}
+.nav svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.nav button[aria-current=true]{background:var(--accent);border-color:var(--accent);color:var(--accent-t);font-weight:600}
+
+main{padding:8px 16px 40px;max-width:640px;margin:0 auto;touch-action:pan-y}
+main.l,main.r{animation:in .22s ease-out}
+@keyframes in{from{opacity:0;transform:translateX(var(--dx,24px))}to{opacity:1;transform:none}}
+section{margin-top:14px}
+.hint{color:var(--muted);font-size:12px;text-align:center;margin:10px 0 0}
+.sh{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.sh h2{font-size:18px;margin:0;flex:1}
+.sh small{color:var(--muted)}
+.mix{height:36px;padding:0 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);font-size:14px}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:8px;overflow:hidden}
+.row{display:flex;align-items:center;gap:12px;width:100%;min-height:56px;padding:10px 14px;border:0;background:none;text-align:left}
+.t{flex:1;min-width:0}
+.t b{display:block;font-weight:600;line-height:1.25}
+.t span{color:var(--muted);font-size:13px}
+.pie{flex:none;width:46px;height:46px;border-radius:50%}
+.pie.big{width:130px;height:130px}
+.cols{flex:none;display:flex;gap:4px;height:46px;width:46px;align-items:stretch}
+.cols.big{height:130px;width:130px;gap:10px}
+.cols u{flex:1;position:relative;background:var(--bg);border-radius:3px;text-decoration:none;overflow:hidden}
+.cols u i{position:absolute;left:0;right:0;bottom:0}
+.cols u s{position:absolute;left:0;right:0;height:2px;background:var(--text);opacity:.6}
+.nums{flex:none;font-size:12px;line-height:1.25;text-align:right;font-variant-numeric:tabular-nums}
+.nums.big{font-size:34px;line-height:1.1;text-align:left}
+.nums b{font-weight:600}
+.hbar{flex:none;position:relative;display:flex;width:64px;height:10px;border-radius:5px;overflow:hidden}
+.hbar.big{width:100%;height:26px;border-radius:8px}
+.hbar i{display:block;height:100%}
+.hbar s{position:absolute;top:0;bottom:0;width:2px;background:var(--text);opacity:.6}
+.vizbig{margin-bottom:12px;display:flex;justify-content:center}
+.det{display:none;padding:12px 14px 14px;border-top:1px solid var(--line);font-size:14px}
+.card.open .det{display:block}
+.bal{display:flex;align-items:center;gap:16px}
+.leg{flex:1;display:grid;gap:6px}
+.leg div{display:flex;align-items:center;gap:8px}
+.leg i{width:10px;height:10px;border-radius:3px;flex:none}
+.leg em{margin-left:auto;font-style:normal;color:var(--muted);font-size:12px}
+.badge{display:inline-block;margin-top:10px;padding:3px 10px;border-radius:12px;font-size:13px;font-weight:600;color:#fff}
+.how{margin:14px 0 4px}.how p{margin:4px 0 0;line-height:1.5}
+.shop{margin:14px 0 4px}
+.shead{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.step{display:flex;align-items:center;gap:6px}
+.step button{width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:var(--card);font-size:22px;line-height:1}
+.step span{min-width:64px;text-align:center;font-weight:600}
+.li{display:flex;align-items:center;gap:10px;width:100%;min-height:44px;padding:6px 4px;border:0;border-bottom:1px solid var(--line);background:none;text-align:left}
+.li i{width:10px;height:10px;border-radius:50%;flex:none}
+.li span{flex:1}
+.li em{font-style:normal;font-variant-numeric:tabular-nums;color:var(--muted)}
+.li.got span,.li.got em{text-decoration:line-through;opacity:.45}
+.note{color:var(--muted);font-size:12px;margin:6px 0 10px}
+.shop .hide{margin-top:4px}
+a.hide{display:inline-flex;align-items:center;text-decoration:none;color:var(--text);border-color:var(--accent);font-weight:600}.ing{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 10px}
+.ing span{padding:3px 9px;border-radius:12px;background:var(--bg);border:1px solid var(--line)}
+.ing span::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;background:var(--g)}
+.hide{height:40px;padding:0 12px;border-radius:10px;border:1px solid var(--line);background:none;color:var(--muted);font-size:14px}
+.more{width:100%;height:48px;border-radius:12px;border:1px dashed var(--muted);background:none;color:var(--text)}
+.empty{color:var(--muted);padding:8px 2px}
+
+dialog{border:0;padding:0;width:100%;max-width:640px;margin:auto auto 0;border-radius:20px 20px 0 0;background:var(--bg);color:var(--text);max-height:92vh}
+dialog::backdrop{background:rgba(0,0,0,.45)}
+.sheet{padding:16px 16px calc(24px + env(safe-area-inset-bottom))}
+.sheet h3{margin:0 0 4px;font-size:18px}
+.sheet .x{float:right}
+.set{margin-top:18px}
+.set label{display:flex;justify-content:space-between;font-weight:600}
+.set label output{color:var(--accent)}
+.set p{margin:2px 0 6px;color:var(--muted);font-size:13px}
+input[type=range]{width:100%;height:36px;accent-color:var(--accent)}
+.ics{flex:none;display:flex;gap:6px}.ics>div{text-align:center}
+.ics .ic{width:26px;height:36px;margin:0 auto 3px}
+.ics.big{gap:22px;justify-content:center}
+.ics.big>div{text-align:center}
+.ics.big .ic{width:56px;height:76px;margin-bottom:4px}
+.ics.big small{font-size:14px;font-weight:600}.ics small{color:var(--muted);font-size:11px;line-height:1;font-variant-numeric:tabular-nums}
+.plate{flex:none;width:46px;height:46px}
+.plate.big{width:130px;height:130px}
+.seg{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin-top:6px}
+.seg button{height:44px;border-radius:10px;border:1px solid var(--line);background:var(--card);font-size:14px}
+.seg button[aria-pressed=true]{background:var(--accent);color:var(--accent-t);border-color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.chip{height:38px;padding:0 14px;border-radius:19px;border:1px solid var(--line);background:var(--card);font-size:14px}
+.chip[aria-pressed=true]{background:var(--accent);color:var(--accent-t);border-color:var(--accent)}
+.add{display:flex;gap:8px;margin-top:8px}
+.add input{flex:1;height:44px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--text);padding:0 12px;font:inherit}
+.add button,.btn{height:44px;padding:0 16px;border-radius:10px;border:1px solid var(--line);background:var(--card)}
+.tog{display:flex;align-items:center;gap:12px;min-height:44px}
+.tog input{width:22px;height:22px;accent-color:var(--accent)}
+</style>
+</head>
+<body>
+<header>
+  <nav class="nav" id="nav"></nav>
+</header>
+<main id="main"></main>
+
+<dialog id="dlg">
+  <div class="sheet">
+    <button class="icon x" id="close" aria-label="Schliessen">✕</button>
+    <h3>Einstellungen</h3>
+    <p style="margin:0;color:var(--muted);font-size:13px">Alles wird auf diesem Gerät gespeichert.</p>
+
+    <div class="set">
+      <label>Darstellung der Balance</label>
+      <p>Wie der Anteil an Ballaststoffen, Eiweiss und Kohlenhydraten gezeigt wird.</p>
+      <div class="seg" id="seg"></div>
+    </div>
+
+    <div class="set">
+      <label for="tol">Wie genau muss die Balance sein? <output id="tolO"></output></label>
+      <p>Ziel: ½ Ballaststoffe, ¼ Eiweiss, ¼ Kohlenhydrate. Hier stellst du ein, wie viele Prozentpunkte ein Rezept abweichen darf (kleiner = strenger).</p>
+      <input type="range" id="tol" min="3" max="30" step="1">
+      <div class="tog"><input type="checkbox" id="unb"><label for="unb" style="font-weight:400">Auch unausgewogene Rezepte zeigen (rot)</label></div>
+    </div>
+
+    <div class="set">
+      <label for="maxT">Maximale Kochzeit <output id="maxTO"></output></label>
+      <p>Rezepte, die länger dauern, werden nicht angezeigt.</p>
+      <input type="range" id="maxT" min="10" max="90" step="5">
+    </div>
+
+    <div class="set">
+      <label for="speed">Schnelle Rezepte bevorzugen <output id="speedO"></output></label>
+      <p>Bei 0 % ist die Reihenfolge rein zufällig. Je höher, desto weiter oben stehen kurze Rezepte (ideal 20–30 Min.).</p>
+      <input type="range" id="speed" min="0" max="100" step="5">
+    </div>
+
+    <div class="set">
+      <label for="leg">Hülsenfrüchte zählen als Eiweiss <output id="legO"></output></label>
+      <p>Die Schweizer Ernährungsempfehlung (Tellermodell) rechnet Linsen, Kichererbsen &amp; Co. zum Eiweiss-Viertel. Der Rest zählt zu den Ballaststoffen.</p>
+      <input type="range" id="leg" min="0" max="100" step="10">
+    </div>
+
+    <div class="set">
+      <label>Das mögen wir nicht</label>
+      <p>Rezepte mit diesen Zutaten werden ausgeblendet. Antippen zum Ein-/Ausschalten.</p>
+      <div class="chips" id="chips"></div>
+      <form class="add" id="addForm"><input id="addIn" placeholder="Eigenes Wort, z. B. Koriander" autocapitalize="none"><button>Hinzufügen</button></form>
+    </div>
+
+    <div class="set">
+      <label>Ausgeblendete Rezepte <output id="hidO"></output></label>
+      <button class="btn" id="unhide" style="margin-top:6px">Alle wieder einblenden</button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+/* ---------- REZEPTE ----------
+   Format:  Titel | Minuten | Zutat:Gruppe:Gramm, ... | Zubereitung (kurz)
+   Gruppen: F = Ballaststoffe (Gemüse, Salat)   H = halb Ballaststoffe/halb Kohlenhydrate (Rüebli, Randen, Erbsen)
+            E = Eiweiss (Ei, Fleisch, Käse, Tofu, Quark)   L = Hülsenfrüchte (siehe Einstellung)
+            K = Kohlenhydrate (Reis, Kartoffeln, Brot, Teig, Nudeln)   N = zählt nicht (Öl, Gewürze)
+   Mengen = ungefähr pro Person auf dem Teller (gegart). Zeile "## Kategorie" startet eine Kategorie. */
+const DATA = `
+## Eierspeise
+Spinat-Omelette mit Vollkornbrot|25|Spinat:F:200,Zwiebel:F:20,Ei:E:110,Vollkornbrot:K:90|Zwiebel in der Pfanne andünsten, Spinat zugeben und zusammenfallen lassen. Eier verquirlen, würzen und darübergiessen. Stocken lassen, zusammenklappen und mit dem Brot servieren.
+Rührei mit Tomaten und Zucchini|20|Ei:E:110,Tomaten:F:120,Zucchini:F:120,Vollkornbrot:K:90|Zucchini würfeln und anbraten, Tomaten kurz mitgaren. Verquirlte Eier zugeben und unter Rühren stocken lassen. Mit Brot servieren.
+Shakshuka mit Fladenbrot|30|Ei:E:110,Tomaten:F:150,Peperoni:F:60,Zwiebel:F:20,Fladenbrot:K:100|Zwiebel und Peperoni anbraten, Tomaten zugeben und 10 Min. köcheln. Mulden in die Sauce drücken, Eier hineingleiten lassen und zugedeckt 5–8 Min. stocken lassen. Mit Fladenbrot essen.
+Gemüse-Frittata mit Kartoffeln|35|Ei:E:110,Zucchini:F:100,Peperoni:F:60,Spinat:F:60,Kartoffeln:K:100|Kartoffeln vorkochen und in Scheiben schneiden. Mit Zucchini, Peperoni und Spinat anbraten, verquirlte Eier darübergiessen. Bei kleiner Hitze zugedeckt stocken lassen.
+Lauch-Rührei mit Kartoffeln|25|Ei:E:110,Lauch:F:200,Kartoffeln:K:110|Kartoffeln kochen. Lauch in Ringen weich anbraten, Eier zugeben und rühren, bis sie cremig sind. Mit den Kartoffeln servieren.
+Spiegeleier auf Rahmspinat mit Kartoffeln|25|Ei:E:110,Spinat:F:220,Kartoffeln:K:110|Kartoffeln kochen. Spinat mit etwas Rahm oder Milch dünsten und würzen. Spiegeleier braten und auf den Spinat legen.
+Omelette mit Ratatouille und Brot|30|Ei:E:110,Auberginen:F:60,Zucchini:F:60,Tomaten:F:50,Peperoni:F:30,Brot:K:90|Aubergine, Zucchini, Peperoni und Tomaten würfeln und 15 Min. schmoren. Omelette braten und mit dem Gemüse füllen. Brot dazu.
+Kartoffel-Spinat-Tortilla|35|Ei:E:110,Kartoffeln:K:110,Spinat:F:120,Zwiebel:F:30,Tomaten:F:60|Kartoffelscheiben und Zwiebel weich braten, Spinat und Tomaten zugeben. Verquirlte Eier darübergiessen, 8 Min. stocken lassen, wenden und fertig braten.
+Eier-Gemüsepfanne mit Rüebli und Zucchini|25|Ei:E:110,Rüebli:H:100,Erbsen:H:60,Zucchini:F:150,Brot:K:50|Rüebli in Scheiben 5 Min. vorgaren, mit Zucchini und Erbsen anbraten. Verquirlte Eier zugeben und stocken lassen. Brot dazu.
+Omelette-Wrap mit Salat und Feta|20|Ei:E:110,Feta:E:20,Gurke:F:100,Tomaten:F:100,Vollkornwrap:K:80|Omelette braten und auf den Wrap legen. Gurke, Tomaten und Feta darauf verteilen und einrollen.
+
+## Mit Hülsenfrüchten
+Linsen-Spinat-Curry mit Reis|30|Linsen:L:110,Spinat:F:200,Zwiebel:F:20,Tomaten:F:30,Reis:K:100|Reis kochen. Zwiebel mit Currypulver anbraten, Tomaten und vorgekochte Linsen zugeben und 10 Min. köcheln. Spinat unterrühren und zusammenfallen lassen.
+Kichererbsen-Gemüse-Curry|30|Kichererbsen:L:110,Blumenkohl:F:100,Spinat:F:90,Tomaten:F:40,Reis:K:100|Reis kochen. Zwiebel und Blumenkohlröschen anbraten, Currypaste, Tomaten und Kichererbsen zugeben und 15 Min. köcheln. Zum Schluss den Spinat unterheben.
+Rote-Linsen-Suppe mit Rüebli und Vollkornbrot|30|Rote Linsen:L:100,Rüebli:H:100,Lauch:F:130,Tomaten:F:40,Vollkornbrot:K:70|Lauch und Rüebli anbraten, rote Linsen und Tomaten zugeben und mit Bouillon aufgiessen. 15–20 Min. köcheln, nach Wunsch pürieren. Brot dazu.
+Weisser Bohneneintopf mit grünen Bohnen|40|Weisse Bohnen:L:110,Grüne Bohnen:F:150,Tomaten:F:50,Lauch:F:40,Kartoffeln:K:100|Kartoffeln würfeln und mit Lauch und grünen Bohnen in Bouillon 15 Min. kochen. Tomaten und weisse Bohnen zugeben und 10 Min. ziehen lassen.
+Chili sin Carne mit Reis|40|Kidneybohnen:L:110,Peperoni:F:100,Tomaten:F:100,Zwiebel:F:30,Mais:K:30,Reis:K:90|Reis kochen. Zwiebel und Peperoni anbraten, Tomaten, Kidneybohnen und Mais zugeben und mit Paprika und Kreuzkümmel würzen. 25 Min. köcheln.
+Kichererbsensalat mit Gurke und Fladenbrot|20|Kichererbsen:L:110,Gurke:F:120,Tomaten:F:100,Peperoni:F:40,Fladenbrot:K:100|Kichererbsen abspülen, Gurke, Tomaten und Peperoni würfeln. Mit Zitronensaft, Öl und Kräutern mischen. Fladenbrot dazu.
+Linsen-Bolognese mit Vollkornspaghetti|35|Linsen:L:110,Rüebli:H:60,Sellerie:F:60,Tomaten:F:120,Zucchini:F:30,Vollkornspaghetti:K:100|Spaghetti kochen. Rüebli, Sellerie und Zucchini fein würfeln und anbraten, Tomaten und Linsen zugeben und 20 Min. köcheln. Über die Spaghetti geben.
+Hummus-Bowl mit Ofengemüse und Quinoa|35|Kichererbsen:L:110,Rüebli:H:80,Zucchini:F:100,Peperoni:F:80,Quinoa:K:90|Rüebli, Zucchini und Peperoni bei 200 °C 25 Min. rösten. Quinoa nach Packung kochen. Kichererbsen mit Zitronensaft, Öl und Sesampaste zu Hummus pürieren und alles in einer Schale anrichten.
+Dal mit Blumenkohl und Vollkornreis|35|Gelbe Linsen:L:110,Blumenkohl:F:120,Spinat:F:100,Vollkornreis:K:100|Reis kochen. Gelbe Linsen mit Blumenkohl, Kurkuma und Kreuzkümmel in Wasser 20 Min. kochen. Spinat zugeben und zusammenfallen lassen.
+Linsen-Gemüse-Eintopf mit Kartoffeln|40|Linsen:L:110,Lauch:F:100,Rüebli:H:80,Sellerie:F:50,Spinat:F:30,Kartoffeln:K:90|Lauch, Rüebli, Sellerie und Kartoffeln würfeln und anbraten. Linsen und Bouillon zugeben und 25 Min. köcheln. Spinat zum Schluss unterheben.
+
+## Mit Reis
+Gemüsereis-Pfanne mit Ei|25|Reis:K:100,Ei:E:100,Brokkoli:F:120,Peperoni:F:60,Zucchini:F:40|Reis kochen. Brokkoli, Peperoni und Zucchini anbraten, Reis zugeben. Ei in die Mitte schlagen, rühren bis es gestockt ist und mit Sojasauce würzen.
+Poulet-Curry mit Brokkoli und Reis|30|Poulet:E:100,Brokkoli:F:150,Peperoni:F:60,Zwiebel:F:20,Reis:K:100|Reis kochen. Pouletstreifen anbraten, Zwiebel, Peperoni und Currypaste zugeben. Brokkoli und etwas Wasser oder Kokosmilch dazugeben und 10 Min. garen.
+Tofu-Gemüse-Wok mit Reis|25|Tofu:E:110,Pak Choi:F:100,Grüne Bohnen:F:80,Peperoni:F:60,Reis:K:100|Reis kochen. Tofu würfeln, knusprig braten und herausnehmen. Gemüse im Wok anbraten, Tofu und Sojasauce zugeben.
+Gefüllte Peperoni mit Reis und Feta|45|Peperoni:F:200,Tomaten:F:30,Feta:E:60,Kichererbsen:L:40,Reis:K:100|Reis kochen und mit Feta, Kichererbsen und Tomaten mischen. Peperoni aushöhlen, füllen und bei 200 °C 30 Min. backen.
+Spinat-Risotto mit Poulet|35|Risottoreis:K:100,Spinat:F:200,Zwiebel:F:20,Poulet:E:100|Pouletwürfel anbraten und beiseitestellen. Zwiebel und Reis andünsten, nach und nach Bouillon zugeben (ca. 18 Min.). Spinat und Poulet unterrühren.
+Edamame-Reis-Bowl mit Gurke und Rüebli|25|Edamame:L:100,Gurke:F:100,Rüebli:H:60,Spinat:F:60,Avocado:F:40,Reis:K:100|Reis kochen, Edamame 3 Min. garen. Gurke, Rüebli, Spinat und Avocado schneiden. Alles in einer Schale anrichten, mit Sojasauce und Sesam abschmecken.
+Chinakohl-Reispfanne mit Rührei|25|Chinakohl:F:200,Lauch:F:40,Ei:E:100,Reis:K:100|Reis kochen. Lauch und Chinakohl anbraten. Eier verquirlen, in die Pfanne geben und stocken lassen, dann den Reis untermischen.
+Gemüse-Biryani mit Joghurt|40|Reis:K:100,Blumenkohl:F:100,Erbsen:H:60,Grüne Bohnen:F:80,Joghurt:E:100|Zwiebel und Gewürze anbraten, Blumenkohl, Bohnen, Erbsen und Reis zugeben. Mit der doppelten Menge Wasser zugedeckt 20 Min. garen. Mit Joghurt servieren.
+Hackfleisch-Zucchini-Reispfanne|30|Rinderhack:E:100,Zucchini:F:150,Tomaten:F:50,Reis:K:100|Reis kochen. Hackfleisch anbraten, Zucchini und Tomaten zugeben und würzen. Etwa 10 Min. garen und den Reis unterheben.
+Hühnersuppe mit Lauch, Rüebli und Reis|40|Poulet:E:100,Lauch:F:120,Rüebli:H:80,Sellerie:F:50,Reis:K:80|Poulet in Bouillon 15 Min. köcheln, herausnehmen und zerzupfen. Lauch, Rüebli, Sellerie und Reis in der Brühe 15 Min. garen, Poulet zurück in die Suppe geben.
+Tomatenreis mit Mozzarella und Spinat|25|Reis:K:100,Tomaten:F:100,Spinat:F:100,Mozzarella:E:100|Reis in Tomatensauce (Zwiebel, Tomaten) garen. Spinat unterrühren, Mozzarella in Stücken darauflegen und kurz schmelzen lassen.
+
+## Mit Kartoffeln
+Ofenkartoffeln mit Quark und Gemüse|40|Kartoffeln:K:90,Quark:E:110,Gurke:F:120,Tomaten:F:80,Rüebli:H:40|Kartoffeln halbieren und bei 200 °C 30 Min. backen. Quark mit Kräutern und Salz anrühren. Gurke, Tomaten und Rüebli als Rohkost dazu.
+Kartoffel-Lauch-Gratin mit Schinken|45|Kartoffeln:K:110,Lauch:F:220,Schinken:E:70,Käse:E:30|Kartoffeln in Scheiben vorkochen und mit Lauch und Schinken in eine Form schichten. Mit Milch-Rahm-Mischung und Käse 25 Min. bei 200 °C überbacken.
+Kartoffel-Spinat-Gratin|45|Kartoffeln:K:110,Spinat:F:220,Ei:E:60,Käse:E:40|Kartoffelscheiben vorkochen und mit Spinat schichten. Ei mit Milch verquirlen, darübergiessen, mit Käse bestreuen und 25 Min. bei 200 °C backen.
+Pellkartoffeln mit Kräuterquark und Salat|30|Kartoffeln:K:120,Quark:E:110,Blattsalat:F:100,Gurke:F:60,Tomaten:F:40|Kartoffeln mit Schale 20–25 Min. kochen. Quark mit Kräutern anrühren. Blattsalat, Gurke und Tomaten anmachen.
+Rösti mit Spiegelei und Spinat|30|Kartoffeln:K:110,Ei:E:110,Spinat:F:200|Kartoffeln raffeln, würzen und in der Pfanne knusprig braten (ca. 15 Min.). Spinat dünsten, Spiegelei braten und alles anrichten.
+Kartoffel-Bohnen-Eintopf|40|Kartoffeln:K:100,Grüne Bohnen:F:150,Lauch:F:50,Kidneybohnen:L:100|Kartoffeln würfeln und mit grünen Bohnen und Lauch in Bouillon 15 Min. kochen. Kidneybohnen zugeben, 5 Min. ziehen lassen und mit Bohnenkraut abschmecken.
+Kartoffel-Brokkoli-Auflauf|45|Kartoffeln:K:110,Brokkoli:F:200,Käse:E:60,Ei:E:40|Kartoffeln vorkochen und in Scheiben schneiden, Brokkoli 3 Min. blanchieren. Mit Käse und Ei-Milch-Guss in eine Form geben und 25 Min. bei 200 °C backen.
+Ofengemüse mit Kartoffeln und Feta|40|Kartoffeln:K:110,Zucchini:F:100,Peperoni:F:80,Tomaten:F:40,Feta:E:90|Kartoffeln und Gemüse würfeln, mit Öl und Kräutern auf ein Blech geben und 30 Min. bei 220 °C rösten. Feta zerbröseln und in den letzten 5 Min. darübergeben.
+Kartoffelsuppe mit Lauch und Rüebli, dazu Quark-Dip|35|Kartoffeln:K:100,Lauch:F:150,Rüebli:H:80,Sellerie:F:30,Quark:E:100|Kartoffeln, Lauch, Rüebli und Sellerie in Bouillon 20 Min. kochen und teilweise pürieren. Quark mit Kräutern als Dip separat servieren.
+Bratkartoffeln mit Poulet und Salat|30|Kartoffeln:K:110,Poulet:E:100,Blattsalat:F:100,Gurke:F:60,Tomaten:F:50|Kartoffeln vorkochen und in Scheiben knusprig braten. Poulet in Streifen anbraten. Salat anmachen und alles zusammen servieren.
+Kartoffel-Randen-Salat mit Ei|30|Kartoffeln:K:70,Randen:H:100,Ei:E:100,Gurke:F:100,Blattsalat:F:50|Kartoffeln und Eier kochen. Vorgekochte Randen und Gurke schneiden. Mit Essig, Öl und Senf anmachen, Eier dazugeben.
+
+## Salate
+Griechischer Salat mit Kichererbsen und Brot|20|Gurke:F:100,Tomaten:F:100,Peperoni:F:40,Feta:E:50,Kichererbsen:L:50,Brot:K:90|Gurke, Tomaten und Peperoni in Stücke schneiden, Kichererbsen und Feta zugeben. Mit Olivenöl, Zitrone und Oregano anmachen. Brot dazu.
+Linsensalat mit Rüebli und Feta|25|Linsen:L:100,Gurke:F:100,Tomaten:F:80,Blattsalat:F:40,Rüebli:H:40,Feta:E:30,Brot:K:90|Linsen abspülen, Rüebli raffeln, Gurke und Tomaten würfeln. Mit Essig, Öl und Senf anmachen, Feta darüberbröseln. Brot dazu.
+Spinatsalat mit Ei und Kartoffeln|30|Spinat:F:150,Ei:E:110,Kartoffeln:K:110,Tomaten:F:70|Kartoffeln und Eier kochen. Spinat waschen, mit Tomaten und Kartoffelscheiben mischen. Eier vierteln und mit einem Dressing aus Essig und Öl anmachen.
+Caesar-Salat mit Poulet|25|Romanasalat:F:220,Poulet:E:100,Parmesan:E:10,Brot:K:90|Poulet braten und in Streifen schneiden, Brot rösten. Romanasalat mit Joghurt-Zitronen-Dressing anmachen, Poulet, Croûtons und Parmesan darauf verteilen.
+Bohnensalat mit Ei und Kartoffeln|30|Grüne Bohnen:F:150,Ei:E:100,Kartoffeln:K:100,Tomaten:F:70|Kartoffeln, Bohnen und Eier kochen. Alles mit Tomaten mischen und mit Essig, Öl, Senf und Zwiebel anmachen.
+Randen-Feta-Salat mit Quinoa|35|Randen:H:120,Rucola:F:100,Gurke:F:60,Feta:E:90,Quinoa:K:60|Quinoa kochen und auskühlen lassen. Randen würfeln, mit Rucola und Gurke zugeben, Feta darüberbröseln. Mit Balsamico und Öl anmachen.
+Rüebli-Kichererbsen-Salat mit Couscous|25|Rüebli:H:100,Kichererbsen:L:100,Gurke:F:120,Peperoni:F:60,Couscous:K:70|Couscous mit heisser Bouillon übergiessen und 5 Min. quellen lassen. Rüebli raffeln, Gurke, Peperoni und Kichererbsen zugeben und mit Zitronensaft anmachen.
+Nüsslisalat mit Ei und Brot|20|Nüsslisalat:F:150,Rüebli:H:50,Ei:E:110,Gurke:F:60,Brot:K:90|Eier 8 Min. kochen. Nüsslisalat waschen und mit Rüebli und Gurke anmachen. Eier halbieren und Brot dazu servieren.
+Taboulé mit Poulet|30|Bulgur:K:90,Tomaten:F:90,Gurke:F:90,Petersilie:F:40,Poulet:E:100|Bulgur mit heissem Wasser 10 Min. quellen lassen. Tomaten, Gurke und Petersilie fein hacken und mit Zitrone und Öl mischen. Poulet braten und in Streifen dazugeben.
+Asiatischer Tofu-Gurkensalat mit Reis|25|Tofu:E:110,Gurke:F:150,Rüebli:H:50,Chinakohl:F:60,Reis:K:100|Reis kochen, Tofu würfeln und braten. Gurke, Rüebli und Chinakohl in Streifen mit Sojasauce, Essig und Sesamöl anmachen. Tofu darauflegen, Reis dazu.
+Bunter Salat mit Hüttenkäse und Vollkornbrot|15|Hüttenkäse:E:120,Blattsalat:F:100,Gurke:F:80,Tomaten:F:80,Vollkornbrot:K:90|Blattsalat, Gurke und Tomaten schneiden und anmachen. Hüttenkäse darübergeben und Vollkornbrot dazu servieren.
+
+## Mit Fleisch
+Pouletgeschnetzeltes mit Reis und Brokkoli|30|Poulet:E:100,Brokkoli:F:200,Reis:K:100|Reis kochen. Poulet in Streifen scharf anbraten und herausnehmen. Sauce aus Bouillon und etwas Rahm kochen, Poulet zurückgeben. Brokkoli 5 Min. dämpfen.
+Hackfleisch-Gemüse-Sauce mit Vollkornnudeln|30|Rinderhack:E:100,Tomaten:F:90,Zucchini:F:80,Rüebli:H:50,Sellerie:F:30,Vollkornnudeln:K:100|Nudeln kochen. Hackfleisch anbraten, Zucchini, Rüebli und Sellerie zugeben. Tomaten dazu und 15–20 Min. köcheln.
+Pouletspiesse mit Ofengemüse und Kartoffeln|40|Poulet:E:100,Zucchini:F:100,Peperoni:F:80,Tomaten:F:40,Kartoffeln:K:100|Kartoffeln und Gemüse bei 220 °C 30 Min. im Ofen rösten. Poulet würfeln, würzen, auf Spiesse stecken und 10 Min. braten.
+Rindsgeschnetzeltes mit Spinat und Kartoffelstock|35|Rindfleisch:E:100,Spinat:F:200,Kartoffeln:K:110|Kartoffeln kochen und stampfen. Rindfleisch scharf anbraten und eine Sauce dazu kochen. Spinat dünsten und alles zusammen servieren.
+Schweinsplätzli mit Lauch-Rüebli-Gemüse und Polenta|35|Schweinefleisch:E:100,Lauch:F:150,Rüebli:H:80,Zucchini:F:30,Polenta:K:80|Polenta nach Packung kochen. Lauch, Rüebli und Zucchini dünsten. Plätzli würzen und pro Seite etwa 3 Min. braten.
+Hackfleisch-Gemüse-Pfanne mit Kartoffeln|30|Rinderhack:E:100,Kohlrabi:F:100,Grüne Bohnen:F:100,Kartoffeln:K:110|Kartoffeln würfeln und vorkochen. Hackfleisch anbraten, Kohlrabi und Bohnen zugeben und 10 Min. garen. Kartoffeln unterheben.
+Poulet-Wok mit Gemüse und Nudeln|25|Poulet:E:100,Pak Choi:F:100,Peperoni:F:60,Rüebli:H:60,Grüne Bohnen:F:40,Nudeln:K:90|Nudeln kochen. Poulet in Streifen anbraten, Gemüse zugeben und 5 Min. mitbraten. Nudeln und Sojasauce untermischen.
+Pouletschnitzel mit Salat und Kartoffeln|30|Poulet:E:100,Blattsalat:F:120,Tomaten:F:80,Gurke:F:40,Kartoffeln:K:110|Kartoffeln kochen. Schnitzel würzen und pro Seite 4 Min. braten. Salat mit Tomaten und Gurke anmachen.
+Rindsgulasch mit Peperoni und Polenta|60|Rindfleisch:E:100,Peperoni:F:100,Zwiebel:F:40,Rüebli:H:50,Tomaten:F:60,Polenta:K:90|Fleisch anbraten, Zwiebel, Peperoni, Rüebli und Paprika zugeben. Mit Tomaten und Bouillon 45 Min. schmoren. Polenta dazu servieren.
+Asiatische Pouletsuppe mit Gemüse und Nudeln|30|Poulet:E:100,Spinat:F:120,Rüebli:H:60,Lauch:F:60,Nudeln:K:90|Poulet in Bouillon mit Ingwer 10 Min. kochen. Rüebli, Lauch und Nudeln zugeben und 5 Min. garen. Zum Schluss den Spinat unterheben.
+Schinken-Lauch-Pfanne mit Kartoffeln|30|Schinken:E:100,Lauch:F:220,Kartoffeln:K:110|Kartoffeln kochen. Lauch anbraten, Schinkenwürfel und etwas Rahm zugeben und 5 Min. köcheln. Mit den Kartoffeln servieren.
+
+## Wähe
+Spinatwähe|55|Teig:K:90,Spinat:F:200,Ei:E:60,Käse:E:40|Teig in die Form legen und mehrmals einstechen. Spinat andünsten und auf dem Teig verteilen. Eier mit Milch und Käse verquirlen, darübergiessen und 30 Min. bei 200 °C backen.
+Lauchwähe|55|Teig:K:90,Lauch:F:200,Ei:E:50,Käse:E:50|Lauch in Ringen dünsten und auf den Teig geben. Guss aus Ei, Milch und Käse darübergiessen und 30–35 Min. bei 200 °C backen.
+Zucchini-Tomaten-Wähe|55|Teig:K:90,Zucchini:F:130,Tomaten:F:80,Ei:E:60,Feta:E:40|Zucchini und Tomaten in Scheiben auf den Teig legen, Feta darübergeben. Ei-Milch-Guss darübergiessen und 30–35 Min. bei 200 °C backen.
+Broccoli-Wähe|55|Teig:K:90,Brokkoli:F:200,Ei:E:60,Käse:E:40|Brokkoliröschen 3 Min. blanchieren und auf den Teig geben. Guss aus Ei, Milch und Käse darübergiessen und 30–35 Min. bei 200 °C backen.
+Rüebli-Lauch-Wähe|55|Teig:K:80,Rüebli:H:80,Lauch:F:130,Zucchini:F:40,Ei:E:60,Käse:E:40|Rüebli, Lauch und Zucchini andünsten und auf den Teig geben. Ei-Milch-Käse-Guss darübergiessen und 35 Min. bei 200 °C backen.
+Tomatenwähe mit Mozzarella|50|Teig:K:90,Tomaten:F:220,Mozzarella:E:70,Ei:E:30|Tomaten in Scheiben auf den Teig legen, Mozzarella zerzupfen und darauf verteilen. Eier mit etwas Milch verquirlen, darübergiessen und 30 Min. bei 200 °C backen.
+Peperoni-Zwiebel-Wähe|55|Teig:K:90,Peperoni:F:150,Zwiebel:F:60,Ei:E:60,Käse:E:40|Peperoni und Zwiebeln in Streifen kurz anbraten und auf den Teig geben. Ei-Milch-Käse-Guss darübergiessen und 30–35 Min. bei 200 °C backen.
+Blumenkohl-Wähe|55|Teig:K:90,Blumenkohl:F:200,Ei:E:60,Käse:E:40|Blumenkohlröschen 5 Min. vorkochen und auf den Teig geben. Guss aus Ei, Milch und Käse darübergiessen und 35 Min. bei 200 °C backen.
+Spinat-Feta-Wähe|50|Teig:K:90,Spinat:F:200,Feta:E:50,Ei:E:50|Spinat andünsten und mit Feta auf den Teig geben. Eier mit Milch verquirlen, darübergiessen und 30 Min. bei 200 °C backen.
+Bohnen-Speck-Wähe|55|Teig:K:90,Grüne Bohnen:F:200,Ei:E:50,Speck:E:30,Käse:E:30|Bohnen 5 Min. blanchieren und mit Speckwürfeln auf den Teig geben. Ei-Milch-Käse-Guss darübergiessen und 35 Min. bei 200 °C backen.
+`;
+
+/* ---------- Parser ---------- */
+const CATS = [], RECIPES = [];
+(function parse(){
+  let cat = null;
+  for (const raw of DATA.split("\n")) {
+    const line = raw.trim(); if (!line) continue;
+    if (line.startsWith("## ")) { cat = line.slice(3); CATS.push(cat); continue; }
+    const [title, min, ing, how] = line.split("|");
+    RECIPES.push({
+      id: cat + "/" + title, cat, title, min: +min, how: how || "",
+      ing: ing.split(",").map(s => { const [n, g, a] = s.split(":"); return { n, g, a: +a }; })
+    });
+  }
+})();
+
+/* ---------- Einstellungen ---------- */
+const DEF = { pers: 3, viz: "icons", tol: 12, unb: false, maxT: 60, speed: 50, leg: 100,
+  off: { Safran:1, Pilz:1, Meeresfrüchte:1, Fisch:1 }, custom: [], hidden: [] };
+// Welche Wörter hinter einem Schalter stecken (alles kleingeschrieben, Teilwort-Suche)
+const ALIASES = {
+  Safran:["safran"], Pilz:["pilz","champignon","steinpilz","eierschwamm","pfifferling"],
+  Meeresfrüchte:["meeresfrüchte","crevetten","garnelen","muschel","tintenfisch","calamari","krebs"],
+  Fisch:["fisch","lachs","thon","forelle","kabeljau","sardelle","anchovis","egli"]
+};
+let S;
+try { S = Object.assign({}, DEF, JSON.parse(localStorage.getItem("rezepte-set") || "{}")); } catch(e) { S = Object.assign({}, DEF); }
+function save(){ try { localStorage.setItem("rezepte-set", JSON.stringify(S)); } catch(e){} }
+
+/* ---------- Balance ---------- */
+function shares(r){
+  let f=0,e=0,k=0; const lf = S.leg/100;
+  for (const i of r.ing) {
+    if (i.g==="F") f+=i.a;
+    else if (i.g==="H") { f+=i.a/2; k+=i.a/2; }
+    else if (i.g==="E") e+=i.a;
+    else if (i.g==="L") { e+=i.a*lf; f+=i.a*(1-lf); }
+    else if (i.g==="K") k+=i.a;
+  }
+  const t = f+e+k || 1;
+  return { f:f/t*100, e:e/t*100, k:k/t*100 };
+}
+function dev(s){ return Math.max(Math.abs(s.f-50), Math.abs(s.e-25), Math.abs(s.k-25)); }
+function level(d){ return d<=S.tol ? "ok" : d<=S.tol*1.6 ? "mid" : "bad"; }
+
+function blocked(r){
+  const hay = (r.title + " " + r.ing.map(i=>i.n).join(" ")).toLowerCase();
+  const words = [];
+  for (const k in S.off) if (S.off[k] && ALIASES[k]) words.push(...ALIASES[k]);
+  for (const c of S.custom) if (S.off[c]) words.push(c.toLowerCase());
+  return words.some(w => hay.includes(w));
+}
+
+/* ---------- Mischen ---------- */
+let order = {};   // Kategorie -> Rezept-IDs in aktueller Reihenfolge
+let page = {};    // Kategorie -> aktuelle 7er-Seite
+function shuffleCat(cat){
+  const w = S.speed/100;
+  const list = RECIPES.filter(r => r.cat===cat).map(r => ({ id:r.id, k: Math.random() + w * (r.min/60) }));
+  list.sort((a,b) => a.k-b.k);
+  order[cat] = list.map(x => x.id);
+  page[cat] = 0;
+}
+const byId = Object.fromEntries(RECIPES.map(r => [r.id, r]));
+
+/* ---------- Darstellung ---------- */
+const $ = id => document.getElementById(id);
+const COL = { ok:"var(--ok)", mid:"var(--mid)", bad:"var(--bad)" };
+const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const GN = { F:"Ballaststoffe", H:"halb Ballaststoffe / halb Kohlenhydrate", E:"Eiweiss", L:"Hülsenfrucht", K:"Kohlenhydrate", N:"" };
+const GC = { F:"var(--f)", H:"var(--f)", E:"var(--e)", L:"var(--e)", K:"var(--k)", N:"var(--line)" };
+const open = new Set();
+
+function ok(r){
+  if (S.hidden.includes(r.id) || blocked(r) || r.min > S.maxT) return false;
+  return S.unb || level(dev(shares(r))) !== "bad";
+}
+
+const PER = 7;
+/* Adresse der veröffentlichten Seite (GitHub Pages). Bring! liest die Zutaten von den Rezeptseiten unter <BASE>r/<name>.html (erzeugt mit build.ps1). */
+const BASE = "https://magitnu.github.io/rezepte/";
+const slug = t => t.toLowerCase().replace(/ä/g,"ae").replace(/ö/g,"oe").replace(/ü/g,"ue").replace(/ß/g,"ss").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+const bringUrl = r => "https://api.getbring.com/rest/bringrecipes/deeplink?url=" + encodeURIComponent(BASE + "r/" + slug(r.title) + ".html") + "&source=web&baseQuantity=1&requestedQuantity=" + S.pers;
+const SVG = {
+  "Eierspeise":'<path d="M12 3c3.4 0 6.2 5.2 6.2 9.6a6.2 6.2 0 0 1-12.4 0C5.8 8.2 8.600 3 12 3z"/>',
+  "Mit Hülsenfrüchten":'<path d="M8 4.500c5-2.500 11 1.500 10 7.500s-6 9-10 7-4-10 0-14.500z"/><path d="M9 9c2 1 3 3 3 5"/>',
+  "Mit Reis":'<path d="M3 11h18c0 5-4 9-9 9s-9-4-9-9z"/><path d="M7 8c.5-1.500 2-1.500 2.500 0M11 7c.5-1.500 2-1.500 2.500 0M15 8c.5-1.500 2-1.500 2.500 0"/>',
+  "Mit Kartoffeln":'<path d="M5 9c2-4 9-5 13-2 3 3 2 9-2 11-4 2-10 1-12-3-1-2-1-4 1-6z"/><circle cx="10" cy="10" r=".6"/><circle cx="14.500" cy="13" r=".6"/><circle cx="9" cy="15" r=".6"/>',
+  "Salate":'<path d="M5 19C3 11 9 4 20 4c0 11-7 17-15 15z"/><path d="M5 19L14 10"/>',
+  "Mit Fleisch":'<path d="M5 8c2-4 9-5 13-2s3 9-1 12-9 2-12-1S3 11 5 8z"/><circle cx="14" cy="10.500" r="2.200"/><path d="M6.500 12.500c1 1 2 1.500 3.500 1.500"/>',
+  "Wähe":'<path d="M3 15h18l-2 4H5z"/><path d="M4 15c0-4 3-7 8-7s8 3 8 7"/>'
+};
+const SHORT = { "Eierspeise":"Ei", "Mit Hülsenfrüchten":"Hülsen\u00ADfrüchte", "Mit Reis":"Reis", "Mit Kartoffeln":"Kartoffel", "Salate":"Salat", "Mit Fleisch":"Fleisch", "Wähe":"Wähe" };
+let cur = 0;
+try { cur = Math.min(CATS.length-1, +localStorage.getItem("rezepte-cat") || 0); } catch(e){}
+
+/* Vier Darstellungen der Balance: pie (Kreis), cols (Säulen), nums (Zahlen), bar (Balken) */
+const VIZ = { icons:"Lauch · Ei · Kartoffel", plate:"Teller", pie:"Kreis", cols:"Säulen", nums:"Zahlen", bar:"Balken" };
+/* Silhouetten für die Icon-Anzeige: werden als Maske benutzt, darunter liegt ein Farbverlauf = Erfüllungsgrad */
+const SIL = {
+  f:'<path fill-rule="evenodd" d="M4.500 19.500C3 10 9 3 21 3c0 12-6 17.500-16.500 16.500zM7 17.500Q9.500 10.500 17 6.500Q13 12.500 7 17.500z"/><path d="M4.500 19.500L2.500 22" stroke="#000" stroke-width="1.500" stroke-linecap="round"/>',
+  e:'<path fill-rule="evenodd" d="M12 1.500c4 0 7.500 6.500 7.500 11.500a7.500 7.500 0 0 1-15 0C4.500 8 8 1.500 12 1.500zM12 8.500a5.200 5.200 0 1 0 0 10.400 5.200 5.200 0 0 0 0-10.400zM12 10.400a3.400 3.400 0 1 1 0 6.800 3.400 3.400 0 0 1 0-6.800z"/>',
+  k:'<ellipse cx="12" cy="3.800" rx="1.900" ry="3"/><ellipse cx="8.300" cy="8.5" rx="1.800" ry="3.200" transform="rotate(-35 8.300 8.5)"/><ellipse cx="15.700" cy="8.5" rx="1.800" ry="3.200" transform="rotate(35 15.700 8.5)"/><ellipse cx="8.300" cy="13.5" rx="1.800" ry="3.200" transform="rotate(-35 8.300 13.5)"/><ellipse cx="15.700" cy="13.5" rx="1.800" ry="3.200" transform="rotate(35 15.700 13.5)"/><ellipse cx="8.300" cy="18.5" rx="1.800" ry="3.200" transform="rotate(-35 8.300 18.5)"/><ellipse cx="15.700" cy="18.5" rx="1.800" ry="3.200" transform="rotate(35 15.700 18.5)"/><path d="M12 8v15" stroke="#000" stroke-width="1.400" stroke-linecap="round"/>'
+};
+(function(){
+  let css = ".ic{display:block;background:linear-gradient(to top,var(--c) var(--p),var(--icbg) var(--p));-webkit-mask:var(--m) center/contain no-repeat;mask:var(--m) center/contain no-repeat}";
+  for (const k in SIL) css += `.ic.${k}{--m:url("data:image/svg+xml,${encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000">' + SIL[k] + '</svg>')}")}`;
+  document.head.appendChild(Object.assign(document.createElement("style"), { textContent: css }));
+})();
+function viz(s, big){
+  const b = big ? " big" : "", V = [[s.f,"--f",50],[s.e,"--e",25],[s.k,"--k",25]];
+  const P = V.map(([v,c,t]) => Math.max(0, 1 - Math.abs(v-t) / (2*S.tol)));  // Erfüllungsgrad: 1 = genau Ziel, 0 = doppelte Toleranz daneben
+  if (S.viz === "icons") return `<div class="ics${b}">` + ["f","e","k"].map((k,i) => { const pc = Math.round(P[i]*100), col = pc >= 60 ? "--ok" : pc >= 30 ? "--mid" : "--bad";
+    return `<div><span class="ic ${k}" style="--p:${pc}%;--c:var(${col})"></span><small>${pc}%</small></div>`; }).join("") + `</div>`;
+  if (S.viz === "plate") { const o = p => (.18 + .82*p).toFixed(2);
+    return `<svg class="plate${b}" viewBox="0 0 24 24" aria-hidden="true"><g stroke="var(--card)" stroke-width="1.2">
+      <path d="M12 1A11 11 0 0 0 12 23Z" fill="var(--f)" fill-opacity="${o(P[0])}"/>
+      <path d="M12 12V1A11 11 0 0 1 23 12Z" fill="var(--e)" fill-opacity="${o(P[1])}"/>
+      <path d="M12 12H23A11 11 0 0 1 12 23Z" fill="var(--k)" fill-opacity="${o(P[2])}"/></g></svg>`; }
+  if (S.viz === "cols") return `<div class="cols${b}">` + V.map(([v,c,t]) =>
+    `<u><i style="height:${v/70*100}%;background:var(${c})"></i><s style="bottom:${t/70*100}%"></s></u>`).join("") + `</div>`;
+  if (S.viz === "nums") return `<div class="nums${b}">` + V.map(([v,c]) => `<b style="color:var(${c})">${Math.round(v)}</b>`).join(" · ") + `</div>`;
+  if (S.viz === "bar") return `<div class="hbar${b}">` + V.map(([v,c]) => `<i style="width:${v}%;background:var(${c})"></i>`).join("") + `<s style="left:50%"></s><s style="left:75%"></s></div>`;
+  return `<div class="pie${b}" style="background:conic-gradient(var(--f) 0 ${s.f}%, var(--e) ${s.f}% ${s.f+s.e}%, var(--k) ${s.f+s.e}% 100%)"></div>`;
+}
+
+/* Einkaufsliste: Mengen pro Person x Personenzahl. Reis, Nudeln & Co. sind in den Rezepten gekocht angegeben, hier als Rohgewicht. */
+const RAW = [[/reis/i,.35],[/spaghetti|nudeln/i,.4],[/couscous|quinoa|bulgur/i,.4],[/polenta/i,.25]];
+function amount(i){
+  let g = i.a * S.pers;
+  if (i.n === "Ei") return Math.ceil(g / 55) + " Stück";
+  for (const [re,k] of RAW) if (re.test(i.n)) { g *= k; break; }
+  g = Math.max(5, Math.round(g / 5) * 5);
+  return g >= 1000 ? (g/1000).toFixed(2).replace(/\.?0+$/,"").replace(".",",") + " kg" : g + " g";
+}
+const got = new Set();
+function shopText(r){ return "Einkaufsliste " + r.title + " (" + S.pers + " Pers.)\n" + r.ing.filter(i=>i.g!=="N").map(i => "- " + i.n + ": " + amount(i)).join("\n"); }
+
+function card(r){  const s = shares(r), lv = level(dev(s));
+  const row = (c, n, v, z) => `<div><i style="background:var(${c})"></i>${n} <b>${Math.round(v)} %</b><em>Ziel ${z} %</em></div>`;
+  return `<div class="card ${open.has(r.id)?"open":""}" data-id="${esc(r.id)}">
+    <button class="row" data-act="toggle" aria-expanded="${open.has(r.id)}">
+      <span class="t"><b>${esc(r.title)}</b><span>${r.min} Min.</span></span>
+      ${viz(s)}
+    </button>
+    <div class="det"><div class="vizbig">${viz(s, true)}</div>
+      <div class="leg">${row("--f","Ballaststoffe",s.f,50)}${row("--e","Eiweiss",s.e,25)}${row("--k","Kohlenhydrate",s.k,25)}</div>
+      <span class="badge" style="background:${COL[lv]}">${lv==="ok"?"ausgewogen":lv==="mid"?"fast ausgewogen":"unausgewogen"}</span>
+      ${r.how?`<div class="how"><b>So geht's</b><p>${esc(r.how)}</p></div>`:""}
+      <div class="shop"><div class="shead"><b>Einkaufsliste</b><span class="step"><button data-act="pm" data-d="-1" aria-label="Eine Person weniger">−</button><span>${S.pers} Pers.</span><button data-act="pm" data-d="1" aria-label="Eine Person mehr">+</button></span></div>${r.ing.filter(i=>i.g!=="N").map(i => `<button class="li${got.has(r.id+"|"+i.n)?" got":""}" data-act="got" data-k="${esc(r.id+"|"+i.n)}"><i style="background:${GC[i.g]}"></i><span>${esc(i.n)}</span><em>${amount(i)}</em></button>`).join("")}<p class="note">Reis, Nudeln &amp; Co. als Rohgewicht. Hülsenfrüchte gekocht oder aus der Dose.</p><a class="hide go" href="${bringUrl(r)}" target="_blank" rel="noopener">Zu Bring! hinzufügen</a> <button class="hide" data-act="copy">Teilen / kopieren</button></div>
+      <button class="hide" data-act="hide">Nicht mehr zeigen</button></div>
+  </div>`;
+}
+
+function render(anim){
+  const cat = CATS[cur];
+  if (!order[cat]) shuffleCat(cat);
+  const all = order[cat].map(id => byId[id]).filter(ok);
+  const pages = Math.max(1, Math.ceil(all.length / PER)), p = (page[cat] || 0) % pages;
+  const part = all.slice(p * PER, p * PER + PER);
+  $("nav").innerHTML = CATS.map((c,i) => `<button data-go="${i}" aria-current="${i===cur}" aria-label="${esc(c)}"><svg viewBox="0 0 24 24" aria-hidden="true">${SVG[c]||""}</svg>${SHORT[c]||esc(c)}</button>`).join("") + `<button data-gear="1" aria-label="Einstellungen"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M9.7 4.5L10.2 1.7L13.8 1.7L14.3 4.5L15.6 5.1L18.1 3.4L20.6 5.9L18.9 8.4L19.5 9.7L22.3 10.2L22.3 13.8L19.5 14.3L18.9 15.6L20.6 18.1L18.1 20.6L15.6 18.9L14.3 19.5L13.8 22.3L10.2 22.3L9.7 19.5L8.4 18.9L5.9 20.6L3.4 18.1L5.1 15.6L4.5 14.3L1.7 13.8L1.7 10.2L4.5 9.7L5.1 8.4L3.4 5.9L5.9 3.4L8.4 5.1Z"/></svg>Optionen</button>`;
+  let html = part.length ? part.map(card).join("") : `<div class="empty">Keine passenden Rezepte. Lockere die Einstellungen.</div>`;
+  if (pages > 1) html += `<button class="more" id="more">Neue Rezepte laden (${p+1}/${pages})</button><p class="hint">Oder am Ende nach oben wischen</p>`;
+  const m = $("main"); m.innerHTML = html; m.classList.remove("l","r");
+  if (anim) { m.style.setProperty("--dx", anim==="r" ? "-30px" : "30px"); void m.offsetWidth; m.classList.add("r"); window.scrollTo(0, 0); }
+}
+function go(i, anim){
+  cur = (i + CATS.length) % CATS.length;
+  try { localStorage.setItem("rezepte-cat", cur); } catch(e){}
+  render(anim || "r");
+}
+function nextBatch(){ const c = CATS[cur]; page[c] = (page[c] || 0) + 1; render("r"); }
+
+/* Nach rechts wischen = nächste Kategorie, nach links = vorherige; am Seitenende nach oben wischen = neue Rezepte */
+let t0 = null;
+const atEnd = () => window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+document.addEventListener("touchstart", e => { t0 = e.touches.length===1 ? { x:e.touches[0].clientX, y:e.touches[0].clientY, end:atEnd() } : null; }, { passive:true });
+document.addEventListener("touchend", e => {
+  if (!t0 || dlg.open) return;
+  const dx = e.changedTouches[0].clientX - t0.x, dy = e.changedTouches[0].clientY - t0.y, end = t0.end; t0 = null;
+  if (Math.abs(dx) > 70 && Math.abs(dx) > Math.abs(dy) * 1.8) go(cur + (dx > 0 ? 1 : -1), dx > 0 ? "r" : "l");
+  else if (end && dy < -90 && Math.abs(dy) > Math.abs(dx) * 1.8 && $("more")) nextBatch();
+}, { passive:true });
+/* ---------- Ereignisse ---------- */
+$("main").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  const card = b.closest(".card"), id = card && card.dataset.id;
+  if (b.dataset.act==="toggle") { open.has(id) ? open.delete(id) : open.add(id); card.classList.toggle("open"); b.setAttribute("aria-expanded", open.has(id)); }
+  else if (b.dataset.act==="pm") { S.pers = Math.min(12, Math.max(1, S.pers + +b.dataset.d)); save(); render(); }
+  else if (b.dataset.act==="got") { const k = b.dataset.k; got.has(k) ? got.delete(k) : got.add(k); b.classList.toggle("got"); }
+  else if (b.dataset.act==="copy") { const txt = shopText(byId[id]); const ok = () => { b.textContent = "Kopiert ✓"; }; if (navigator.share) navigator.share({ text: txt }).catch(()=>{}); else try { navigator.clipboard.writeText(txt).then(ok, ok); } catch(e) { ok(); } }
+  else if (b.dataset.act==="hide") { S.hidden.push(id); save(); render(); }
+  else if (b.id === "more") nextBatch();
+});
+$("nav").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  if (b.dataset.gear) { sync(); dlg.showModal(); return; }
+  const i = +b.dataset.go; go(i, i > cur ? "r" : "l");
+});
+
+const dlg = $("dlg");
+$("close").onclick = () => dlg.close();
+dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
+
+function sync(){
+  $("tol").value = S.tol; $("tolO").textContent = "±" + S.tol + " Punkte";
+  $("unb").checked = S.unb;
+  $("maxT").value = S.maxT; $("maxTO").textContent = S.maxT + " Min.";
+  $("speed").value = S.speed; $("speedO").textContent = S.speed + " %";
+  $("leg").value = S.leg; $("legO").textContent = S.leg + " %";
+  $("hidO").textContent = S.hidden.length;
+  $("seg").innerHTML = Object.keys(VIZ).map(k => `<button aria-pressed="${S.viz===k}" data-viz="${k}">${VIZ[k]}</button>`).join("");
+  const names = [...Object.keys(ALIASES), ...S.custom];
+  $("chips").innerHTML = names.map(n => `<button class="chip" aria-pressed="${!!S.off[n]}" data-chip="${esc(n)}">${esc(n)}</button>`).join("");
+}
+function bind(id, key, num = true){
+  $(id).addEventListener("input", () => { S[key] = num ? +$(id).value : $(id).checked; save(); sync(); render(); });
+}
+bind("tol","tol"); bind("maxT","maxT"); bind("speed","speed"); bind("leg","leg"); bind("unb","unb", false);
+$("speed").addEventListener("change", () => { CATS.forEach(shuffleCat); render(); });
+$("seg").addEventListener("click", e => { const b = e.target.closest("[data-viz]"); if (!b) return; S.viz = b.dataset.viz; save(); sync(); render(); });
+$("chips").addEventListener("click", e => {
+  const b = e.target.closest("[data-chip]"); if (!b) return; const n = b.dataset.chip;
+  const on = b.getAttribute("aria-pressed") === "true";
+  S.off[n] = on ? 0 : 1; save(); sync(); render();
+});
+$("addForm").addEventListener("submit", e => {
+  e.preventDefault(); const v = $("addIn").value.trim();
+  if (v && !S.custom.includes(v) && !ALIASES[v]) { S.custom.push(v); S.off[v] = 1; save(); }
+  $("addIn").value = ""; sync(); render();
+});
+$("unhide").onclick = () => { S.hidden = []; save(); sync(); render(); };
+
+render();
+</script>
+</body>
+</html>
