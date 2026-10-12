@@ -213,6 +213,7 @@ input.wide{width:100%;height:48px;margin-top:6px;border-radius:12px;border:1px s
 .hrow{display:flex;gap:10px;align-items:center;padding:10px 4px;border-bottom:1px solid var(--line);font-size:14px}
 .hrow .ht{flex:1;min-width:0}
 .hrow small{display:block;color:var(--muted);font-size:12px;margin-top:1px}
+.hrow small.items{color:var(--text);opacity:.75;margin-top:3px}
 .hrow button{flex:none;height:34px;padding:0 10px;border-radius:10px;border:1px solid var(--accent);background:none;color:var(--text);font-size:13px}
 .histmore{width:100%;height:42px;margin-top:8px;border:0;background:none;color:var(--muted);font-size:14px}
 .dangerbtn{width:100%;margin-top:18px;border-color:#c98a84;color:#e0a8a2}
@@ -373,6 +374,10 @@ input[type=range]{width:100%;height:36px;accent-color:var(--accent)}
         <div class="btns" style="margin-top:8px"><button class="btn2" id="syncNew">Neuen Code erzeugen</button><button class="btn2 pri" id="syncUse">Verbinden</button></div>
         <div class="btns" style="margin-top:8px"><button class="btn2 full" id="syncOff" hidden>Verbindung trennen</button></div>
         <p class="note" id="syncStatus"></p>
+        <p class="sub">Sicherungskopie</p>
+        <div class="btns"><button class="btn2" id="bkSave">Sicherung speichern</button><button class="btn2" id="bkLoad">Sicherung laden</button></div>
+        <input type="file" id="bkFile" accept="application/json,.json" hidden>
+        <p class="note" id="bkMsg"></p>
       </div>
     </div>
 
@@ -1035,7 +1040,12 @@ const DAYN = { Mo:"Montag", Di:"Dienstag", Mi:"Mittwoch", Do:"Donnerstag", Fr:"F
 const planOf = id => S.plan.find(p => p.id === id);
 function addPlan(id){ if (!planOf(id)) { planAdd({ id, day:"Vorschläge" }); save(); } }
 /* ---------- Verlauf: jede Änderung an Kochliste und Favoriten wird protokolliert (und lässt sich zurücknehmen) ---------- */
-function logH(a, o){ S.hist = S.hist || []; S.hist.unshift(Object.assign({ t: Date.now(), a }, o)); if (S.hist.length > 300) S.hist.length = 300; }
+function isoWeek(d){   // Kalenderwoche als "2026-W41"
+  const t = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate())), day = t.getUTCDay() || 7; t.setUTCDate(t.getUTCDate() + 4 - day);
+  const y0 = new Date(Date.UTC(t.getUTCFullYear(), 0, 1));
+  return t.getUTCFullYear() + "-W" + String(Math.ceil(((t - y0) / 86400000 + 1) / 7)).padStart(2, "0");
+}
+function logH(a, o){ S.hist = S.hist || []; S.hist.unshift(Object.assign({ t: Date.now(), a, w: isoWeek(new Date()) }, o)); if (S.hist.length > 500) S.hist.length = 500; }
 const itemOf = p => ({ id: p.id, day: p.day, ...(p.custom ? { custom: 1, title: p.title, url: p.url, host: p.host } : {}) });
 function planAdd(item){ S.plan.push(item); logH("add", { id: item.id, day: item.day, title: item.title || "", custom: item.custom ? 1 : 0 }); }
 function planRemove(id){ const p = planOf(id); if (!p) return; S.plan = S.plan.filter(x => x.id !== id); logH("del", { id, day: p.day, title: p.title || "", item: itemOf(p) }); }
@@ -1045,7 +1055,7 @@ function planClear(){ const items = S.plan.map(itemOf); if (!items.length) retur
 function histMerge(a, b){   // zwei Verläufe zusammenführen (ohne Doppelte), neueste zuerst
   const seen = new Set(), out = [];
   for (const h of [...(a || []), ...(b || [])]) { const k = h.t + "|" + h.a + "|" + (h.id || h.n); if (!seen.has(k)) { seen.add(k); out.push(h); } }
-  return out.sort((x, y) => y.t - x.t).slice(0, 300);
+  return out.sort((x, y) => y.t - x.t).slice(0, 500);
 }
 let histOpen = false, histMore = false, clearAsk = false;
 const titleOf = h => h.title || (byId[h.id] ? byId[h.id].title : "Gericht");
@@ -1056,10 +1066,11 @@ function when(t){
 function histText(h){
   const t = "«" + esc(titleOf(h)) + "»";
   return { add: t + " zur Kochliste hinzugefügt (" + (DAYN[h.day] || "") + ")", move: t + " von " + (DAYN[h.from] || "") + " nach " + (DAYN[h.day] || "") + " verschoben",
-    del: t + " aus der Kochliste entfernt (" + (DAYN[h.day] || "") + ")", clear: "Ganze Woche gelöscht (" + h.n + " Einträge)",
+    del: t + " aus der Kochliste entfernt (" + (DAYN[h.day] || "") + ")", clear: "Ganze Woche gelöscht (" + (h.w ? "KW " + h.w.split("-W")[1] + ", " : "") + h.n + " Einträge)",
     restore: t + " wiederhergestellt (" + (DAYN[h.day] || "") + ")", restoreall: "Ganze Woche wiederhergestellt (" + h.n + " Einträge)",
     fav: t + " zu Favoriten hinzugefügt", favdel: t + " aus Favoriten entfernt" }[h.a] || "";
 }
+const histDetail = h => (h.a === "clear" && h.items) ? `<small class="items">${h.items.map(i => esc((i.title || (byId[i.id] ? byId[i.id].title : "Gericht")) + " (" + (DAYN[i.day] || "") + ")")).join(" · ")}</small>` : "";
 function canRestore(h){
   if (h.a === "del") return !planOf(h.id);
   if (h.a === "clear") return (h.items || []).some(i => !planOf(i.id));
@@ -1078,7 +1089,7 @@ function histHtml(tab){
   let html = `<div class="hist"><button class="histh" data-act="hist" aria-expanded="${histOpen}"><span>Verlauf (${mine.length})</span><span class="chev">${histOpen ? "▲" : "▼"}</span></button>`;
   if (histOpen) {
     if (!mine.length) html += `<p class="note">Noch nichts passiert.</p>`;
-    html += mine.slice(0, histMore ? 300 : 25).map(([h, i]) => `<div class="hrow"><span class="ht">${histText(h)}<small>${when(h.t)}</small></span>${canRestore(h) ? `<button data-restore="${i}">Wiederherstellen</button>` : ""}</div>`).join("");
+    html += mine.slice(0, histMore ? 500 : 25).map(([h, i]) => `<div class="hrow"><span class="ht">${histText(h)}${histDetail(h)}<small>${when(h.t)}</small></span>${canRestore(h) ? `<button data-restore="${i}">Wiederherstellen</button>` : ""}</div>`).join("");
     if (!histMore && mine.length > 25) html += `<button class="histmore" data-act="histmore">Ältere Einträge anzeigen</button>`;
   }
   html += `</div>`;
@@ -1524,7 +1535,7 @@ const dlg = { open: false };   // Optionen sind jetzt eine eigene Seite (kein Po
 /* ---------- Gemeinsame Listen (Firebase Realtime Database, Gratis-Tarif) ----------
    Geteilt werden nur Kochliste, Favoriten und ausgeblendete Rezepte. Wer denselben Haushalts-Code eingibt, sieht dieselben Listen.
    Ohne firebase-config.js oder ohne Code bleibt alles wie bisher nur auf dem Gerät. */
-const SYNC = { state: "aus", db: null, api: null, ref: null, lastJson: "", timer: null, first: true, error: "" };
+const SYNC = { state: "aus", db: null, api: null, ref: null, lastJson: "", timer: null, first: true, dirty: false, error: "" };
 const syncCode = () => { try { return localStorage.getItem("rezepte-code") || ""; } catch(e) { return ""; } };
 const cleanCode = s => (s || "").toLowerCase().replace(/[^a-z0-9]/g, "");
 const sharedJson = () => JSON.stringify({ fav: S.fav, plan: S.plan, hidden: S.hidden, hist: S.hist || [] });
@@ -1553,7 +1564,7 @@ async function syncStart(){
       if (!v) { syncPushNow(); return; }                       // noch leer: unsere Listen hochladen
       if (v.d === SYNC.lastJson) return;                         // eigene Aenderung
       let r; try { r = JSON.parse(v.d); } catch(e) { return; }
-      if (SYNC.first) {                                          // erste Verbindung: Listen zusammenfuehren statt ueberschreiben
+      if (SYNC.first || SYNC.dirty) {                            // erste Verbindung oder ungesendete lokale Aenderung: zusammenfuehren statt ueberschreiben
         const ids = new Set(S.plan.map(p => p.id));
         S.plan = [...(r.plan || []), ...S.plan.filter(p => !(r.plan || []).some(q => q.id === p.id))];
         S.fav = [...new Set([...(r.fav || []), ...S.fav])]; S.hidden = [...new Set([...(r.hidden || []), ...S.hidden])]; S.hist = histMerge(r.hist, S.hist);
@@ -1567,11 +1578,11 @@ async function syncStart(){
 }
 function syncPushNow(){
   if (!SYNC.ref || !SYNC.api) return;
-  const j = sharedJson(); if (j === SYNC.lastJson) return;
+  const j = sharedJson(); SYNC.dirty = false; if (j === SYNC.lastJson) return;
   SYNC.lastJson = j;
   SYNC.api.set(SYNC.ref, { d: j, t: Date.now() }).catch(e => setSyncState("fehler", e && e.message));
 }
-function syncPush(){ if (!SYNC.ref) return; clearTimeout(SYNC.timer); SYNC.timer = setTimeout(syncPushNow, 400); }
+function syncPush(){ if (!SYNC.ref) return; SYNC.dirty = true; clearTimeout(SYNC.timer); SYNC.timer = setTimeout(syncPushNow, 400); }
 function syncStop(){ try { localStorage.removeItem("rezepte-code"); } catch(e) {} if (SYNC.ref && SYNC.api) SYNC.api.off(SYNC.ref); SYNC.ref = null; setSyncState("aus"); }
 
 function syncUi(){
@@ -1593,6 +1604,26 @@ $("syncUse").addEventListener("click", () => {
 });
 $("syncOff").addEventListener("click", () => { syncStop(); });
 $("syncCode").addEventListener("input", () => { if (!syncCode()) $("syncStatus").textContent = "Code eingeben und «Verbinden» tippen."; });
+/* Sicherungskopie: Kochliste, Favoriten, Ausgeblendetes und Verlauf als Datei speichern bzw. (zusammenführend) wieder einlesen */
+$("bkSave").addEventListener("click", () => {
+  const data = { version: 1, gespeichert: new Date().toISOString(), fav: S.fav, plan: S.plan, hidden: S.hidden, hist: S.hist || [] };
+  const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([JSON.stringify(data)], { type: "application/json" }));
+  a.download = "kochplan-sicherung-" + new Date().toISOString().slice(0, 10) + ".json"; a.click();
+  $("bkMsg").textContent = "Sicherung gespeichert (" + S.plan.length + " Einträge in der Kochliste, " + S.fav.length + " Favoriten).";
+});
+$("bkLoad").addEventListener("click", () => $("bkFile").click());
+$("bkFile").addEventListener("change", async e => {
+  const f = e.target.files[0]; e.target.value = ""; if (!f) return;
+  try {
+    const r = JSON.parse(await f.text());
+    if (!r || (!r.plan && !r.fav)) throw new Error("keine Sicherung");
+    const had = S.plan.length;
+    S.plan = [...S.plan, ...(r.plan || []).filter(p => !S.plan.some(q => q.id === p.id))];
+    S.fav = [...new Set([...S.fav, ...(r.fav || [])])]; S.hidden = [...new Set([...S.hidden, ...(r.hidden || [])])];
+    S.hist = histMerge(r.hist, S.hist); save();
+    $("bkMsg").textContent = "Sicherung eingelesen: " + (S.plan.length - had) + " Einträge in der Kochliste ergänzt. Vorhandenes bleibt erhalten.";
+  } catch (err) { $("bkMsg").textContent = "Die Datei ist keine gültige Sicherung."; }
+});
 syncStart();
 
 
