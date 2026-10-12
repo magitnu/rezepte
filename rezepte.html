@@ -205,6 +205,21 @@ main .sheet{padding:0 0 8px}
 .thumb .zoom{display:none;position:absolute;right:3px;bottom:3px;width:26px;height:26px;border-radius:50%;background:rgba(20,28,24,.78);color:#fff;align-items:center;justify-content:center;pointer-events:none}
 .card.open .thumb .zoom{display:flex}
 .thumb .zoom svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+input.wide{width:100%;height:48px;margin-top:6px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--text);padding:0 14px;font:inherit;letter-spacing:.04em}
+[hidden]{display:none!important}
+.hist{margin-top:20px}
+.histh{display:flex;justify-content:space-between;align-items:center;width:100%;height:48px;padding:0 14px;border-radius:12px;border:1px solid var(--line);background:var(--card);font-size:15px;font-weight:600}
+.histh .chev{color:var(--muted);font-size:12px;font-weight:400}
+.hrow{display:flex;gap:10px;align-items:center;padding:10px 4px;border-bottom:1px solid var(--line);font-size:14px}
+.hrow .ht{flex:1;min-width:0}
+.hrow small{display:block;color:var(--muted);font-size:12px;margin-top:1px}
+.hrow button{flex:none;height:34px;padding:0 10px;border-radius:10px;border:1px solid var(--accent);background:none;color:var(--text);font-size:13px}
+.histmore{width:100%;height:42px;margin-top:8px;border:0;background:none;color:var(--muted);font-size:14px}
+.dangerbtn{width:100%;margin-top:18px;border-color:#c98a84;color:#e0a8a2}
+.dangerbtn:disabled{opacity:.4}
+.clearask{margin-top:18px;padding:14px;border:1px solid #c98a84;border-radius:14px}
+.clearask p{margin:0 0 10px;font-size:14px}
+.btn2.danger{background:#b9625b;border-color:#b9625b;color:#fff;font-weight:600}
 .daybtns{margin:8px 0 2px}
 .btn2.sm{height:40px;font-size:14px}
 .card.dragging{opacity:.35}
@@ -349,6 +364,18 @@ input[type=range]{width:100%;height:36px;accent-color:var(--accent)}
       </div>
     </div>
 
+    <h4 class="gh">Gemeinsame Listen</h4>
+    <div class="og">
+      <div class="set">
+        <label>Haushalts-Code</label>
+        <p>Mit demselben Code sehen alle Geräte dieselbe Kochliste, dieselben Favoriten und dasselbe Ausgeblendete. Der Code funktioniert wie ein Passwort: Gib ihn nur Personen, die mitplanen.</p>
+        <input id="syncCode" class="wide" placeholder="Code eingeben oder neu erzeugen" autocomplete="off" autocapitalize="none" spellcheck="false">
+        <div class="btns" style="margin-top:8px"><button class="btn2" id="syncNew">Neuen Code erzeugen</button><button class="btn2 pri" id="syncUse">Verbinden</button></div>
+        <div class="btns" style="margin-top:8px"><button class="btn2 full" id="syncOff" hidden>Verbindung trennen</button></div>
+        <p class="note" id="syncStatus"></p>
+      </div>
+    </div>
+
     <h4 class="gh">Das mögen wir nicht</h4>
     <div class="og">
       <div class="set">
@@ -369,6 +396,7 @@ input[type=range]{width:100%;height:36px;accent-color:var(--accent)}
   </div>
 </div>
 
+<script src="firebase-config.js"></script>
 <script>
 /* ---------- REZEPTE ----------
    Format:  Titel | Minuten | Zutat:Gruppe:Gramm, ... | Zubereitung (Schritte mit ~ getrennt)
@@ -940,7 +968,7 @@ const CATS = [], RECIPES = [];
 })();
 
 /* ---------- Einstellungen ---------- */
-const DEF = { fillAt: 8, bring: "link", rowmode: "balance", fav: [], plan: [], pers: 3, viz: "icons", tol: 12, unb: false, maxT: 60, speed: 50, leg: 100,
+const DEF = { hist: [], fillAt: 8, bring: "link", rowmode: "balance", fav: [], plan: [], pers: 3, viz: "icons", tol: 12, unb: false, maxT: 60, speed: 50, leg: 100,
   off: { Safran:1, Pilz:1, Meeresfrüchte:1, Fisch:1 }, custom: [], hidden: [] };
 // Welche Wörter hinter einem Schalter stecken (alles kleingeschrieben, Teilwort-Suche)
 const ALIASES = {
@@ -950,7 +978,7 @@ const ALIASES = {
 };
 let S;
 try { S = Object.assign({}, DEF, JSON.parse(localStorage.getItem("rezepte-set") || "{}")); } catch(e) { S = Object.assign({}, DEF); }
-function save(){ try { localStorage.setItem("rezepte-set", JSON.stringify(S)); } catch(e){} }
+function save(){ try { localStorage.setItem("rezepte-set", JSON.stringify(S)); } catch(e){} if (typeof syncPush === "function") syncPush(); }
 
 /* ---------- Balance ---------- */
 function shares(r){
@@ -1005,7 +1033,63 @@ const PAGES = [...CATS, "Listen", "Optionen"], LIST = CATS.length, OPT = CATS.le
 const DAYS = ["Mo","Di","Mi","Do","Fr","Sa","So","Vorschläge"];
 const DAYN = { Mo:"Montag", Di:"Dienstag", Mi:"Mittwoch", Do:"Donnerstag", Fr:"Freitag", Sa:"Samstag", So:"Sonntag", "Vorschläge":"Vorschläge" };
 const planOf = id => S.plan.find(p => p.id === id);
-function addPlan(id){ if (!planOf(id)) { S.plan.push({ id, day:"Vorschläge" }); save(); } }
+function addPlan(id){ if (!planOf(id)) { planAdd({ id, day:"Vorschläge" }); save(); } }
+/* ---------- Verlauf: jede Änderung an Kochliste und Favoriten wird protokolliert (und lässt sich zurücknehmen) ---------- */
+function logH(a, o){ S.hist = S.hist || []; S.hist.unshift(Object.assign({ t: Date.now(), a }, o)); if (S.hist.length > 300) S.hist.length = 300; }
+const itemOf = p => ({ id: p.id, day: p.day, ...(p.custom ? { custom: 1, title: p.title, url: p.url, host: p.host } : {}) });
+function planAdd(item){ S.plan.push(item); logH("add", { id: item.id, day: item.day, title: item.title || "", custom: item.custom ? 1 : 0 }); }
+function planRemove(id){ const p = planOf(id); if (!p) return; S.plan = S.plan.filter(x => x.id !== id); logH("del", { id, day: p.day, title: p.title || "", item: itemOf(p) }); }
+function planMove(id, day){ const p = planOf(id); if (!p || p.day === day) return; logH("move", { id, from: p.day, day, title: p.title || "" }); p.day = day; }
+function favToggle(id){ const k = S.fav.indexOf(id); if (k >= 0) { S.fav.splice(k, 1); logH("favdel", { id }); } else { S.fav.push(id); logH("fav", { id }); } }
+function planClear(){ const items = S.plan.map(itemOf); if (!items.length) return; S.plan = []; logH("clear", { n: items.length, items }); }
+function histMerge(a, b){   // zwei Verläufe zusammenführen (ohne Doppelte), neueste zuerst
+  const seen = new Set(), out = [];
+  for (const h of [...(a || []), ...(b || [])]) { const k = h.t + "|" + h.a + "|" + (h.id || h.n); if (!seen.has(k)) { seen.add(k); out.push(h); } }
+  return out.sort((x, y) => y.t - x.t).slice(0, 300);
+}
+let histOpen = false, histMore = false, clearAsk = false;
+const titleOf = h => h.title || (byId[h.id] ? byId[h.id].title : "Gericht");
+function when(t){
+  const d = new Date(t), hm = d.toLocaleTimeString("de-CH", { hour: "2-digit", minute: "2-digit" });
+  return d.toDateString() === new Date().toDateString() ? "heute " + hm : d.toLocaleDateString("de-CH", { weekday: "short", day: "2-digit", month: "2-digit" }) + " " + hm;
+}
+function histText(h){
+  const t = "«" + esc(titleOf(h)) + "»";
+  return { add: t + " zur Kochliste hinzugefügt (" + (DAYN[h.day] || "") + ")", move: t + " von " + (DAYN[h.from] || "") + " nach " + (DAYN[h.day] || "") + " verschoben",
+    del: t + " aus der Kochliste entfernt (" + (DAYN[h.day] || "") + ")", clear: "Ganze Woche gelöscht (" + h.n + " Einträge)",
+    restore: t + " wiederhergestellt (" + (DAYN[h.day] || "") + ")", restoreall: "Ganze Woche wiederhergestellt (" + h.n + " Einträge)",
+    fav: t + " zu Favoriten hinzugefügt", favdel: t + " aus Favoriten entfernt" }[h.a] || "";
+}
+function canRestore(h){
+  if (h.a === "del") return !planOf(h.id);
+  if (h.a === "clear") return (h.items || []).some(i => !planOf(i.id));
+  if (h.a === "favdel") return !S.fav.includes(h.id);
+  return false;
+}
+function restoreHist(i){
+  const h = S.hist[i]; if (!h) return;
+  if (h.a === "del") { if (!planOf(h.id)) { const it = h.item || { id: h.id, day: h.day }; S.plan.push(it); logH("restore", { id: it.id, day: it.day, title: it.title || "" }); } }
+  else if (h.a === "clear") { let n = 0; for (const it of h.items || []) if (!planOf(it.id)) { S.plan.push(it); n++; } if (n) logH("restoreall", { n }); }
+  else if (h.a === "favdel") { if (!S.fav.includes(h.id)) { S.fav.push(h.id); logH("fav", { id: h.id }); } }
+  save(); render();
+}
+function histHtml(tab){
+  const mine = (S.hist || []).map((h, i) => [h, i]).filter(([h]) => tab === "fav" ? (h.a === "fav" || h.a === "favdel") : !(h.a === "fav" || h.a === "favdel"));
+  let html = `<div class="hist"><button class="histh" data-act="hist" aria-expanded="${histOpen}"><span>Verlauf (${mine.length})</span><span class="chev">${histOpen ? "▲" : "▼"}</span></button>`;
+  if (histOpen) {
+    if (!mine.length) html += `<p class="note">Noch nichts passiert.</p>`;
+    html += mine.slice(0, histMore ? 300 : 25).map(([h, i]) => `<div class="hrow"><span class="ht">${histText(h)}<small>${when(h.t)}</small></span>${canRestore(h) ? `<button data-restore="${i}">Wiederherstellen</button>` : ""}</div>`).join("");
+    if (!histMore && mine.length > 25) html += `<button class="histmore" data-act="histmore">Ältere Einträge anzeigen</button>`;
+  }
+  html += `</div>`;
+  if (tab === "plan") {
+    html += clearAsk
+      ? `<div class="clearask"><p>Bist du sicher? Die ganze Kochliste wird geleert. Im Verlauf kannst du sie wiederherstellen.</p><div class="btns"><button class="btn2" data-act="clearno">Abbrechen</button><button class="btn2 danger" data-act="clearyes">Ja, alles löschen</button></div></div>`
+      : `<button class="btn2 full dangerbtn" data-act="clearask" ${S.plan.length ? "" : "disabled"}>${ico("trash")}Ganze Woche löschen</button>`;
+  }
+  return html;
+}
+
 const PER = 6;
 /* Adresse der veröffentlichten Seite (GitHub Pages). Bring! liest die Zutaten von den Rezeptseiten unter <BASE>r/<name>.html (erzeugt mit build.ps1). */
 const BASE = "https://magitnu.github.io/rezepte/";
@@ -1285,6 +1369,7 @@ function render(anim){
           + `<button class="addtile" data-add="${d}" aria-label="Zu ${DAYN[d]} hinzufügen">${ico("add")}Hinzufügen</button></section>`; }).join("") + `</div>`;
       ctxPlan = false;
     }
+    html += histHtml(listTab);
   } else if (cur === OPT) {
     html = "";   // Inhalt kommt aus optSheet (siehe unten)
   } else {
@@ -1327,7 +1412,7 @@ $("main").addEventListener("click", e => {
   const b = e.target.closest("button"); if (!b) return;
   const card = b.closest(".card"), id = card && card.dataset.id;
   if (b.dataset.add) { openAdd(b.dataset.add); return; }
-  if (b.dataset.act === "rmplan") { S.plan = S.plan.filter(p => p.id !== id); open.delete(id); save(); render(); return; }
+  if (b.dataset.act === "rmplan") { planRemove(id); open.delete(id); save(); render(); return; }
   if (b.dataset.act === "bringshare") {   // Rezeptseite ueber das Teilen-Menue an Bring! schicken
     const r = byId[id], url = BASE + "r/" + slug(r.title) + ".html"; addPlan(id); save();
     if (navigator.share) navigator.share({ title: r.title, text: r.title, url }).catch(() => {});
@@ -1335,7 +1420,13 @@ $("main").addEventListener("click", e => {
     setTimeout(render, 800); return;
   }
   if (b.dataset.rm) { S.rowmode = b.dataset.rm; save(); render(); return; }
-  if (b.dataset.act==="del") { S.plan = S.plan.filter(p => p.id !== id); save(); render(); return; }
+  if (b.dataset.act==="del") { planRemove(id); save(); render(); return; }
+  if (b.dataset.act === "hist") { histOpen = !histOpen; render(); return; }
+  if (b.dataset.act === "histmore") { histMore = true; render(); return; }
+  if (b.dataset.restore !== undefined) { restoreHist(+b.dataset.restore); return; }
+  if (b.dataset.act === "clearask") { clearAsk = true; render(); return; }
+  if (b.dataset.act === "clearno") { clearAsk = false; render(); return; }
+  if (b.dataset.act === "clearyes") { planClear(); clearAsk = false; open.clear(); save(); render(); return; }
   if (b.dataset.tab) { listTab = b.dataset.tab; open.clear(); try { localStorage.setItem("rezepte-tab", listTab); } catch(e){} render(); return; }
   if (b.dataset.act==="toggle") {
     const was = open.has(id);
@@ -1347,9 +1438,9 @@ $("main").addEventListener("click", e => {
   else if (b.dataset.act==="pm") { S.pers = Math.min(12, Math.max(1, S.pers + +b.dataset.d)); save(); render(); }
   else if (b.dataset.act==="got") { const k = b.dataset.k; got.has(k) ? got.delete(k) : got.add(k); b.classList.toggle("got"); }
   else if (b.dataset.act==="copy") { const txt = shopText(byId[id]); const ok = () => { b.textContent = "Kopiert ✓"; }; if (navigator.share) navigator.share({ text: txt }).catch(()=>{}); else try { navigator.clipboard.writeText(txt).then(ok, ok); } catch(e) { ok(); } }
-  else if (b.dataset.act==="plan") { const k = S.plan.findIndex(p => p.id === id); if (k >= 0) S.plan.splice(k, 1); else addPlan(id); save(); render(); }
-  else if (b.dataset.act==="fav") { const k = S.fav.indexOf(id); if (k >= 0) S.fav.splice(k, 1); else S.fav.push(id); save(); render(); }
-  else if (b.dataset.act==="day") { const p = planOf(id); if (p) { p.day = b.dataset.d; save(); render(); } }
+  else if (b.dataset.act==="plan") { if (planOf(id)) planRemove(id); else addPlan(id); save(); render(); }
+  else if (b.dataset.act==="fav") { favToggle(id); save(); render(); }
+  else if (b.dataset.act==="day") { if (planOf(id)) { planMove(id, b.dataset.d); save(); render(); } }
   else if (b.dataset.act==="hide") { S.hidden.push(id); save(); render(); }
   else if (b.id === "more") nextBatch();
 });
@@ -1391,9 +1482,9 @@ $("add").addEventListener("click", e => { if (e.target === $("add")) $("add").cl
 $("addRes").addEventListener("click", e => {
   const b = e.target.closest("button"); if (!b) return;
   const q = $("addIn").value.trim();
-  if (b.dataset.rid) { const p = planOf(b.dataset.rid); if (p) p.day = addDay; else S.plan.push({ id: b.dataset.rid, day: addDay }); }
-  else if (b.dataset.new === "own") S.plan.push({ id: "c" + Date.now(), custom: 1, title: q, day: addDay });
-  else if (b.dataset.new === "link") { const t = urlInfo(q); if (t) S.plan.push({ id: "c" + Date.now(), custom: 1, title: t.title, url: t.url, host: t.host, day: addDay }); }
+  if (b.dataset.rid) { if (planOf(b.dataset.rid)) planMove(b.dataset.rid, addDay); else planAdd({ id: b.dataset.rid, day: addDay }); }
+  else if (b.dataset.new === "own") planAdd({ id: "c" + Date.now(), custom: 1, title: q, day: addDay });
+  else if (b.dataset.new === "link") { const t = urlInfo(q); if (t) planAdd({ id: "c" + Date.now(), custom: 1, title: t.title, url: t.url, host: t.host, day: addDay }); }
   save(); $("add").close(); render();
 });
 
@@ -1422,16 +1513,91 @@ function endDrag(){
   document.querySelectorAll(".day.over").forEach(x => x.classList.remove("over"));
   const tr = $("trash"); if (tr) tr.remove();
   const p = planOf(drag.id);
-  if (p && drag.trash) { S.plan = S.plan.filter(x => x.id !== drag.id); open.delete(drag.id); save(); }
-  else if (p && drag.day && drag.day !== p.day) { p.day = drag.day; save(); }
+  if (p && drag.trash) { planRemove(drag.id); open.delete(drag.id); save(); }
+  else if (p && drag.day && drag.day !== p.day) { planMove(drag.id, drag.day); save(); }
   drag = null; render();
 }
 document.addEventListener("pointerup", endDrag);
 document.addEventListener("pointercancel", endDrag);
 
 const dlg = { open: false };   // Optionen sind jetzt eine eigene Seite (kein Popup mehr)
+/* ---------- Gemeinsame Listen (Firebase Realtime Database, Gratis-Tarif) ----------
+   Geteilt werden nur Kochliste, Favoriten und ausgeblendete Rezepte. Wer denselben Haushalts-Code eingibt, sieht dieselben Listen.
+   Ohne firebase-config.js oder ohne Code bleibt alles wie bisher nur auf dem Gerät. */
+const SYNC = { state: "aus", db: null, api: null, ref: null, lastJson: "", timer: null, first: true, error: "" };
+const syncCode = () => { try { return localStorage.getItem("rezepte-code") || ""; } catch(e) { return ""; } };
+const cleanCode = s => (s || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+const sharedJson = () => JSON.stringify({ fav: S.fav, plan: S.plan, hidden: S.hidden, hist: S.hist || [] });
+function newCode(){
+  const a = new Uint8Array(16); crypto.getRandomValues(a);
+  return Array.from(a, x => "abcdefghjkmnpqrstuvwxyz23456789"[x % 31]).join("");
+}
+const showCode = c => c.replace(/(.{4})(?=.)/g, "$1-");
+function setSyncState(s, err){ SYNC.state = s; SYNC.error = err || ""; if ($("syncStatus")) syncUi(); }
+
+async function syncStart(){
+  const code = cleanCode(syncCode());
+  if (!code || code.length < 16) return setSyncState("aus");
+  if (!window.FIREBASE_CONFIG) return setSyncState("keinconfig");
+  try {
+    setSyncState("verbinde");
+    if (!SYNC.api) {
+      const V = "10.14.1", base = `https://www.gstatic.com/firebasejs/${V}/`;
+      const [app, dbm] = await Promise.all([import(base + "firebase-app.js"), import(base + "firebase-database.js")]);
+      SYNC.api = dbm; SYNC.db = dbm.getDatabase(app.initializeApp(window.FIREBASE_CONFIG));
+    }
+    SYNC.ref = SYNC.api.ref(SYNC.db, "haushalte/" + code); SYNC.first = true;
+    SYNC.api.onValue(SYNC.ref, snap => {
+      setSyncState("verbunden");
+      const v = snap.val();
+      if (!v) { syncPushNow(); return; }                       // noch leer: unsere Listen hochladen
+      if (v.d === SYNC.lastJson) return;                         // eigene Aenderung
+      let r; try { r = JSON.parse(v.d); } catch(e) { return; }
+      if (SYNC.first) {                                          // erste Verbindung: Listen zusammenfuehren statt ueberschreiben
+        const ids = new Set(S.plan.map(p => p.id));
+        S.plan = [...(r.plan || []), ...S.plan.filter(p => !(r.plan || []).some(q => q.id === p.id))];
+        S.fav = [...new Set([...(r.fav || []), ...S.fav])]; S.hidden = [...new Set([...(r.hidden || []), ...S.hidden])]; S.hist = histMerge(r.hist, S.hist);
+      } else { S.plan = r.plan || []; S.fav = r.fav || []; S.hidden = r.hidden || []; S.hist = histMerge(r.hist, S.hist); }
+      SYNC.first = false;
+      try { localStorage.setItem("rezepte-set", JSON.stringify(S)); } catch(e) {}
+      if (sharedJson() !== v.d) { SYNC.lastJson = ""; syncPushNow(); } else SYNC.lastJson = v.d;                   // nach dem Zusammenfuehren zurueckschreiben
+      render();
+    }, err => setSyncState("fehler", err && err.message));
+  } catch (e) { setSyncState("fehler", e && e.message); }
+}
+function syncPushNow(){
+  if (!SYNC.ref || !SYNC.api) return;
+  const j = sharedJson(); if (j === SYNC.lastJson) return;
+  SYNC.lastJson = j;
+  SYNC.api.set(SYNC.ref, { d: j, t: Date.now() }).catch(e => setSyncState("fehler", e && e.message));
+}
+function syncPush(){ if (!SYNC.ref) return; clearTimeout(SYNC.timer); SYNC.timer = setTimeout(syncPushNow, 400); }
+function syncStop(){ try { localStorage.removeItem("rezepte-code"); } catch(e) {} if (SYNC.ref && SYNC.api) SYNC.api.off(SYNC.ref); SYNC.ref = null; setSyncState("aus"); }
+
+function syncUi(){
+  const code = cleanCode(syncCode()), st = {
+    aus: "Nicht verbunden. Die Listen liegen nur auf diesem Gerät.",
+    keinconfig: "Der gemeinsame Speicher ist noch nicht eingerichtet (firebase-config.js fehlt).",
+    verbinde: "Verbinde …", verbunden: "Verbunden. Änderungen erscheinen auf allen Geräten mit diesem Code.",
+    fehler: "Verbindungsfehler" + (SYNC.error ? ": " + SYNC.error : "") + "."
+  }[SYNC.state];
+  $("syncStatus").textContent = st;
+  $("syncCode").value = code ? showCode(code) : "";
+  $("syncOff").hidden = !code; $("syncNew").hidden = !!code; $("syncUse").hidden = !!code; $("syncCode").readOnly = !!code;
+}
+$("syncNew").addEventListener("click", () => { try { localStorage.setItem("rezepte-code", newCode()); } catch(e) {} syncStart(); syncUi(); });
+$("syncUse").addEventListener("click", () => {
+  const c = cleanCode($("syncCode").value);
+  if (c.length < 16) { $("syncStatus").textContent = "Der Code ist zu kurz (16 Zeichen nötig)."; return; }
+  try { localStorage.setItem("rezepte-code", c); } catch(e) {} syncStart(); syncUi();
+});
+$("syncOff").addEventListener("click", () => { syncStop(); });
+$("syncCode").addEventListener("input", () => { if (!syncCode()) $("syncStatus").textContent = "Code eingeben und «Verbinden» tippen."; });
+syncStart();
+
 
 function sync(){
+  if (typeof syncUi === "function" && $("syncStatus")) syncUi();
   $("tol").value = S.tol; $("tolO").textContent = "±" + S.tol + " Punkte";
   $("unb").checked = S.unb;
   $("maxT").value = S.maxT; $("maxTO").textContent = S.maxT + " Min.";

@@ -1,0 +1,13 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "haushalte": {
+      "$code": {
+        ".read": "$code.length >= 16",
+        ".write": "$code.length >= 16",
+        ".validate": "newData.hasChildren(['d','t']) && newData.child('d').isString() && newData.child('d').val().length < 200000"
+      }
+    }
+  }
+}
